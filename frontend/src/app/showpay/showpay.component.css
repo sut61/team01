@@ -1,0 +1,19 @@
+table {
+  margin-top: 2%;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.button-row button,
+.button-row a {
+  margin-right: 8px;
+}
+.show {
+  background-color: peru;
+  height: 700px;
+
+}
+button {
+  margin-left: 1%;
+  margin-bottom: 5%;
+}

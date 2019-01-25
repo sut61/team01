@@ -1,0 +1,56 @@
+<div class="record">
+  <mat-toolbar>
+    <mat-toolbar-row>
+    <h1> CoffeeShop Manu Add</h1>&nbsp;&nbsp;&nbsp;<img width="55"  src="src/image/coffee1.png">
+    <span class="example-spacer"></span>
+    <a mat-stroked-button [routerLink]="['/homestaff']"><i class="material-icons">
+      home
+    </i></a>
+  </mat-toolbar-row>
+  </mat-toolbar>
+
+  <h1><p align = "center"> การชำระเงินสินค้า </p> </h1>
+  <form class="name">
+
+    <mat-card-content>
+      <h3><div style="text-align:center">
+        รหัสสมาชิก    <mat-form-field>
+        <mat-select [(ngModel)]="userSelect" [ngModelOptions]="{standalone: true}" placeholder="กรุณาเลือก"
+                    panelClass="example-panel">
+          <mat-option value={{user.meid}} *ngFor="let user of users">{{user.user}} </mat-option>
+        </mat-select>
+      </mat-form-field>
+      </div></h3>
+
+      <h3><div style="text-align:center">
+        ชื่อผู้สั่ง Order    <mat-form-field>
+        <mat-select [(ngModel)]="customerNameSelect" [ngModelOptions]="{standalone: true}" placeholder="กรุณาเลือก"
+                    panelClass="example-panel">
+          <mat-option value={{customerNames.id}} *ngFor="let customerNames of customername">{{customerNames.customerName}} </mat-option>
+        </mat-select>
+      </mat-form-field>
+      </div></h3>
+
+      <h3><div style="text-align:center">
+        ชื่อพนักงาน     <mat-form-field>
+        <mat-select [(ngModel)]="staffNameSelect" [ngModelOptions]="{standalone: true}" placeholder="กรุณาเลือก"
+                    panelClass="example-panel">
+          <mat-option value={{staffname.id}} *ngFor="let staffname of staffNames">{{staffname.staffName}} </mat-option>
+        </mat-select>
+      </mat-form-field>
+      </div></h3>
+
+
+      <h3><mat-form-field class="example-full-width">
+        หมายเหตุ <input matInput [(ngModel)]="addis.inputNote" placeholder="" type="text" [ngModelOptions]="{standalone: true}">
+      </mat-form-field></h3>
+
+    </mat-card-content>
+
+
+    <div class ="button-row">
+      <a mat-raised-button color ="warn" (click)= "save()" >บันทึกการชำระเงิน</a>
+    </div>
+  </form>
+</div>
+
