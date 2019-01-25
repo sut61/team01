@@ -1,0 +1,36 @@
+<body>
+<div class="show">
+  <mat-toolbar>CoffeeShop ระบบชำระเงิน</mat-toolbar>
+  <h1><p align = "center"> การชำระเงินสินค้า </p> </h1>
+
+  <table mat-table  [dataSource]="CoffeeOrder" class="mat-elevation-z8">
+
+    <ng-container matColumnDef="order no.">
+      <th mat-header-cell *matHeaderCellDef> Order No. </th>
+      <td mat-cell *matCellDef="let element">{{element.id}}</td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="totalPrice">
+      <th mat-header-cell *matHeaderCellDef>Totalprice</th>
+      <td mat-cell *matCellDef="let element"> {{element.totalPrice}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="cashpay">
+      <th mat-header-cell *matHeaderCellDef style = "width:20%">ชำระเงิน</th>
+      <td mat-cell *matCellDef="let element"> <button mat-raised-button color="accent" (click)="cashpay(element)">เงินสด</button> </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="dataColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: dataColumns;"></tr>
+  </table>
+
+  <button mat-button [routerLink]="['/payment']" matTooltip="กลับสู่หน้าชำระเงิน"
+          aria-label="Button that displays a tooltip when focused or hovered over"><i class="material-icons">
+    fast_rewind
+  </i>
+  </button>
+
+
+</div>
+</body>
