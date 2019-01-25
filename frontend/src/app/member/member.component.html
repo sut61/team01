@@ -1,0 +1,72 @@
+<mat-toolbar color= "warn">
+  <mat-toolbar-row>
+    <h1> CoffeeShop Register</h1>&nbsp;&nbsp;&nbsp;<img width="55"  src="src/image/coffee1.png">
+    <span class="example-spacer"></span>
+    <a mat-button [routerLink]="['/homemem']"><i class="material-icons">
+      home
+    </i></a>
+    <a mat-button [routerLink]="['/login']"> เข้าสู่ระบบ </a>
+
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<div class = "Title">
+  <h1 style="text-align:center;"> ลงทะเบียน <img width="50"  src="src/image/coffee.jpg"></h1>
+</div>
+
+<div class="member">
+  <form class="name" style="text-align:center;">
+
+    <h4>คำนำหน้า : &nbsp;&nbsp;<mat-form-field>
+      <mat-select [(ngModel)]="nametypeSelect" [ngModelOptions]="{standalone: true}" placeholder="กรุณาเลือกคำนำหน้าชื่อ"
+                  panelClass="example-panel">
+        <mat-option [value]="nametype.nid" *ngFor="let nametype of namedocs" >
+          {{nametype.nameDoc}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field></h4>
+
+    <h4>ชื่อ : &nbsp;&nbsp; <mat-form-field class="example-full-width">
+      <input matInput placeholder="กรุณากรอก ชื่อ-สกุล" [(ngModel)]="addmember.inputName"
+             type = "text" [ngModelOptions]="{standalone: true}">
+    </mat-form-field></h4>
+
+    <h4>เพศ : &nbsp;&nbsp; <mat-form-field>
+      <mat-select [(ngModel)]="genderSelect" [ngModelOptions]="{standalone: true}" placeholder="กรุณาเลือกเพศ"
+                  panelClass="example-panel">
+        <mat-option [value]="gender.gid" *ngFor="let gender of genders" >
+          {{gender.gender}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field></h4>
+
+    <h4>ที่อยู่ : &nbsp;&nbsp; <mat-form-field class="example-full-width">
+      <input matInput placeholder="กรุณากรอกที่อยู่" [(ngModel)]="addmember.inputAddress"
+             type = "text" [ngModelOptions]="{standalone: true}">
+    </mat-form-field></h4>
+
+    <h4>จังหวัด : &nbsp;&nbsp; <mat-form-field>
+      <mat-select [(ngModel)]="provinceSelect" [ngModelOptions]="{standalone: true}" placeholder="กรุณาเลือกจังหวัด"
+                  panelClass="example-panel">
+        <mat-option [value]="province.pid" *ngFor="let province of namepas" >
+          {{province.namePa}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field></h4>
+
+    <h4>ชื่อผู้ใช้ : &nbsp;&nbsp; <mat-form-field class="example-full-width">
+      <input matInput placeholder="กรุณากรอกชื่อผู้ใช้" [(ngModel)]="addmember.inputUser"
+             type = "text" [ngModelOptions]="{standalone: true}">
+    </mat-form-field></h4>
+
+    <h4>รหัสผ่าน : &nbsp;&nbsp; <mat-form-field class="example-full-width">
+      <input matInput placeholder="กรุณากรอกรหัสผ่าน" [(ngModel)]="addmember.inputPass"
+             type = "text" [ngModelOptions]="{standalone: true}">
+    </mat-form-field></h4>
+
+    <br>
+    <div class ="button-row">
+      <a mat-raised-button color ="warn" (click)= "save()" >บันทึก</a>
+    </div>
+  </form>
+</div>
