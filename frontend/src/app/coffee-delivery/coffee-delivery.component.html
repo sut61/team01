@@ -1,0 +1,254 @@
+<html>
+  <title>
+    <head>
+
+    </head>
+  </title>
+
+  <body>
+        <mat-toolbar color="primary">
+
+            <br>
+            <div class="buttonCoffeeDelivery" >
+              <button mat-button color="accent" ><h2> CoffeeShop Delivery </h2></button>
+            </div>
+
+          <p>Hi {{serviceService.member[serviceService.numberMember].name}} </p>
+
+
+            <span class="example-fill-remaining-space"></span>
+
+            <div class="buttonLogIn">
+
+              <button mat-button color="accent" (click)="openDialogMap()" >
+                <mat-icon color="accent">add_location</mat-icon>
+
+                Select Address
+              </button>
+
+              <button mat-icon-button color="accent" (click)="openDialogMapShoppingCar()" >
+                <mat-icon aria-label="Example icon-button with a heart icon" color="accent" matBadge = "{{serviceService?.counter}}"
+                          matBadgeColor="warn" >shopping_cart</mat-icon>
+              </button>
+
+            </div>
+
+        </mat-toolbar>
+
+        <br><br><br><br><br>
+
+          <div class="grid-tile">
+            <div fxLayout="row wrap" fxLayout.xs="column"   fxLayoutWrap fxLayoutGap ="24px" fxLayoutGap.xs="0"
+                 fxLayoutAlign="flex-start" fxLayoutAlign.xs="center">
+
+                <mat-card   class="example-card">
+                    <mat-card-header  >
+                      <mat-card-title>{{serviceService.menu[numberMenu+0].name}}</mat-card-title>
+                      <mat-card-subtitle>Coffee</mat-card-subtitle>
+                    </mat-card-header>
+                      <img mat-card-image src="https://www.img.in.th/images/5920426b3b7a094221a5bf022155356f.jpg" alt="Photo of a Shiba Inu">
+                    <mat-card-actions >
+                      <div class="buttonBuy">
+                        <button mat-raised-button color="primary" (click)="save(numberMenu+0)">
+                          <mat-icon color="accent" >add_shopping_cart</mat-icon>
+                          {{serviceService.menu[numberMenu+0].price}}฿
+                        </button>
+                      </div>
+                    </mat-card-actions>
+                </mat-card>
+
+              <br>
+
+                <mat-card class="example-card">
+                  <mat-card-header>
+                    <mat-card-title>{{serviceService.menu[numberMenu+1].name}}</mat-card-title>
+                    <mat-card-subtitle>Coffee</mat-card-subtitle>
+                  </mat-card-header>
+                  <img mat-card-image src="https://thecoffeeclub.co.th/wp-content/uploads/2018/08/4CFC_menu0294.jpg" alt="Photo of a Shiba Inu">
+                  <mat-card-actions>
+                    <div class="buttonBuy">
+                      <button mat-raised-button color="primary" (click)="save(numberMenu+1)" >
+                        <mat-icon color="accent">add_shopping_cart</mat-icon>
+                        {{serviceService.menu[numberMenu+1].price}}฿
+                      </button>
+                    </div>
+                  </mat-card-actions>
+                </mat-card>
+
+              <br>
+
+                <mat-card class="example-card">
+                  <mat-card-header>
+                    <mat-card-title>{{serviceService.menu[numberMenu+2].name}}</mat-card-title>
+                    <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+                  </mat-card-header>
+                  <img mat-card-image src="https://thecoffeeclub.co.th/wp-content/uploads/2018/08/4CFC_menu0296.jpg" alt="Photo of a Shiba Inu">
+                  <mat-card-actions>
+                    <div class="buttonBuy">
+                      <button mat-raised-button color="primary" (click)="save(numberMenu+2)" >
+                        <mat-icon color="accent">add_shopping_cart</mat-icon>
+                        {{serviceService.menu[numberMenu+2].price}}฿
+                      </button>
+                    </div>
+                  </mat-card-actions>
+                </mat-card>
+
+              <br>
+
+                <mat-card class="example-card">
+                  <mat-card-header>
+                    <mat-card-title>{{serviceService.menu[numberMenu+2].name}}</mat-card-title>
+                    <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+                  </mat-card-header>
+                  <img mat-card-image src="https://thecoffeeclub.co.th/wp-content/uploads/2018/08/4CFC_menu0297.jpg" alt="Photo of a Shiba Inu">
+                  <mat-card-actions>
+                    <div class="buttonBuy">
+                      <button mat-raised-button color="primary" (click)="save(numberMenu+2)" >
+                        <mat-icon color="accent">add_shopping_cart</mat-icon>
+                        {{serviceService.menu[numberMenu+2].price}}฿
+                      </button>
+                    </div>
+                  </mat-card-actions>
+                </mat-card>
+
+              <br>
+
+                  <mat-card class="example-card">
+                    <mat-card-header>
+
+                      <mat-card-title>{{serviceService.menu[numberMenu+2].name}}</mat-card-title>
+                      <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+                    </mat-card-header>
+                    <img mat-card-image src="https://thecoffeeclub.co.th/wp-content/uploads/2018/08/4CFC_menu0299.jpg" alt="Photo of a Shiba Inu">
+                    <mat-card-actions>
+                      <div class="buttonBuy">
+                        <button mat-raised-button color="primary" (click)="save(numberMenu+2)" >
+                          <mat-icon color="accent">add_shopping_cart</mat-icon>
+                          {{serviceService.menu[numberMenu+2].price}}฿
+                        </button>
+                      </div>
+                    </mat-card-actions>
+                  </mat-card>
+
+              <br>
+
+                <mat-card class="example-card">
+                  <mat-card-header>
+                    <mat-card-title>{{serviceService.menu[numberMenu+2].name}}</mat-card-title>
+                    <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+                  </mat-card-header>
+                  <img mat-card-image src="https://thecoffeeclub.co.th/wp-content/uploads/2018/08/4CFC_menu0284.jpg" alt="Photo of a Shiba Inu">
+                  <mat-card-actions>
+                    <div class="buttonBuy">
+                      <button mat-raised-button color="primary" (click)="save(numberMenu+2)" >
+                        <mat-icon color="accent">add_shopping_cart</mat-icon>
+                        {{serviceService.menu[numberMenu+2].price}}฿
+                      </button>
+                    </div>
+                  </mat-card-actions>
+                </mat-card>
+
+              <br>
+
+                <mat-card class="example-card">
+                  <mat-card-header>
+                    <mat-card-title>{{serviceService.menu[numberMenu+2].name}}</mat-card-title>
+                    <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+                  </mat-card-header>
+                  <img mat-card-image src="https://thecoffeeclub.co.th/wp-content/uploads/2018/08/4CFC_menu0286.jpg" alt="Photo of a Shiba Inu">
+                  <mat-card-actions>
+                    <div class="buttonBuy">
+                      <button mat-raised-button color="primary" (click)="save(numberMenu+2)" >
+                        <mat-icon color="accent">add_shopping_cart</mat-icon>
+                        {{serviceService.menu[numberMenu+2].price}}฿
+                      </button>
+                    </div>
+                  </mat-card-actions>
+                </mat-card>
+
+              <br>
+
+                <mat-card class="example-card">
+                  <mat-card-header>
+                    <mat-card-title>{{serviceService.menu[numberMenu+2].name}}</mat-card-title>
+                    <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+                  </mat-card-header>
+                  <img mat-card-image src="https://thecoffeeclub.co.th/wp-content/uploads/2018/08/4CFC_menu0292.jpg" alt="Photo of a Shiba Inu">
+                  <mat-card-actions>
+                    <div class="buttonBuy">
+                      <button mat-raised-button color="primary" (click)="save(numberMenu+2)" >
+                        <mat-icon color="accent">add_shopping_cart</mat-icon>
+                        {{serviceService.menu[numberMenu+2].price}}฿
+                      </button>
+                    </div>
+                  </mat-card-actions>
+                </mat-card>
+
+              <br>
+
+                <mat-card class="example-card">
+                <mat-card-header>
+                  <mat-card-title>{{serviceService.menu[numberMenu+2].name}}</mat-card-title>
+                  <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+                </mat-card-header>
+                <img mat-card-image src="https://thecoffeeclub.co.th/wp-content/uploads/2018/08/4CFC_menu0302.jpg" alt="Photo of a Shiba Inu">
+                <mat-card-actions>
+                  <div class="buttonBuy">
+                    <button mat-raised-button color="primary" (click)="save(numberMenu+2)" >
+                      <mat-icon color="accent">add_shopping_cart</mat-icon>
+                      {{serviceService.menu[numberMenu+2].price}}฿
+                    </button>
+                  </div>
+                </mat-card-actions>
+              </mat-card>
+
+              <br>
+
+                <mat-card class="example-card">
+                  <mat-card-header>
+                    <mat-card-title>{{serviceService.menu[numberMenu+2].name}}</mat-card-title>
+                    <mat-card-subtitle>Coffee</mat-card-subtitle>
+                  </mat-card-header>
+                  <img mat-card-image width="200" height="290" src="https://thecoffeeclub.co.th/wp-content/uploads/2018/08/4CFC_menu0338.jpg" alt="Photo of a Shiba Inu">
+                  <mat-card-actions>
+                    <div class="buttonBuy">
+                      <button mat-raised-button color="primary" (click)="save(numberMenu+2)" >
+                        <mat-icon color="accent">add_shopping_cart</mat-icon>
+                        {{serviceService.menu[numberMenu+2].price}}฿
+                      </button>
+                    </div>
+                  </mat-card-actions>
+                </mat-card>
+
+              <br>
+
+                <mat-card class="example-card">
+                  <mat-card-header>
+                    <mat-card-title>{{serviceService.menu[numberMenu+2].name}}</mat-card-title>
+                    <mat-card-subtitle>Coffee</mat-card-subtitle>
+                  </mat-card-header>
+                  <img mat-card-image width="200" height="290" src="https://thecoffeeclub.co.th/wp-content/uploads/2018/08/4CFC_menu0326.jpg" alt="Photo of a Shiba Inu">
+                  <mat-card-actions>
+                    <div class="buttonBuy">
+                      <button mat-raised-button color="primary" (click)="save(numberMenu+2)" >
+                        <mat-icon color="accent">add_shopping_cart</mat-icon>
+                        {{serviceService.menu[numberMenu+2].price}}฿
+                      </button>
+                    </div>
+                  </mat-card-actions>
+                </mat-card>
+
+            </div>
+          </div>
+        <br>
+
+
+
+
+
+
+
+  </body>
+
+
+</html>

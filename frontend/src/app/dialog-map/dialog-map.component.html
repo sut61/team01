@@ -1,0 +1,28 @@
+<h2 mat-dialog-title> Select Your locations </h2>
+<p>: {{latitude}},{{longitude}}</p>
+<mat-dialog-content>
+  <agm-map [latitude]="latitude"
+           [longitude]="longitude"
+           (mapClick)="onChoseLocation($event)"
+           [zoom]="zoom">
+    <agm-marker
+      [latitude]="latitude"
+      [longitude]="longitude"
+      *ngIf="locationChosen"
+      ></agm-marker>
+  </agm-map>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-raised-button color="primary" [mat-dialog-close]="true" (click)="clickEnter()">Enter</button>
+  <button mat-raised-button mat-dialog-close>Close</button>
+
+  <!--<mat-form-field>-->
+    <!--<mat-select placeholder="service" [(ngModel)]="serviceService.serviceType"  name="serviceType"   [ngModelOptions]="{standalone: true}"  >-->
+      <!--<mat-option  *ngFor="let serviceType of serviceService.serviceType"  [value]="serviceService.serviceType">-->
+        <!--{{serviceService.serviceType}}-->
+      <!--</mat-option>-->
+
+    <!--</mat-select>-->
+  <!--</mat-form-field>-->
+
+</mat-dialog-actions>
