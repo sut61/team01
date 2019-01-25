@@ -1,0 +1,48 @@
+.buttonCoffeeDelivery button,
+.buttonCoffeeDelivery a {
+  margin-left: auto;
+
+
+}
+
+.buttonLogIn button,
+.buttonLogIn a {
+  margin-right: auto;
+  size: auto;
+
+}
+
+mat-toolbar{
+  position: fixed;
+  z-index: 2;
+}
+
+.grid-tile{
+  margin-left: 8%;
+  /*margin-right: 20%;*/
+}
+
+.example-fill-remaining-space {
+  /* This fills the remaining space, by using flexbox.
+     Every toolbar row uses a flexbox row layout. */
+  flex: 1 1 auto;
+
+}
+
+.example-card  {
+  max-width: 200px;
+  max-height: 420px;
+  margin-top: 20px;
+
+}
+
+.example-header-image {
+  background-image: url('https://thecoffeeclub.co.th/wp-content/uploads/2017/03/Coffeeclub_logo-uai-258x258.jpg');
+  background-size: cover;
+}
+.buttonBuy button,
+.buttonBuy a{
+  right: -50%;
+   background-color: #ba7d60;
+ }
+
