@@ -1,0 +1,21 @@
+.Title {
+  margin-left:8%;
+  font-size: 11px;
+  color: saddlebrown;
+}
+table {
+  margin-top: 2%;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+button {
+  margin-left: 50%;
+  margin-bottom: 5%;
+}
+.example-spacer {
+  flex: 1 1 auto;
+}
+a {
+  margin: 3%;
+}
