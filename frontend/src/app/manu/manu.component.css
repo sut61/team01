@@ -1,0 +1,20 @@
+.Title{
+  margin-left:8%;
+  font-size: 11px;
+  color: saddlebrown;
+}
+.Title1{
+  margin-left: 3%;
+  height: 600px;
+}
+.button{
+  margin-left: 30%;
+}
+.example-spacer {
+  flex: 1 1 auto;
+}
+a {
+  margin: 3%;
+}
+
+

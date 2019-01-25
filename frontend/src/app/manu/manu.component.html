@@ -1,0 +1,58 @@
+<mat-toolbar color= "warn">
+  <mat-toolbar-row>
+    <h1> CoffeeShop Manu Add</h1>&nbsp;&nbsp;&nbsp;<img width="55"  src="src/image/coffee1.png">
+    <span class="example-spacer"></span>
+    <a mat-stroked-button [routerLink]="['/homestaff']"><i class="material-icons">
+      home
+    </i></a>
+    <a mat-stroked-button [routerLink]="['/showmanu']"> เมนูที่เพิ่ม </a>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<div class = "Title">
+  <h1>Add Manu <img width="50"  src="src/image/coffee.jpg"></h1>
+</div>
+
+<div class = "Title1">
+  <mat-form-field>
+    <mat-select [(ngModel)]="manutypeSelect" [ngModelOptions]="{standalone: true}" placeholder="Manu Type"
+                panelClass="example-panel">
+      <mat-option [value]="manutype.manutypeid" *ngFor="let manutype of manuts" >
+        {{manutype.manut}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <h3>ชื่อ : &nbsp;&nbsp; <mat-form-field class="example-full-width">
+    <input matInput placeholder="Manu Name" [(ngModel)]="manuadd.inputName"
+           type = "text" [ngModelOptions]="{standalone: true}">
+  </mat-form-field></h3>
+
+  <h3>ประเภทกาแฟ : &nbsp;&nbsp;<mat-form-field>
+    <mat-select [(ngModel)]="coffeetypeSelect" [ngModelOptions]="{standalone: true}" placeholder="Enter Coffee Type"
+                panelClass="example-panel">
+      <mat-option [value]="coffeetype.coffeeid" *ngFor="let coffeetype of coffees" >
+        {{coffeetype.coffee}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field></h3>
+
+  <h3>ประเภทเบเกอรี่ : &nbsp;&nbsp;<mat-form-field>
+    <mat-select [(ngModel)]="bakerytypeSelect" [ngModelOptions]="{standalone: true}" placeholder="Enter Bakery Type"
+                panelClass="example-panel">
+      <mat-option *ngFor="let bakerytype of bakerys" [value]="bakerytype.bakeryid">
+        {{bakerytype.bakery}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field></h3>
+
+  <h3>ราคา : &nbsp;&nbsp;<mat-form-field class="example-full-width">
+  <input matInput placeholder="Enter Price" [(ngModel)]="manuadd.inputPrice"
+         type = "number" [ngModelOptions]="{standalone: true}"></mat-form-field></h3>
+
+  <br/>
+  <div class = "button">
+    <button  mat-raised-button color="primary" (click) = "save()" type="submit" >Save</button>
+  </div>
+</div>
+
