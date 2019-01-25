@@ -21,6 +21,10 @@ class MemberController {
     @Autowired private GenderRepository genderRepository;
     @Autowired private NametypeRepository nametypeRepository;
 
+    @GetMapping(path = "/member")
+    private Collection<Member> getMember(){
+        return this.memberRepository.findAll().stream().collect(Collectors.toList());
+    }
 
     @PostMapping(path = "/member/{nid}/{gid}/{pid}")
     private Member newmembers(@RequestBody String dataDis,@PathVariable Long nid, @PathVariable Long gid,
