@@ -19,11 +19,7 @@ public class CoffeeDelivery {
     @Column(nullable=false)
     @NotNull
     private  long coffeeDeliveryId;
-    @NotNull
-    @Pattern(regexp = "\\f")
     private  double latitude;
-    @NotNull
-    @Pattern(regexp = "\\f")
     private  double longitude;
     private  String name;
     private  int price;
