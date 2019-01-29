@@ -21,6 +21,7 @@ public class CoffeeDelivery {
     private  long coffeeDeliveryId;
     private  double latitude;
     private  double longitude;
+    @NotNull
     private  String name;
     private  int price;
 
