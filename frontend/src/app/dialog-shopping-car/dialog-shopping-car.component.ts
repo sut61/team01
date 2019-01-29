@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ServiceService} from '../Service/showMenu/service.service';
+import {ServiceService} from '../Service/service.service';
 import {Observable} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 
@@ -16,15 +16,8 @@ export class DialogShoppingCarComponent implements OnInit {
   public  delivery = {
     coffeeDeliveryId : Number,
     price : Number,
-    manu : Number,
+    name : String,
   };
-
-  // deliveryId: number;
-
-  // delivery: Array<any>;
-  // coffeeDeliveryId: number;
-  // price: number;
-  // name: string;
   dataColumns: string[] = ['item', 'price', 'number', 'CreditPay'];
 
   DeleteDelivery(deliveryId) {

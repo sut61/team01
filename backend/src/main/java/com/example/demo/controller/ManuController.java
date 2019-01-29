@@ -53,6 +53,8 @@ class ManuController {
         return (ManuRepository) this.manuRepository.findById(id).get();
     }
 
+
+
     @PostMapping(path = "/manu/{manutypeid}/{coffeeid}/{bakeryid}")
     private Manu newManus(@RequestBody String dataDis,@PathVariable Long manutypeid, @PathVariable Long coffeeid,
                      @PathVariable Long bakeryid) throws JsonParseException, IOException {

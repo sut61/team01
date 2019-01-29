@@ -1,0 +1,26 @@
+<router-outlet></router-outlet>
+<br><br>
+<h2 style="text-align:center;">Coffee Shop</h2>
+
+<div class="w3-display-middle">
+
+
+
+  <h4 style="text-align:center;">กรุณาเข้าสู่ระบบ</h4>
+  <mat-card class="example-card">
+    <mat-card-content style="text-align:center">
+      <mat-form-field>
+        <input matInput placeholder="Username" type="text" id="username" [(ngModel)]="staff.username">
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <input matInput placeholder="Password" type="password" id="password" [(ngModel)]="staff.password">
+      </mat-form-field>
+    </mat-card-content>
+
+    <mat-card-actions style="text-align:center">
+      <button mat-raised-button (click)="login()" color="primary" type="submit">Login</button>
+    </mat-card-actions>
+
+  </mat-card>
+</div>

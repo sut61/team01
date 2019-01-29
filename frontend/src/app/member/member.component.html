@@ -1,17 +1,17 @@
-<mat-toolbar color= "warn">
+<mat-toolbar class ="top">
   <mat-toolbar-row>
-    <h1> CoffeeShop Register</h1>&nbsp;&nbsp;&nbsp;<img width="55"  src="src/image/coffee1.png">
+    <h1> CoffeeShop Register</h1>&nbsp;&nbsp;&nbsp;
     <span class="example-spacer"></span>
-    <a mat-button [routerLink]="['/homemem']"><i class="material-icons">
+    <a mat-button [routerLink]="['/home']"><i class="material-icons">
       home
     </i></a>
-    <a mat-button [routerLink]="['/login']"> เข้าสู่ระบบ </a>
+    <a mat-button [routerLink]="['/loginmem']" (click)="push()"> เข้าสู่ระบบ </a>
 
   </mat-toolbar-row>
 </mat-toolbar>
 
 <div class = "Title">
-  <h1 style="text-align:center;"> ลงทะเบียน <img width="50"  src="src/image/coffee.jpg"></h1>
+  <h1 style="text-align:center;"> ลงทะเบียน </h1>
 </div>
 
 <div class="member">

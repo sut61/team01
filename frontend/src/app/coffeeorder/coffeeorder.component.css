@@ -1,0 +1,32 @@
+
+.example-full-width {
+  alignment: center;
+  text-align: center;
+  width: 20%;
+  left : 10%;
+}
+.example-full-widtha {
+  alignment: center;
+  text-align: center;
+  width: 20%;
+  left : 40%;
+}
+
+.example-mid-width {
+  alignment: center;
+  text-align: center;
+  width: 20%;
+  left : 40%;
+}
+.aa{
+  text-align: center;
+}
+.top{
+  color: aliceblue;
+  font-size: 250%;
+  background-color: rgb(0, 0, 0);
+}
+.example-spacer {
+  flex: 1 1 auto;
+}
+

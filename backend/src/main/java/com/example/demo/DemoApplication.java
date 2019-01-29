@@ -1,17 +1,15 @@
 package com.example.demo;
 
-import com.example.demo.repository.CoffeeTypeRepository;
-import com.example.demo.repository.ManuRepository;
+import com.example.demo.entity.*;
+import com.example.demo.repository.*;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import com.example.demo.entity.*;
-import com.example.demo.repository.*;
+import org.springframework.boot.CommandLineRunner;
 
-import java.util.Arrays;
+
 import java.util.stream.Stream;
-
 
 @SpringBootApplication
 public class DemoApplication {
@@ -36,9 +34,10 @@ public class DemoApplication {
 						   CustomerRepository customerRepository,
 						   StaffRepository staffRepository,
 						   AddpointRepository addpointRepository,
-						   MemberxyRepository memberxyRepository,
-						   ServiceTypeRepository serviceTypeRepository,
-	) {
+						   ServiceTypeRepository serviceTypeRepository
+
+
+						   ) {
 		return args -> {
 
 			Stream.of("-","ร้อน","เย็น","ปั่น").forEach(coffee ->{
@@ -61,12 +60,28 @@ public class DemoApplication {
 			manutypeRepository.findAll().forEach(System.out::println);
 
 			Manu manu = new Manu();
-			manu.setName("มอลค่า");
+			manu.setName("ลาเต้");
 			manu.setPrice(40);
 			manu.setManutype(manutypeRepository.getOne(1L));
 			manu.setCoffeetype(coffeetypeRepository.getOne(2L));
 			manu.setBakerytype(bakerytypeRepository.getOne(1L));
 			manuRepository.save(manu);
+
+			Manu manu2 = new Manu();
+			manu2.setName("มอลค่า");
+			manu2.setPrice(45);
+			manu2.setManutype(manutypeRepository.getOne(1L));
+			manu2.setCoffeetype(coffeetypeRepository.getOne(2L));
+			manu2.setBakerytype(bakerytypeRepository.getOne(1L));
+			manuRepository.save(manu2);
+
+			Manu manu3 = new Manu();
+			manu3.setName("ชาเขียว");
+			manu3.setPrice(49);
+			manu3.setManutype(manutypeRepository.getOne(1L));
+			manu3.setCoffeetype(coffeetypeRepository.getOne(2L));
+			manu3.setBakerytype(bakerytypeRepository.getOne(1L));
+			manuRepository.save(manu3);
 //===========================================fon===============================================
 			Stream.of("นาย","นาง","นางสาว","อื่นๆ").forEach(typename ->{
 				Nametype nametype = new Nametype();
@@ -101,7 +116,7 @@ public class DemoApplication {
 			member.setPassword("12345");
 			memberRepository.save(member);
 
-//===========================================PECK EIEI?===============================================
+//===========================================Pek===============================================
 
 			Staff staff1 = new Staff("Nuntawut Hahara");
 			Staff staff2 = new Staff(":onado Kolamthong");
@@ -110,6 +125,8 @@ public class DemoApplication {
 			Staff staff5 = new Staff("Apisit Prompha");
 			Staff staff6 = new Staff("Yamaha Infinity");
 			Staff staff7 = new Staff("Honda Eiheedang");
+			staff1.setUsername("Momo");
+			staff1.setPassword("1234");
 			staffRepository.save(staff1);
 			staffRepository.save(staff2);
 			staffRepository.save(staff3);
@@ -150,80 +167,18 @@ public class DemoApplication {
 			OrderType orderType2 = new OrderType("Take-Away");
 			orderTypeRepository.save(orderType1);
 			orderTypeRepository.save(orderType2);
-
-//=========================================== Who Nexts ? ===============================================
-
-			Memberxy memberxy1 = new Memberxy("Chanwit Neenadee");
-			memberxyRepository.save(memberxy1);
+			
 
 			Addpoint addpoint1 = new Addpoint("1");
-			addpointRepository.save(addpoint1);
 			Addpoint addpoint2 = new Addpoint("2");
+			Addpoint addpoint3 = new Addpoint("3");
+			Addpoint addpoint4 = new Addpoint("4");
+			Addpoint addpoint5 = new Addpoint("5");
+			addpointRepository.save(addpoint1);
 			addpointRepository.save(addpoint2);
-
-			Stream.of("กาแฟโบราฯ", "การแฟที่ขมมาก","ลาเต้").forEach(name->
-
-			{
-
-
-				{
-					Manu rec = new Manu();
-					rec.setName(name);
-
-					if(name == "กาแฟโบราฯ"){
-						rec.setPrice(150);
-
-						manuRepository.save(rec);
-					}else if(name == "การแฟที่ขมมาก")
-					{
-						rec.setPrice(152);
-						manuRepository.save(rec);
-
-					}else if(name == "ลาเต้")
-					{
-						rec.setPrice(151);
-						manuRepository.save(rec);
-					}
-
-
-				}
-
-			});
-/////////////////////////////////////////////////////////////////////////
-			for (String name : Arrays.asList("คนธรรมดา", "คนธรรมดากว่า", "คนเฉยๆๆ")) {
-				{
-					Member member = new Member();
-					member.setName(name);
-
-					if (name == "คนธรรมดา") {
-						member.setTel("2222222150");
-						member.setEmail("dfsafsda");
-						member.setAddress("home");
-						member.setProvince("Udon");
-						member.setSex("F");
-						memberRepository.save(member);
-					} else if (name == "คนธรรมดากว่า") {
-						member.setTel("2222222150");
-						member.setEmail("dfsafsda");
-						member.setAddress("home");
-						member.setProvince("Udon");
-						member.setSex("F");
-						memberRepository.save(member);
-
-					} else if (name == "คนเฉยๆๆ") {
-						member.setTel("2222222150");
-						member.setEmail("dfsafsda");
-						member.setAddress("home");
-						member.setProvince("Udon");
-						member.setSex("F");
-						memberRepository.save(member);
-					}
-
-
-				}
-
-			}
-/////////////////////////////////////////////////////////////////////////
+			addpointRepository.save(addpoint3);
+			addpointRepository.save(addpoint4);
+			addpointRepository.save(addpoint5);
 
 			Stream.of("Delivery", "Takeaway").forEach(typeName-> {
 
@@ -239,8 +194,7 @@ public class DemoApplication {
 
 
 
+
 		};
 	}
-
-
 }

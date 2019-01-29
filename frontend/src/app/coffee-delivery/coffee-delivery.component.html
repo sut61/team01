@@ -5,7 +5,7 @@
     </head>
   </title>
 
-  <body>
+  <body class="inventory-body">
         <mat-toolbar color="primary">
 
             <br>
@@ -13,7 +13,7 @@
               <button mat-button color="accent" ><h2> CoffeeShop Delivery </h2></button>
             </div>
 
-          <p>Hi {{serviceService.member[serviceService.numberMember].name}} </p>
+          <p>Hi {{serviceService.member[serviceService.numberMember].nameM}} </p>
 
 
             <span class="example-fill-remaining-space"></span>
@@ -27,7 +27,7 @@
               </button>
 
               <button mat-icon-button color="accent" (click)="openDialogMapShoppingCar()" >
-                <mat-icon aria-label="Example icon-button with a heart icon" color="accent" matBadge = "{{serviceService?.counter}}"
+                <mat-icon aria-label="Example icon-button with a heart icon" color="accent" matBadge = "{{serviceService.counter}}"
                           matBadgeColor="warn" >shopping_cart</mat-icon>
               </button>
 
@@ -80,7 +80,7 @@
                 <mat-card class="example-card">
                   <mat-card-header>
                     <mat-card-title>{{serviceService.menu[numberMenu+2].name}}</mat-card-title>
-                    <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+                    <mat-card-subtitle>Coffee</mat-card-subtitle>
                   </mat-card-header>
                   <img mat-card-image src="https://thecoffeeclub.co.th/wp-content/uploads/2018/08/4CFC_menu0296.jpg" alt="Photo of a Shiba Inu">
                   <mat-card-actions>
@@ -98,7 +98,7 @@
                 <mat-card class="example-card">
                   <mat-card-header>
                     <mat-card-title>{{serviceService.menu[numberMenu+2].name}}</mat-card-title>
-                    <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+                    <mat-card-subtitle>Coffee</mat-card-subtitle>
                   </mat-card-header>
                   <img mat-card-image src="https://thecoffeeclub.co.th/wp-content/uploads/2018/08/4CFC_menu0297.jpg" alt="Photo of a Shiba Inu">
                   <mat-card-actions>
@@ -135,7 +135,7 @@
                 <mat-card class="example-card">
                   <mat-card-header>
                     <mat-card-title>{{serviceService.menu[numberMenu+2].name}}</mat-card-title>
-                    <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+                    <mat-card-subtitle>Coffee</mat-card-subtitle>
                   </mat-card-header>
                   <img mat-card-image src="https://thecoffeeclub.co.th/wp-content/uploads/2018/08/4CFC_menu0284.jpg" alt="Photo of a Shiba Inu">
                   <mat-card-actions>
@@ -153,7 +153,7 @@
                 <mat-card class="example-card">
                   <mat-card-header>
                     <mat-card-title>{{serviceService.menu[numberMenu+2].name}}</mat-card-title>
-                    <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+                    <mat-card-subtitle>Coffee</mat-card-subtitle>
                   </mat-card-header>
                   <img mat-card-image src="https://thecoffeeclub.co.th/wp-content/uploads/2018/08/4CFC_menu0286.jpg" alt="Photo of a Shiba Inu">
                   <mat-card-actions>
@@ -189,7 +189,7 @@
                 <mat-card class="example-card">
                 <mat-card-header>
                   <mat-card-title>{{serviceService.menu[numberMenu+2].name}}</mat-card-title>
-                  <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+                  <mat-card-subtitle>Coffee</mat-card-subtitle>
                 </mat-card-header>
                 <img mat-card-image src="https://thecoffeeclub.co.th/wp-content/uploads/2018/08/4CFC_menu0302.jpg" alt="Photo of a Shiba Inu">
                 <mat-card-actions>

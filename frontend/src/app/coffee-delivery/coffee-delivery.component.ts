@@ -3,7 +3,7 @@ import {MatDialog} from '@angular/material';
 import {DialogMapComponent} from '../dialog-map/dialog-map.component';
 import {DialogShoppingCarComponent} from '../dialog-shopping-car/dialog-shopping-car.component';
 import {HttpClient} from '@angular/common/http';
-import {ServiceService} from '../Service/showMenu/service.service';
+import {ServiceService} from '../Service/service.service';
 
 
 @Component({
@@ -62,7 +62,7 @@ export class CoffeeDeliveryComponent implements OnInit {
         this.serviceService.counter = this.serviceService.counter + 1 ;
 
 
-        this.httpClient.post('http://localhost:8080/CoffeeDelivery' + '/' + 1 + '/' + this.serviceService.member[0].memberId + '/' + this.serviceService.menu[numberMenu].id +
+        this.httpClient.post('http://localhost:8080/CoffeeDelivery' + '/' + 1 + '/' + this.serviceService.member[0].meid + '/' + this.serviceService.menu[numberMenu].manuid +
       '/' + this.serviceService.menu[numberMenu].name + '/' + this.serviceService.menu[numberMenu].price + '/' + this.serviceService.markerLat + '/' + this.serviceService.markerLog, this.serviceService.member)
           .subscribe(
             data => {

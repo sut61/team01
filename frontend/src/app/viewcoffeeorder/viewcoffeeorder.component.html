@@ -1,0 +1,31 @@
+<mat-card >
+
+  <h2>ประวัติการ Order Coffee </h2>
+  <table  >
+    <tr>
+      <th>orderId</th>
+      <th>staffName</th>
+      <th>customerName</th>
+      <th>itemName</th>
+      <th>quantity</th>
+      <th>orderType</th>
+      <th>totalPrice</th>
+    </tr>
+    <tr *ngFor="let order of orders">
+      <td>{{order.orderid}}</td>
+      <td>{{order.staff.staffName}}</td>
+      <td>{{order.member.nameM}}</td>
+      <td>{{order.coffeeMenu.itemName}}</td>
+      <td>{{order.quantity}}</td>
+      <td>{{order.orderType.orderTypes}}</td>
+      <td>{{order.totalPrice}}</td>
+    </tr>
+  </table>
+
+
+
+  <h2><div class="example-button-row" style="text-align:center">
+    <button mat-raised-button color="accent" [routerLink]="['/payment']">ชำระสินค้าด้วยเงินสด</button>
+  </div></h2>
+</mat-card>
+

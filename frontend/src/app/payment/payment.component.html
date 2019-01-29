@@ -1,7 +1,7 @@
 <div class="record">
-  <mat-toolbar>
+  <mat-toolbar class ="top">
     <mat-toolbar-row>
-    <h1> CoffeeShop Manu Add</h1>&nbsp;&nbsp;&nbsp;<img width="55"  src="src/image/coffee1.png">
+    <h1> CoffeeShop Payment</h1>&nbsp;&nbsp;&nbsp;
     <span class="example-spacer"></span>
     <a mat-stroked-button [routerLink]="['/homestaff']"><i class="material-icons">
       home
@@ -14,22 +14,23 @@
 
     <mat-card-content>
       <h3><div style="text-align:center">
-        รหัสสมาชิก    <mat-form-field>
+        ชื่อสมาชิก    <mat-form-field>
         <mat-select [(ngModel)]="userSelect" [ngModelOptions]="{standalone: true}" placeholder="กรุณาเลือก"
                     panelClass="example-panel">
-          <mat-option value={{user.meid}} *ngFor="let user of users">{{user.user}} </mat-option>
+          <mat-option value={{user.meid}} *ngFor="let user of users">{{user.nameM}} </mat-option>
         </mat-select>
       </mat-form-field>
       </div></h3>
 
       <h3><div style="text-align:center">
-        ชื่อผู้สั่ง Order    <mat-form-field>
-        <mat-select [(ngModel)]="customerNameSelect" [ngModelOptions]="{standalone: true}" placeholder="กรุณาเลือก"
+        ID Order    <mat-form-field>
+        <mat-select [(ngModel)]="idsSelect" [ngModelOptions]="{standalone: true}" placeholder="กรุณาเลือก"
                     panelClass="example-panel">
-          <mat-option value={{customerNames.id}} *ngFor="let customerNames of customername">{{customerNames.customerName}} </mat-option>
+          <mat-option value={{ids.orderid}} *ngFor="let ids of ids">{{ids.orderid}} </mat-option>
         </mat-select>
       </mat-form-field>
       </div></h3>
+
 
       <h3><div style="text-align:center">
         ชื่อพนักงาน     <mat-form-field>
