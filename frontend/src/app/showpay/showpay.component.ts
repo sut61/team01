@@ -28,10 +28,10 @@ export class ShowpayComponent implements OnInit {
 
   CoffeeOrder: Array<any>;
 
-  constructor(private recordService: RecordService, private httpClient: HttpClient, private router:Router) { }
+  constructor(private recordService: RecordService, private httpClient: HttpClient, private router: Router) { }
 
   ngOnInit() {
-    this.recordService.getCoffeeordes().subscribe(data => {
+    this.recordService.getCoffeeorder().subscribe(data => {
       this.CoffeeOrder = data;
       console.log(this.CoffeeOrder);
     });
