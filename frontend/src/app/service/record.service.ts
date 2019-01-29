@@ -17,10 +17,13 @@ export class RecordService {
   getPayment() : Observable<any> {
     return this.http.get(this.API + '/payment');
   }
-  getCoffeeordes(): Observable<any> {
-    return this.http.get(this.API + '/coffeeorders');
+  getCoffeeorder(): Observable<any> {
+    return this.http.get(this.API + '/coffeeorder');
   }
   getStaff(): Observable<any> {
     return this.http.get(this.API + '/staff');
+  }
+  getCustomer(): Observable<any> {
+    return this.http.get(this.API + '/customer');
   }
 }

@@ -3,6 +3,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 
 @Entity
 @Getter
@@ -18,7 +19,11 @@ public class CoffeeDelivery {
     @Column(nullable=false)
     @NotNull
     private  long coffeeDeliveryId;
+    @NotNull
+    @Pattern(regexp = "\\f")
     private  double latitude;
+    @NotNull
+    @Pattern(regexp = "\\f")
     private  double longitude;
     private  String name;
     private  int price;

@@ -9,4 +9,5 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 @CrossOrigin(origins = "http://localhost:4200")
 public interface ManuRepository extends JpaRepository<Manu, Long> {
 
+    Manu findByManuid(int manuid);
 }

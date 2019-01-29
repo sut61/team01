@@ -12,14 +12,12 @@ export class PaymentComponent implements OnInit {
 
   users: Array<any>;
   payment: Array<any>;
-  membernames: Array<any>;
   staffNames: Array<any>;
-  customername: Array<any>;
+  ids: Array<any>;
 
   userSelect: number = 0;
-  membernameSelect: number = 0;
   staffNameSelect:number =0;
-  customerNameSelect:number =0;
+  idsSelect:number =0;
 
   addis: any = {
     inputNote: ''
@@ -37,25 +35,22 @@ export class PaymentComponent implements OnInit {
       this.payment = data;
       console.log(this.payment);
     });
-    this.recordService.getCoffeeordes().subscribe(data => {
-      this.membernames = data;
-      console.log(this.membernames);
+    this.recordService.getCoffeeorder().subscribe(data => {
+      this.ids = data;
+      console.log(this.ids);
     });
     this.recordService.getStaff().subscribe(data => {
       this.staffNames = data;
       console.log(this.staffNames);
     });
-    this.recordService.getCustomer().subscribe(data => {
-      this.customername = data;
-      console.log(this.customername);
-    });
+    
   }
 
   save() {
-    if (this.addis.inputNote === '' || this.userSelect === 0 || this.customerNameSelect === 0 || this.staffNameSelect === 0 ) {
+    if (this.addis.inputNote === '' || this.userSelect === 0 || this.idsSelect === 0 || this.staffNameSelect === 0 ) {
       alert('กรุณากรอกข้อมูลให้ครบถ้วน');
     } else {
-      this.httpClient.post('//localhost:8080/payment' + '/' + this.userSelect + '/' + this.customerNameSelect + '/' +
+      this.httpClient.post('//localhost:8080/payment' + '/' + this.userSelect + '/' + this.idsSelect + '/' +
         this.staffNameSelect + '/' , this.addis)
         .subscribe(
           data => {

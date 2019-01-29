@@ -38,8 +38,8 @@ public class PaymentController {
     private PaymentRepository getPaymentById(@PathVariable Long payid){
         return (PaymentRepository) this.paymentRepository.findById(payid).get();
     }
-    @PostMapping(path = "/payment/{memid}/{orderid}/{staffid}")
-    private Payment newPayments(@RequestBody String dataDis, @PathVariable Long memid, @PathVariable Long orderid, @PathVariable Long staffid)throws JsonParseException, IOException {
+    @PostMapping(path = "/payment/{meid}/{orderid}/{id}")
+    private Payment newPayments(@RequestBody String dataDis, @PathVariable Long meid, @PathVariable Long orderid, @PathVariable Long id)throws JsonParseException, IOException {
 
 
         final String decoded = URLDecoder.decode(dataDis, "UTF-8");
@@ -50,9 +50,9 @@ public class PaymentController {
 
         Payment pa = new Payment();
         pa.setNote(jsonNote.textValue());
-        pa.setM(memberRepository.getOne(memid));
+        pa.setM(memberRepository.getOne(meid));
         pa.setC(coffeeorderRepository.getOne(orderid));
-        pa.setB(staffRepository.getOne(staffid));
+        pa.setB(staffRepository.getOne(id));
         return paymentRepository.save(pa);
 
 

@@ -1,32 +1,76 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { AppComponent } from './app.component';
-import { HttpClientModule } from '@angular/common/http';
-
-import { AppRoutingModule } from './app-routing.module';
-import { CoffeeDeliveryComponent } from './coffee-delivery/coffee-delivery.component';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatMenuModule } from '@angular/material/menu';
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
-import { MatGridListModule } from '@angular/material/grid-list';
-import { MatCardModule } from '@angular/material/card';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { LayoutModule } from '@angular/cdk/layout';
-import { FlexLayoutModule } from '@angular/flex-layout';
-import { MatBadgeModule } from '@angular/material/badge';
-import { MatDialogModule } from '@angular/material/dialog';
-import { DialogMapComponent } from './dialog-map/dialog-map.component';
+import { HttpClientModule } from '@angular/common/http';
+import { RouterModule, Routes} from '@angular/router';
+import { CommonModule} from '@angular/common';
 import { AgmCoreModule } from '@agm/core';
-import { DialogShoppingCarComponent } from './dialog-shopping-car/dialog-shopping-car.component';
-import { MatTableModule } from '@angular/material/table';
-import {MatSelectModule} from '@angular/material/select';
+import { AppComponent } from './app.component';
+import { ManuComponent } from './manu/manu.component';
+import {ManuService} from './service/manu.service';
+import { HomestaffComponent } from './homestaff/homestaff.component';
+import { MemberComponent } from './member/member.component';
+import { ShowmanuComponent } from './showmanu/showmanu.component';
+import { LoginComponent } from './login/login.component';
+import { HomememComponent } from './homemem/homemem.component';
+import { LoginmemComponent } from './loginmem/loginmem.component';
+import { PaymentComponent } from './payment/payment.component';
+import { ViewcoffeeorderComponent } from './viewcoffeeorder/viewcoffeeorder.component';
+import { HomeComponent } from './home/home.component';
+import { ContactComponent } from './contact/contact.component';
+import { CoffeeorderComponent } from './coffeeorder/coffeeorder.component';
+import { AboutComponent } from './about/about.component';
+import { PointComponent } from './point/point.component';
+import { PointViewComponent } from './point-view/point-view.component';
+import {
+  MatAutocompleteModule,
+  MatBadgeModule,
+  MatBottomSheetModule,
+  MatButtonModule,
+  MatButtonToggleModule,
+  MatCardModule,
+  MatCheckboxModule,
+  MatChipsModule,
+  MatDatepickerModule,
+  MatDialogModule,
+  MatDividerModule,
+  MatExpansionModule,
+  MatGridListModule,
+  MatIconModule,
+  MatInputModule,
+  MatListModule,
+  MatMenuModule,
+  MatNativeDateModule,
+  MatPaginatorModule,
+  MatProgressBarModule,
+  MatProgressSpinnerModule,
+  MatRadioModule,
+  MatRippleModule,
+  MatSelectModule,
+  MatSidenavModule,
+  MatSliderModule,
+  MatSlideToggleModule,
+  MatSnackBarModule,
+  MatSortModule,
+  MatStepperModule,
+  MatTableModule,
+  MatTabsModule,
+  MatToolbarModule,
+  MatTooltipModule,
+  MatTreeModule,
+} from '@angular/material';
+import {DialogShoppingCarComponent} from "./dialog-shopping-car/dialog-shopping-car.component";
+import {DialogMapComponent} from "./dialog-map/dialog-map.component";
+import {CoffeeDeliveryComponent} from "./coffee-delivery/coffee-delivery.component";
+import {FlexLayoutModule} from "@angular/flex-layout";
+
 
 
 
 const routes: Routes = [
-  {path: '', redirectTo: '/login', pathMatch: 'full' },
+  {path: '', redirectTo: '/home', pathMatch: 'full' },
   {path: 'login', component: LoginComponent},
   {path: 'loginmem', component: LoginmemComponent},
   {path: 'homestaff', component: HomestaffComponent},
@@ -35,24 +79,20 @@ const routes: Routes = [
   {path: 'member', component: MemberComponent},
   {path: 'showmanu', component: ShowmanuComponent},
   {path: 'payment', component: PaymentComponent},
-  {path: 'showpay', component: ShowpayComponent},
   { path: 'about', component: AboutComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'coffeeorders', component: CoffeeorderComponent},
   { path: 'home', component: HomeComponent },
   { path: 'viewcoffeeorders', component: ViewcoffeeorderComponent },
+  {path:'point',component:PointComponent},
+  {path:'point-view',component:PointViewComponent},
+  {path: 'CoffeeDelivery', component: CoffeeDeliveryComponent},
 
 ];
-
-
-
 
 @NgModule({
   declarations: [
     AppComponent,
-    CoffeeDeliveryComponent,
-    DialogMapComponent,
-    DialogShoppingCarComponent,
     ManuComponent,
     HomestaffComponent,
     MemberComponent,
@@ -61,44 +101,70 @@ const routes: Routes = [
     HomememComponent,
     LoginmemComponent,
     PaymentComponent,
-    ShowpayComponent,
     ViewcoffeeorderComponent,
-    NavComponent,
     HomeComponent,
     ContactComponent,
     CoffeeorderComponent,
     AboutComponent,
-
-
+    PointComponent,
+    PointViewComponent,
+    CoffeeDeliveryComponent,
+    DialogMapComponent,
+    DialogShoppingCarComponent,
 
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    MatToolbarModule,
-    MatMenuModule,
     BrowserAnimationsModule,
-    MatButtonModule,
-    MatIconModule,
-    MatGridListModule,
-    MatCardModule,
-    MatSidenavModule,
-    LayoutModule,
-    FlexLayoutModule,
-    MatBadgeModule,
-    MatDialogModule,
-    AgmCoreModule.forRoot({apiKey: 'AIzaSyBS-fusP8ANNGCD1KGL7Bop1bqD1XcXTYk'}),
-    MatTableModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+    CommonModule,
+    MatAutocompleteModule,
+    MatBadgeModule,
+    MatBottomSheetModule,
+    MatButtonModule,
+    MatButtonToggleModule,
+    MatCardModule,
+    MatCheckboxModule,
+    MatChipsModule,
+    MatDatepickerModule,
+    MatDialogModule,
+    MatDividerModule,
+    MatExpansionModule,
+    MatGridListModule,
+    MatIconModule,
+    MatInputModule,
+    MatListModule,
+    MatMenuModule,
+    MatNativeDateModule,
+    MatPaginatorModule,
+    MatProgressBarModule,
+    MatProgressSpinnerModule,
+    MatRadioModule,
+    MatRippleModule,
     MatSelectModule,
-
+    MatSidenavModule,
+    MatSliderModule,
+    MatSlideToggleModule,
+    MatSnackBarModule,
+    MatSortModule,
+    MatStepperModule,
+    MatTableModule,
+    MatTabsModule,
+    MatToolbarModule,
+    MatTooltipModule,
+    MatTreeModule,
+    RouterModule.forRoot(routes),
+    AgmCoreModule.forRoot({apiKey: 'AIzaSyBS-fusP8ANNGCD1KGL7Bop1bqD1XcXTYk'}),
+    FlexLayoutModule
 
   ],
   entryComponents: [
     DialogMapComponent,
     DialogShoppingCarComponent
   ],
-  providers: [],
+  providers: [ManuService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

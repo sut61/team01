@@ -1,0 +1,114 @@
+<mat-toolbar class ="top">
+  <mat-toolbar-row>
+    <h1> CoffeeShop Order</h1>&nbsp;&nbsp;&nbsp;
+    <span class="example-spacer"></span>
+    <a mat-stroked-button [routerLink]="['/homestaff']"><i class="material-icons">
+      home
+    </i></a>
+  </mat-toolbar-row>
+</mat-toolbar>
+<h1 class="aa">COFFEE ORDER</h1>
+
+<br>
+
+<!--<mat-form-field class="example-mid-width">-->
+<!--<input matInput placeholder="ชื่อพนักงาน" [(ngModel)]="staff">-->
+<!--</mat-form-field>-->
+
+<!--<br>-->
+
+<!--<mat-form-field  class="example-mid-width">-->
+<!--<input matInput [matDatepicker]="picker" placeholder="วันที่เพิ่มเเต้ม" [(ngModel)]="date">-->
+<!--<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>-->
+<!--<mat-datepicker #picker></mat-datepicker>-->
+<!--</mat-form-field>-->
+
+<!--<br>-->
+
+<!--<mat-form-field class="example-mid-width">-->
+<!--<input matInput placeholder="รหัสลูกค้า" [(ngModel)]="staff">-->
+<!--</mat-form-field>-->
+
+<!--<br>-->
+
+<!--<mat-form-field class="example-mid-width">-->
+<!--<input matInput placeholder="จำนวนเงิน" [(ngModel)]="treatmentName">-->
+<!--</mat-form-field>-->
+
+<!--<br>-->
+
+<mat-form-field  class="example-mid-width" >
+  <mat-select placeholder="ชื่อพนักงาน" [(ngModel)]="staffNameSelect" name="addPoint">
+    <mat-option *ngFor="let gd of staffNames" [value]="gd.id">
+      {{gd.staffName}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+
+<br>
+
+<!-- <mat-form-field  class="example-mid-width" >
+  <mat-select placeholder="ชื่อลูกค้า" [(ngModel)]="customerNameSelect" name="addPoint">
+    <mat-option *ngFor="let gd of customerNames" [value]="gd.id">
+      {{gd.customerName}}
+    </mat-option>
+  </mat-select>
+</mat-form-field> -->
+
+<div>
+   <mat-form-field class="example-mid-width">
+  <mat-select [(ngModel)]="userSelect" [ngModelOptions]="{standalone: true}" placeholder="กรุณาเลือก"
+              panelClass="example-panel">
+    <mat-option value={{user.meid}} *ngFor="let user of users">{{user.nameM}} </mat-option>
+  </mat-select>
+</mat-form-field>
+</div>
+
+<br>
+
+<mat-form-field  class="example-mid-width" >
+  <mat-select placeholder="ITEMS" [(ngModel)]="itemNameSelect" name="addPoint">
+    <mat-option *ngFor="let gd of itemNames" [value]="gd.id">
+      {{gd.itemName}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+
+<br>
+
+<mat-form-field class="example-mid-width" >
+  <input matInput placeholder="จำนวน" [(ngModel)]="quantity">
+</mat-form-field>
+
+<br>
+
+<mat-form-field class="example-mid-width" >
+  <input matInput placeholder="เงินรวม" [(ngModel)]="totalPrice">
+</mat-form-field>
+
+<br>
+
+<mat-form-field  class="example-mid-width" >
+  <mat-select placeholder="OrderType" [(ngModel)]="orderTypeSelect" name="addPoint">
+    <mat-option *ngFor="let gd of orderTypes" [value]="gd.id">
+      {{gd.orderTypes}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+<br>
+<button mat-button color="primary"  class="example-mid-width" (click)="insert()" routerLink="/viewcoffeeorders"  >SUBMIT</button>
+
+<!--<br><br>-->
+
+<!--<button mat-button color="primary"  class="example-mid-width" routerLink="home" >CHECK POINT</button>-->
+
+<!--<br><br>-->
+
+<!--<button mat-button color="primary"  class="example-mid-width" routerLink="" >BACK</button>-->
+
+<br><br>
+
+

@@ -1,0 +1,77 @@
+<mat-toolbar class ="top">
+  <mat-toolbar-row>
+    <h1> CoffeeShop Poin</h1>&nbsp;&nbsp;&nbsp;
+    <span class="example-spacer"></span>
+    <a mat-stroked-button [routerLink]="['/homestaff']"><i class="material-icons">
+      home
+    </i></a>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<h1 class="aa">ADD POINT</h1>
+
+<br>
+
+<mat-form-field  class="example-mid-width">
+  <input matInput [matDatepicker]="picker" placeholder="วันที่เพิ่มเเต้ม" [(ngModel)]="date">
+  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+</mat-form-field>
+
+<br>
+
+<mat-form-field class="example-mid-width" >
+  <input matInput placeholder="อื่นๆ" [(ngModel)]="other">
+</mat-form-field>
+
+
+<br>
+
+<mat-form-field  class="example-mid-width" >
+  <mat-select placeholder="จำนวนเเต้ม" [(ngModel)]="addPointSelect" name="addPoint">
+    <mat-option *ngFor="let gd of addPoints" [value]="gd.id">
+      {{gd.addPoint}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+
+<br>
+
+<mat-form-field  class="example-mid-width">
+  <mat-select placeholder="ชื่อพนักงาน" [(ngModel)]="nameStaffSelect" name="nameStaffs">
+    <mat-option *ngFor="let gd of nameStaffs" [value]="gd.id">
+      {{gd.staffName}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+<br>
+
+<!-- <mat-form-field  class="example-mid-width">
+  <mat-select placeholder="ชื่อลูกค้า" [(ngModel)]="nameMSelect" name="nameCustomers">
+    <mat-option *ngFor="let gd of nameCustomers" [value]="gd.id">
+      {{gd.nameM}}
+    </mat-option>
+  </mat-select>
+</mat-form-field> -->
+
+
+      <mat-form-field class="example-mid-width">
+  <mat-select [(ngModel)]="userSelect" [ngModelOptions]="{standalone: true}" placeholder="เลือกชื่อลูกค้า"
+              panelClass="example-panel">
+    <mat-option value={{user.meid}} *ngFor="let user of users">{{user.nameM}} </mat-option>
+  </mat-select>
+</mat-form-field>
+
+<br>
+<button mat-button color="primary"  class="example-mid-width" (click)="insert()" >SUBMIT</button> <br>
+
+
+
+
+<!-- <button mat-button color="primary"  class="example-mid-width" (click)="insert()" routerLink="/viewcoffeeorders"  >SUBMIT</button> -->
+
+<br><br>
+
+

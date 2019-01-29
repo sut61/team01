@@ -2,7 +2,7 @@
   height:700px;
   text-align:center;
   color:black;
-  background-color: peru;
+  background-color: #cdc39a;
 
 }
 .name {
@@ -21,4 +21,9 @@
 }
 .example-spacer {
   flex: 1 1 auto;
+}
+.top{
+  color: aliceblue;
+  font-size: 250%;
+  background-color: rgb(0, 0, 0);
 }

@@ -45,7 +45,7 @@ public class CoffeeDeliveryController {
 
     @PostMapping("/CoffeeDelivery/{serviceType}/{member}/{manu}/{menuName}/{priece}/{lat}/{lng}")
     public CoffeeDelivery newPostCoffee(@PathVariable Long serviceType, @PathVariable Long member,
-                                         @PathVariable int manu,@PathVariable int priece, @PathVariable Double lat,
+                                        @PathVariable int manu,@PathVariable int priece, @PathVariable Double lat,
                                         @PathVariable Double lng,@PathVariable String menuName){
 
         CoffeeDelivery newPostCoffee = new CoffeeDelivery();
@@ -53,10 +53,10 @@ public class CoffeeDeliveryController {
         serviceType1 = serviceTypeRepository.findByServiceTypeId(serviceType);
 
         Member member1 = new Member();
-        member1 = memberRepository.findByMemberId(member);
+        member1 = memberRepository.findByMeid(member);
 
         Manu manu1 = new Manu();
-        manu1 = manuRepository.findBymanuid(manu);
+        manu1 = manuRepository.findByManuid(manu);
 
         newPostCoffee.setLatitude(lat);
         newPostCoffee.setLongitude(lng);

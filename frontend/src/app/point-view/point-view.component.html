@@ -1,0 +1,55 @@
+<mat-card>
+  <br>
+  <h2>ประวัติการบันทึก Point Service</h2>
+  <table >
+    <tr>
+      <th>ID</th>
+      <th>Other</th>
+      <th>Date</th>
+      <th>Name Customer</th>
+      <th>Name Staff</th>
+      <th>Add Point</th>
+      <!--<th>Sender Location</th>-->
+      <!--<th>Receiver Name</th>-->
+      <!--<th>Receiver Phone</th>-->
+      <!--<th>Receiver Address</th>-->
+      <!--<th>Note</th>-->
+    </tr>
+  
+  
+    <!--@ManyToOne(fetch = FetchType.EAGER)-->
+    <!--private Addpoint addpoint;-->
+  
+    <!--@ManyToOne(fetch = FetchType.EAGER)-->
+    <!--private Billxy billxy;-->
+  
+    <!--@ManyToOne(fetch = FetchType.EAGER,targetEntity = Memberxy.class)-->
+    <!--private Memberxy memberxy;-->
+  
+    <!--@ManyToOne(fetch = FetchType.EAGER)-->
+    <!--private Staffxy staffxy;-->
+    <!---->
+    <tr *ngFor="let point of points">
+      <td>{{point.id}}</td>
+      <td>{{point.other}}</td>
+      <td>{{point.date}}</td>
+      <td>{{point.member.nameM}}</td>
+      <td>{{point.staff.staffName}}</td>
+      <td>{{point.addpoint.addPoint}}</td>
+  
+      <!--<td>{{point.paidCustomer.phone}}</td>-->
+      <!--<td>{{point.paidCustomer.address}}</td>-->
+      <!--<td>{{point.receiverName}}</td>-->
+      <!--<td>{{point.receiverPhone}}</td>-->
+      <!--<td>{{point.receiverAddress}}</td>-->
+      <!--<td>{{point.note}}</td>-->
+    </tr>
+  </table>
+  <br>
+  <button mat-button [routerLink]="['/point']" matTooltip="back"
+          aria-label="Button that displays a tooltip when focused or hovered over"><i class="material-icons">
+    fast_rewind
+  </i>
+  </button>
+  </mat-card>
+

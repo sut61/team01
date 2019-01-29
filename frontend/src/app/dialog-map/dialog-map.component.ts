@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ServiceService} from '../Service/showMenu/service.service';
+import {ServiceService} from '../Service/service.service';
 
 @Component({
   selector: 'app-dialog-map',

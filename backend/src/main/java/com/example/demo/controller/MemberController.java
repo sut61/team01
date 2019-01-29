@@ -11,6 +11,7 @@ import com.example.demo.repository.*;
 import java.io.IOException;
 import java.net.URLDecoder;
 import  java.util.Collection;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @RestController
@@ -53,5 +54,25 @@ class MemberController {
 
 
     }
+    @GetMapping("/member/{user}/{password}")
+    public boolean customer1(@PathVariable String user, @PathVariable String password) {
+        Member user1 = memberRepository.findByUser(user);
+        String p = user1.getPassword();
+        System.out.println(user);
+        System.out.println(p + " = " + password);
+        return p.matches(password);
+    }
+
+//    @GetMapping("/member/{meid}")
+//    public void customer(@PathVariable Long meid) {
+//        return memberRepository.findByMeid().stream().collect(Collectors.toList());
+//
+//    }
+
+//    @GetMapping("/member/getdata/{meid}")
+//    public Optional<Member> Record(@PathVariable Long meid) {
+//        Optional<Member> V = memberRepository.findById(meid);
+//        return V;
+//    }
 
 }

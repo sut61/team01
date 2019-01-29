@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {MemberService} from '../service/member.service';
 import {Router} from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import {ServiceService} from "../service/service.service";
 
 @Component({
   selector: 'app-member',
@@ -23,10 +24,12 @@ export class MemberComponent implements OnInit {
   nametypeSelect: number = 0;
   genderSelect:number = 0;
   provinceSelect: number = 0;
+  number=0;
 
-  constructor(private memberService: MemberService,
-              private httpClient: HttpClient,
-              private router: Router ) { }
+  constructor(public memberService: MemberService,
+              public httpClient: HttpClient,
+              public router: Router ,
+              public  serviceService: ServiceService) { }
 
   ngOnInit() {
     this.memberService.getNameType().subscribe(data => {
@@ -41,6 +44,7 @@ export class MemberComponent implements OnInit {
       this.namepas = data;
       console.log(this.namepas);
     });
+
 }
   save() {
     if (this.nametypeSelect === 0 || this.addmember.inputName === '' || this.genderSelect === 0  ||
@@ -48,6 +52,10 @@ export class MemberComponent implements OnInit {
     this.addmember.inputPass === '') {
       alert('กรุณากรอกข้อมูลให้ครบถ้วน');
     } else {
+
+
+
+
       this.httpClient.post('http://localhost:8080/member/' + this.nametypeSelect + '/' +
         this.genderSelect + '/' + this.provinceSelect , this.addmember)
         .subscribe(
@@ -60,7 +68,14 @@ export class MemberComponent implements OnInit {
           }
 
         );
+
       alert('บันทึกข้อมูลสำเร็จ');
     }
+  }
+
+  push(){
+
+    this.serviceService.numberMember = this.serviceService.numberMember + this.number ;
+    this.number++;
   }
 }
