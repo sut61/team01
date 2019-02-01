@@ -18,7 +18,7 @@ public class CoffeeDelivery {
     @GeneratedValue(strategy= GenerationType.SEQUENCE, generator="coffeeDelivery_seq")
     @Column(nullable=false)
     @NotNull
-    private  long coffeeDeliveryId;
+    private  Long coffeeDeliveryId;
     private  double latitude;
     private  double longitude;
     @NotNull
