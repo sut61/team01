@@ -3,7 +3,7 @@ package com.example.demo.entity;
 import lombok.*;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.*;
 
 @Entity
 @Getter
@@ -23,9 +23,16 @@ public class Delivery {
     private double longitude;
     @NotNull
     private String name;
-    private int peice;
+    @NotNull
+  //  @Pattern(regexp = "[\\D*]")
+    @Min(value = 25)
+    @Max(value = 200)
+    private int price;
     private String statusName;
+//    @Pattern(regexp = "([^0-9])")
     private String staffName;
+    private String note;
+
 
     @ManyToOne(fetch = FetchType.EAGER)
     private Status status;
@@ -34,7 +41,7 @@ public class Delivery {
     @OneToOne(fetch = FetchType.EAGER)
     private CoffeeDelivery coffeeDelivery;
 
-
+    public void setStaff(Long staff) {}
 
 
 
