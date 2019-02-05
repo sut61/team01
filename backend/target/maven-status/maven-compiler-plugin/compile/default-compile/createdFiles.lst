@@ -20,11 +20,14 @@ com\example\demo\entity\Addpoint.class
 com\example\demo\entity\CoffeeDelivery.class
 com\example\demo\entity\Status.class
 com\example\demo\repository\CoffeeMenuRepository.class
+com\example\demo\controller\StatusControleer.class
+com\example\demo\controller\DeliveryController.class
 com\example\demo\repository\NametypeRepository.class
 com\example\demo\repository\MemberRepository.class
 com\example\demo\controller\ControllrtAll.class
 com\example\demo\entity\Staff.class
 com\example\demo\DemoApplication.class
+com\example\demo\repository\StatusRepository.class
 com\example\demo\entity\Member.class
 com\example\demo\repository\ManuRepository.class
 com\example\demo\controller\GenderController.class
@@ -42,6 +45,7 @@ com\example\demo\repository\StaffRepository.class
 com\example\demo\controller\ManuTypeController.class
 com\example\demo\entity\ServiceType.class
 com\example\demo\entity\Payment.class
+com\example\demo\repository\DeliveryRepository.class
 com\example\demo\repository\BakeryTypeRepository.class
 com\example\demo\entity\Customer.class
 com\example\demo\repository\CustomerRepository.class
