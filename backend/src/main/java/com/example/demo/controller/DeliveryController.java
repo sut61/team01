@@ -41,7 +41,7 @@ public class DeliveryController {
         Staff staff1 = new Staff();
 
         status1 = statusRepository.findBystatusId(status);
-        staff1 = staffRepository.findBystaffId(staff);
+//        staff1 = staffRepository.findById(staff);
 
         delivery.setName(name);
         delivery.setPrice(price);
