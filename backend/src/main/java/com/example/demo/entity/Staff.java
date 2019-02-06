@@ -1,16 +1,12 @@
 package com.example.demo.entity;
 
 import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
 
 @Entity
 @ToString
-@Setter
-@Getter
 @EqualsAndHashCode
 public class Staff{
 
@@ -18,7 +14,7 @@ public class Staff{
     @SequenceGenerator(name = "staff_seq",sequenceName = "staff_seq")
     @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "staff_seq")
 
-    private Long staffId;
+    private Long id;
     private String staffName;
     private String username;
     private String password;
@@ -29,7 +25,13 @@ public class Staff{
         this.staffName = staffName;
     }
 
+    public Long getId() {
+        return id;
+    }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public void setStaffName(String staffName) {
         this.staffName = staffName;
