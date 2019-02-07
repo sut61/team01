@@ -11,7 +11,6 @@ import java.util.stream.Collectors;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
-
 public class ControllrtAll {
     @Autowired
     private AddpointRepository addpointRepository;
@@ -19,23 +18,23 @@ public class ControllrtAll {
     @Autowired  private PointRepository pointRepository;
     @Autowired  private StaffRepository staffRepository;
 
+    //=============   Sprint 2    ==================
+    @Autowired private RewardRepository RewardRepository;
+    @Autowired private TyperewardRepository TyperewardRepository;
+
     //======================================================================================================================
     @GetMapping(path = "/addpoint")
     private Collection<Addpoint> getAddpoint(){
         return this.addpointRepository.findAll().stream().collect(Collectors.toList());
     }
- 
 
     @GetMapping(path = "/point")
     private Collection<Point>getPoint() {
         return this.pointRepository.findAll().stream().collect(Collectors.toList());
     }
-   
     //======================================================================================================================
     @PostMapping(path = "/point/{other}/{date}/{addPoint}/{nameM}/{nameStaff}")
     public Point point(@PathVariable String other, @PathVariable Date date, @PathVariable Long addPoint, @PathVariable Long nameM , @PathVariable Long nameStaff){
-
-
 
         Point point = new Point();
         point.setOther(other);
@@ -52,13 +51,36 @@ public class ControllrtAll {
 
         pointRepository.save(point);
         return point;
-
-
-
     }
 
-//======================================================================================================================
+    //===================================                 Sprint2                   ==================================================
 
+    @PostMapping(path = "/reward/{category}/{nameStaff}/{nameM}/{typeRe}")
+    public Reward reward(@PathVariable String category,@PathVariable Long nameStaff,@PathVariable Long nameM,@PathVariable Long typeRe){
 
+        Reward reward = new Reward();
+        reward.setCategory(category);
+
+        Staff staff1 = staffRepository.findById(nameStaff).get();
+        reward.setStaff(staff1);
+
+        Member member1 = memberRepository.findById(nameM).get();
+        reward.setMember(member1);
+
+        Typereward typereward1 = TyperewardRepository.findById(typeRe).get();
+        reward.setTypereward(typereward1);
+
+        RewardRepository.save(reward);
+        return reward;
+    }
+    //=============================================== GetMap ===============================
+    @GetMapping(path = "/reward")
+    private Collection<Reward> getReward(){
+        return this.RewardRepository.findAll().stream().collect(Collectors.toList());
+    }
+    @GetMapping(path = "/typereward")
+    private Collection<Typereward> getTypereward(){
+        return this.TyperewardRepository.findAll().stream().collect(Collectors.toList());
+    }
 
 }
