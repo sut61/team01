@@ -65,6 +65,7 @@ import {DialogShoppingCarComponent} from "./dialog-shopping-car/dialog-shopping-
 import {DialogMapComponent} from "./dialog-map/dialog-map.component";
 import {CoffeeDeliveryComponent} from "./coffee-delivery/coffee-delivery.component";
 import {FlexLayoutModule} from "@angular/flex-layout";
+import { RewardComponent } from './reward/reward.component';
 
 
 
@@ -87,7 +88,7 @@ const routes: Routes = [
   {path:'point',component:PointComponent},
   {path:'point-view',component:PointViewComponent},
   {path: 'CoffeeDelivery', component: CoffeeDeliveryComponent},
-
+  {path:'reward',component:RewardComponent}
 ];
 
 @NgModule({
@@ -111,6 +112,7 @@ const routes: Routes = [
     CoffeeDeliveryComponent,
     DialogMapComponent,
     DialogShoppingCarComponent,
+    RewardComponent,
 
   ],
   imports: [
