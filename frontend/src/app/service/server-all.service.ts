@@ -32,8 +32,16 @@ export class SearchAllService {
     return this.httpClient.get(this.API+'/staff');
   }
 
-  
 
+  //======================================= Sprint2  ===============================================
+
+  getReward () : Observable<any>{
+    return this.httpClient.get(this.API+'/reward');
+  }
+
+  getRewardType () : Observable<any>{
+    return this.httpClient.get(this.API+'/typereward');
+  }
 
 }
 

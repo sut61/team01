@@ -1,0 +1,112 @@
+
+<h1  class="a">Reward</h1>
+
+<br>
+<mat-form-field  class="example-full-width">
+  <mat-select placeholder="ชื่อพนักงาน" [(ngModel)]="nameStaffSelect" name="nameStaffs">
+    <mat-option *ngFor="let gd of nameStaffs" [value]="gd.id">
+      {{gd.staffName}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+&nbsp;
+<mat-form-field  class="example-full-width">
+  <mat-select placeholder="ประเภทของรางวัล" [(ngModel)]="typeRewardsSelect" name="typeRe">
+    <mat-option *ngFor="let gd of typeRewards" [value]="gd.id">
+      {{gd.typere}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+&nbsp;
+<mat-form-field class="example-full-width">
+  <mat-select [(ngModel)]="userSelect" [ngModelOptions]="{standalone: true}" placeholder="เลือกชื่อลูกค้า"
+              panelClass="example-panel">
+    <mat-option value={{user.meid}} *ngFor="let user of users">{{user.nameM}} </mat-option>
+  </mat-select>
+</mat-form-field>
+&nbsp;
+<!--<mat-form-field class="example-full-width" >-->
+  <!--<input matInput placeholder="ประเภทของรางวัล" [(ngModel)]="category">-->
+<!--</mat-form-field>-->
+<!--<br>-->
+
+
+&nbsp;
+
+
+<body >
+<br>
+
+<div fxLayout="row wrap" fxLayout.xs="column"   fxLayoutWrap fxLayoutGap ="24px" fxLayoutGap.xs="0"
+     fxLayoutAlign="flex-start" fxLayoutAlign.xs="center">
+
+  <mat-card class="example-card">
+    <mat-card-header>
+      <h2>Glass</h2>
+    </mat-card-header>
+    <img mat-card-image src="assets/img/glasses.JPG">
+    <mat-card-content>
+      <p>
+        glass limited edition make from high material
+      </p>
+    </mat-card-content>
+    <button mat-raised-button color="primary" class="botton-position"  (click)="insert1()" [value]="category1" >เเรงของรางวัล</button>
+  </mat-card>
+
+  &nbsp;
+
+  <mat-card class="example-card">
+    <mat-card-header>
+      <h2>Shoes</h2>
+    </mat-card-header>
+    <img mat-card-image src="assets/img/shoot(man).webp">
+    <mat-card-content>
+      <p>
+        normal sale price 500$ have little of items
+      </p>
+    </mat-card-content>
+    <button mat-raised-button color="primary" class="botton-position"  (click)="insert2()" [value]="category2" >เเรงของรางวัล</button>
+  </mat-card>
+
+
+  &nbsp;
+  <mat-card class="example-card">
+    <mat-card-header>
+      <h2>Watch</h2>
+    </mat-card-header>
+    <img mat-card-image src="assets/img/watch(girl).jpg">
+    <mat-card-content>
+      <p>
+        this watch for lady
+      </p>
+    </mat-card-content>
+    <button mat-raised-button color="primary" class="botton-position"  (click)="insert3()" [value]="category3" >เเรงของรางวัล</button>
+  </mat-card>
+
+  &nbsp;
+
+  <mat-card class="example-card">
+    <mat-card-header>
+      <h2>Shirt</h2>
+    </mat-card-header>
+    <img mat-card-image src="assets/img/Shert.jpg">
+    <mat-card-content>
+      <p>
+        Shirt for man smart and keep look model
+      </p>
+    </mat-card-content>
+
+    <button mat-raised-button color="primary" class="botton-position"  (click)="insert4()" [value]="category4" >เเรงของรางวัล</button>
+
+  </mat-card>
+
+
+
+
+</div>
+
+
+</body>
+
+<br><br><br><br><br><br><br><br><br>
+
