@@ -34,8 +34,9 @@ public class DemoApplication {
 						   CustomerRepository customerRepository,
 						   StaffRepository staffRepository,
 						   AddpointRepository addpointRepository,
-						   ServiceTypeRepository serviceTypeRepository
-
+						   ServiceTypeRepository serviceTypeRepository,
+ RewardRepository rewardRepository,
+						   TyperewardRepository typerewardRepository
 
 						   ) {
 		return args -> {
@@ -180,6 +181,15 @@ public class DemoApplication {
 			addpointRepository.save(addpoint4);
 			addpointRepository.save(addpoint5);
 
+			Typereward typereward1 = new Typereward("SuperSpecial");
+			Typereward typereward2 = new Typereward("Special");
+			Typereward typereward3 = new Typereward("Normal");
+			Typereward typereward4 = new Typereward("-");
+			typerewardRepository.save(typereward1);
+			typerewardRepository.save(typereward2);
+			typerewardRepository.save(typereward3);
+			typerewardRepository.save(typereward4);
+
 			Stream.of("Delivery", "Takeaway").forEach(typeName-> {
 
 				{
@@ -188,13 +198,7 @@ public class DemoApplication {
 					serviceTypeRepository.save(serviceType);
 
 				}
-
 			});
-
-
-
-
-
 		};
 	}
 }
