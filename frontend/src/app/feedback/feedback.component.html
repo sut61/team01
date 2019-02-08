@@ -1,0 +1,70 @@
+<mat-toolbar class ="top">
+  <mat-toolbar-row>
+    <h1> Customer Feedback</h1>&nbsp;&nbsp;&nbsp;
+    <span class="example-spacer"></span>
+    <a mat-stroked-button [routerLink]="['/homestaff']"><i class="material-icons">
+      home
+    </i></a>
+  </mat-toolbar-row>
+</mat-toolbar>
+<h1 class="aa">Feedback</h1>
+
+<br>
+
+
+<mat-form-field  class="example-mid-width" >
+  <mat-select placeholder="รสชาติ" [(ngModel)]="tasteSelect" name="feedback">
+    <mat-option *ngFor="let gd of taste" [value]="gd.id">
+      {{gd.taste}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+
+<br>
+
+
+
+<mat-form-field  class="example-mid-width" >
+  <mat-select placeholder="การบริการของพนักงาน" [(ngModel)]="serviceSelect" name="feedback">
+    <mat-option *ngFor="let gd of service" [value]="gd.id">
+      {{gd.service}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+<br>
+
+<mat-form-field  class="example-mid-width" >
+  <mat-select placeholder="บรรยากาศภายในร้าน" [(ngModel)]="vibeSelect" name="feedback">
+    <mat-option *ngFor="let gd of vibe" [value]="gd.id">
+      {{gd.vibe}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+<br>
+
+<mat-form-field  class="example-mid-width" >
+  <mat-select placeholder="ราคาของสินค้า" [(ngModel)]="priceSelect" name="feedback">
+    <mat-option *ngFor="let gd of price" [value]="gd.id">
+      {{gd.price}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+<br>
+
+<mat-form-field class="example-mid-width" >
+  <input matInput placeholder="ความคิดเห็นเพิ่มเติม" [(ngModel)]="comment">
+</mat-form-field>
+
+<br>
+
+
+<button mat-button color="primary"  class="example-mid-width" (click)="insert()" routerLink="/viewcoffeeorders"  >SUBMIT</button>
+
+
+<br><br>
+
+

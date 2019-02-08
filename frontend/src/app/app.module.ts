@@ -66,7 +66,9 @@ import {DialogMapComponent} from "./dialog-map/dialog-map.component";
 import {CoffeeDeliveryComponent} from "./coffee-delivery/coffee-delivery.component";
 import {FlexLayoutModule} from "@angular/flex-layout";
 import { RewardComponent } from './reward/reward.component';
-
+import { FeedbackComponent } from './feedback/feedback.component';
+import { ViewfeedbackComponent } from './viewfeedback/viewfeedback.component';
+import { Allservice2Service } from './service/allservice2.service';
 
 
 
@@ -88,7 +90,9 @@ const routes: Routes = [
   {path:'point',component:PointComponent},
   {path:'point-view',component:PointViewComponent},
   {path: 'CoffeeDelivery', component: CoffeeDeliveryComponent},
-  {path:'reward',component:RewardComponent}
+  {path:'reward',component:RewardComponent},
+  {path: 'feedback', component: FeedbackComponent},
+  {path: 'viewfeedback', component: ViewfeedbackComponent}
 ];
 
 @NgModule({
@@ -113,6 +117,8 @@ const routes: Routes = [
     DialogMapComponent,
     DialogShoppingCarComponent,
     RewardComponent,
+    FeedbackComponent,
+    ViewfeedbackComponent,
 
   ],
   imports: [
@@ -166,7 +172,7 @@ const routes: Routes = [
     DialogMapComponent,
     DialogShoppingCarComponent
   ],
-  providers: [ManuService],
+  providers: [ManuService, Allservice2Service],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
