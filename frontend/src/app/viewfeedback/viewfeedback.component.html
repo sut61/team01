@@ -1,0 +1,27 @@
+<mat-card >
+
+  <h2>ประวัติการ Feedback ของลูกค้า</h2>
+  <table  >
+    <tr>
+      <th>รสชาติ</th>
+      <th>การให้บริการของพนักงาน</th>
+      <th>บรรยากาศภายในร้าน</th>
+      <th>ราคาของสินค้า</th>
+      <th>ความคิดเห็นของลูกค้า</th>
+    </tr>
+    <tr *ngFor="let feedback of feedback">
+      <td>{{feedback.taste.taste}}</td>
+      <td>{{feedback.service.service}}</td>
+      <td>{{feedback.vibe.vibe}}</td>
+      <td>{{feedback.price.price}}</td>
+      <td>{{feedback.comment}}</td>
+    </tr>
+  </table>
+
+
+
+  <h2><div class="example-button-row" style="text-align:center">
+    <button mat-raised-button color="warn" [routerLink]="['/home']">Exit</button>
+  </div></h2>
+</mat-card>
+
