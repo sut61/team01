@@ -36,7 +36,12 @@ public class DemoApplication {
 						   AddpointRepository addpointRepository,
 						   ServiceTypeRepository serviceTypeRepository,
  RewardRepository rewardRepository,
-						   TyperewardRepository typerewardRepository
+						   TyperewardRepository typerewardRepository,
+						   VibeRepository vibeRepository,
+						   TasteRepository tasteRepository,
+						   ServiceRepository serviceRepository,
+						   FeedbackRepository feedbackRepository,
+						   PriceRepository priceRepository
 
 						   ) {
 		return args -> {
@@ -119,6 +124,52 @@ public class DemoApplication {
 
 //===========================================Pek===============================================
 
+//===========================================Vibe===============================================
+Vibe vibe1 = new Vibe("1");
+Vibe vibe2 = new Vibe("2");
+Vibe vibe3 = new Vibe("3");
+Vibe vibe4 = new Vibe("4");
+Vibe vibe5 = new Vibe("5");
+vibeRepository.save(vibe1);
+vibeRepository.save(vibe2);
+vibeRepository.save(vibe3);
+vibeRepository.save(vibe4);
+vibeRepository.save(vibe5);
+//=========================================== Service ===============================================
+Service service1 = new Service("1");
+Service service2 = new Service("2");
+Service service3 = new Service("3");
+Service service4 = new Service("4");
+Service service5 = new Service("5");
+serviceRepository.save(service1);
+serviceRepository.save(service2);
+serviceRepository.save(service3);
+serviceRepository.save(service4);
+serviceRepository.save(service5);
+//=========================================== Taste ===============================================
+Taste taste1 = new Taste("1");
+Taste taste2 = new Taste("2");
+Taste taste3 = new Taste("3");
+Taste taste4 = new Taste("4");
+Taste taste5 = new Taste("5");
+tasteRepository.save(taste1);
+tasteRepository.save(taste2);
+tasteRepository.save(taste3);
+tasteRepository.save(taste4);
+tasteRepository.save(taste5);
+//=========================================== Price ===============================================
+Price price1 = new Price("1");
+Price price2 = new Price("2");
+Price price3 = new Price("3");
+Price price4 = new Price("4");
+Price price5 = new Price("5");
+priceRepository.save(price1);
+priceRepository.save(price2);
+priceRepository.save(price3);
+priceRepository.save(price4);
+priceRepository.save(price5);
+
+//===========================================Pek===============================================
 			Staff staff1 = new Staff("Nuntawut Hahara");
 			Staff staff2 = new Staff(":onado Kolamthong");
 			Staff staff3 = new Staff("Mahanaree Mehrokaw");
