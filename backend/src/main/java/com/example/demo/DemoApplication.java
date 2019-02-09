@@ -46,7 +46,9 @@ public class DemoApplication {
 						   ProductRepository productRepository,
 						   AmountRepository amountRepository,
 						   UnitRepository unitRepository,
-						   CredittypeRepository credittypeRepository
+						   CredittypeRepository credittypeRepository,
+						   TypeDeleteRepository typeDeleteRepository
+
 
 	) {
 		return args -> {
@@ -171,6 +173,13 @@ public class DemoApplication {
 			member.setUser("1np");
 			member.setPassword("12345");
 			memberRepository.save(member);
+
+			TypeDelete typeDelete1 = new TypeDelete();
+			TypeDelete typeDelete2 = new TypeDelete();
+			typeDelete1.setTyptD("STAFF");
+			typeDelete2.setTyptD("MEMBER");
+			typeDeleteRepository.save(typeDelete1);
+			typeDeleteRepository.save(typeDelete2);
 
 //===========================================Prang===============================================
 			Stream.of("VISA","Master Card","JCB","UnionPay","AmericanExpress").forEach(typename ->{
