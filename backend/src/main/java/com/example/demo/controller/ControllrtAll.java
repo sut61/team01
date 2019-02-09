@@ -55,11 +55,12 @@ public class ControllrtAll {
 
     //===================================                 Sprint2                   ==================================================
 
-    @PostMapping(path = "/reward/{category}/{nameStaff}/{nameM}/{typeRe}")
-    public Reward reward(@PathVariable String category,@PathVariable Long nameStaff,@PathVariable Long nameM,@PathVariable Long typeRe){
+    @PostMapping(path = "/reward/{category}/{nameStaff}/{nameM}/{typeRe}/{amount}")
+    public Reward reward(@PathVariable String category,@PathVariable Long nameStaff,@PathVariable Long nameM,@PathVariable Long typeRe,@PathVariable int amount){
 
         Reward reward = new Reward();
         reward.setCategory(category);
+        reward.setAmount(amount);
 
         Staff staff1 = staffRepository.findById(nameStaff).get();
         reward.setStaff(staff1);
