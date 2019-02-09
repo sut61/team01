@@ -35,15 +35,20 @@ public class DemoApplication {
 						   StaffRepository staffRepository,
 						   AddpointRepository addpointRepository,
 						   ServiceTypeRepository serviceTypeRepository,
- RewardRepository rewardRepository,
+						   RewardRepository rewardRepository,
 						   TyperewardRepository typerewardRepository,
 						   VibeRepository vibeRepository,
 						   TasteRepository tasteRepository,
 						   ServiceRepository serviceRepository,
 						   FeedbackRepository feedbackRepository,
-						   PriceRepository priceRepository
+						   PriceRepository priceRepository,
+						   StockRepository stockRepository,
+						   ProductRepository productRepository,
+						   AmountRepository amountRepository,
+						   UnitRepository unitRepository,
+						   CredittypeRepository credittypeRepository
 
-						   ) {
+	) {
 		return args -> {
 
 			Stream.of("-","ร้อน","เย็น","ปั่น").forEach(coffee ->{
@@ -88,6 +93,51 @@ public class DemoApplication {
 			manu3.setCoffeetype(coffeetypeRepository.getOne(2L));
 			manu3.setBakerytype(bakerytypeRepository.getOne(1L));
 			manuRepository.save(manu3);
+			Product product1 = new Product();
+			Product product2 = new Product();
+			Product product3 = new Product();
+			Product product4 = new Product();
+			Product product5 = new Product();
+			Product product6 = new Product();
+			Product product7 = new Product();
+			product1.setProduct("ครีมเทียม");
+			product2.setProduct("ชา");
+			product3.setProduct("ชุดแก้วกาแฟ");
+			product4.setProduct("นมข้น");
+			product5.setProduct("น้ำเชื่อม");
+			product6.setProduct("เม็ดกาแฟ");
+			product7.setProduct("หลอด");
+			productRepository.save(product1);
+			productRepository.save(product2);
+			productRepository.save(product3);
+			productRepository.save(product4);
+			productRepository.save(product5);
+			productRepository.save(product6);
+			productRepository.save(product7);
+
+			Amount amount1 = new Amount();
+			Amount amount2 = new Amount();
+			Amount amount3 = new Amount();
+			Amount amount4 = new Amount();
+			Amount amount5 = new Amount();
+			amount1.setAmount(1);
+			amount2.setAmount(2);
+			amount3.setAmount(3);
+			amount4.setAmount(4);
+			amount5.setAmount(5);
+			amountRepository.save(amount1);
+			amountRepository.save(amount2);
+			amountRepository.save(amount3);
+			amountRepository.save(amount4);
+			amountRepository.save(amount5);
+
+			Unit unit1 = new Unit();
+			Unit unit2 = new Unit();
+			unit1.setUnit("ลัง");
+			unit2.setUnit("แพ็ค");
+			unitRepository.save(unit1);
+			unitRepository.save(unit2);
+
 //===========================================fon===============================================
 			Stream.of("นาย","นาง","นางสาว","อื่นๆ").forEach(typename ->{
 				Nametype nametype = new Nametype();
@@ -122,52 +172,57 @@ public class DemoApplication {
 			member.setPassword("12345");
 			memberRepository.save(member);
 
-//===========================================Pek===============================================
+//===========================================Prang===============================================
+			Stream.of("VISA","Master Card","JCB","UnionPay","AmericanExpress").forEach(typename ->{
+				Credittype credittype = new Credittype();
+				credittype.setTypename(typename);
+				credittypeRepository.save(credittype);
+			});
 
 //===========================================Vibe===============================================
-Vibe vibe1 = new Vibe("1");
-Vibe vibe2 = new Vibe("2");
-Vibe vibe3 = new Vibe("3");
-Vibe vibe4 = new Vibe("4");
-Vibe vibe5 = new Vibe("5");
-vibeRepository.save(vibe1);
-vibeRepository.save(vibe2);
-vibeRepository.save(vibe3);
-vibeRepository.save(vibe4);
-vibeRepository.save(vibe5);
+			Vibe vibe1 = new Vibe("1");
+			Vibe vibe2 = new Vibe("2");
+			Vibe vibe3 = new Vibe("3");
+			Vibe vibe4 = new Vibe("4");
+			Vibe vibe5 = new Vibe("5");
+			vibeRepository.save(vibe1);
+			vibeRepository.save(vibe2);
+			vibeRepository.save(vibe3);
+			vibeRepository.save(vibe4);
+			vibeRepository.save(vibe5);
 //=========================================== Service ===============================================
-Service service1 = new Service("1");
-Service service2 = new Service("2");
-Service service3 = new Service("3");
-Service service4 = new Service("4");
-Service service5 = new Service("5");
-serviceRepository.save(service1);
-serviceRepository.save(service2);
-serviceRepository.save(service3);
-serviceRepository.save(service4);
-serviceRepository.save(service5);
+			Service service1 = new Service("1");
+			Service service2 = new Service("2");
+			Service service3 = new Service("3");
+			Service service4 = new Service("4");
+			Service service5 = new Service("5");
+			serviceRepository.save(service1);
+			serviceRepository.save(service2);
+			serviceRepository.save(service3);
+			serviceRepository.save(service4);
+			serviceRepository.save(service5);
 //=========================================== Taste ===============================================
-Taste taste1 = new Taste("1");
-Taste taste2 = new Taste("2");
-Taste taste3 = new Taste("3");
-Taste taste4 = new Taste("4");
-Taste taste5 = new Taste("5");
-tasteRepository.save(taste1);
-tasteRepository.save(taste2);
-tasteRepository.save(taste3);
-tasteRepository.save(taste4);
-tasteRepository.save(taste5);
+			Taste taste1 = new Taste("1");
+			Taste taste2 = new Taste("2");
+			Taste taste3 = new Taste("3");
+			Taste taste4 = new Taste("4");
+			Taste taste5 = new Taste("5");
+			tasteRepository.save(taste1);
+			tasteRepository.save(taste2);
+			tasteRepository.save(taste3);
+			tasteRepository.save(taste4);
+			tasteRepository.save(taste5);
 //=========================================== Price ===============================================
-Price price1 = new Price("1");
-Price price2 = new Price("2");
-Price price3 = new Price("3");
-Price price4 = new Price("4");
-Price price5 = new Price("5");
-priceRepository.save(price1);
-priceRepository.save(price2);
-priceRepository.save(price3);
-priceRepository.save(price4);
-priceRepository.save(price5);
+			Price price1 = new Price("1");
+			Price price2 = new Price("2");
+			Price price3 = new Price("3");
+			Price price4 = new Price("4");
+			Price price5 = new Price("5");
+			priceRepository.save(price1);
+			priceRepository.save(price2);
+			priceRepository.save(price3);
+			priceRepository.save(price4);
+			priceRepository.save(price5);
 
 //===========================================Pek===============================================
 			Staff staff1 = new Staff("Nuntawut Hahara");
@@ -219,7 +274,7 @@ priceRepository.save(price5);
 			OrderType orderType2 = new OrderType("Take-Away");
 			orderTypeRepository.save(orderType1);
 			orderTypeRepository.save(orderType2);
-			
+
 
 			Addpoint addpoint1 = new Addpoint("1");
 			Addpoint addpoint2 = new Addpoint("2");

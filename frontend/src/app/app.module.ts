@@ -69,7 +69,8 @@ import { RewardComponent } from './reward/reward.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { ViewfeedbackComponent } from './viewfeedback/viewfeedback.component';
 import { Allservice2Service } from './service/allservice2.service';
-
+import { StockComponent } from './stock/stock.component';
+import { CreditpaymentComponent } from './creditpayment/creditpayment.component';
 
 
 const routes: Routes = [
@@ -92,7 +93,10 @@ const routes: Routes = [
   {path: 'CoffeeDelivery', component: CoffeeDeliveryComponent},
   {path:'reward',component:RewardComponent},
   {path: 'feedback', component: FeedbackComponent},
-  {path: 'viewfeedback', component: ViewfeedbackComponent}
+  {path: 'viewfeedback', component: ViewfeedbackComponent},
+  {path: 'stock', component: StockComponent},
+  {path: 'creditcardpayment', component: CreditpaymentComponent}
+
 ];
 
 @NgModule({
@@ -119,6 +123,8 @@ const routes: Routes = [
     RewardComponent,
     FeedbackComponent,
     ViewfeedbackComponent,
+    StockComponent,
+    CreditpaymentComponent,
 
   ],
   imports: [
