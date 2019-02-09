@@ -3,6 +3,7 @@
   <h2>ประวัติการ Feedback ของลูกค้า</h2>
   <table  >
     <tr>
+      <th>เลขที่ order</th>
       <th>รสชาติ</th>
       <th>การให้บริการของพนักงาน</th>
       <th>บรรยากาศภายในร้าน</th>
@@ -10,6 +11,7 @@
       <th>ความคิดเห็นของลูกค้า</th>
     </tr>
     <tr *ngFor="let feedback of feedback">
+      <td>{{feedback.oid}}</td>
       <td>{{feedback.taste.taste}}</td>
       <td>{{feedback.service.service}}</td>
       <td>{{feedback.vibe.vibe}}</td>

@@ -21,6 +21,8 @@ export class FeedbackComponent implements OnInit {
 
   comment: string;
 
+  oid: string;
+
   service: Array<any>;
   serviceSelect: '';
 
@@ -62,7 +64,7 @@ export class FeedbackComponent implements OnInit {
   }
 
   insert(){
-    this.httpClient.post('http://localhost:8080/feedback/' + this.tasteSelect + '/' + this.serviceSelect + '/' + this.vibeSelect + '/' + this.priceSelect + '/' + this.comment , {})
+    this.httpClient.post('http://localhost:8080/feedback/' + this.tasteSelect + '/' + this.serviceSelect + '/' + this.vibeSelect + '/' + this.priceSelect + '/' + this.comment+ '/' + this.oid , {})
     .subscribe()
     alert("ขอบคุณสำหรับ feedback");
     this.router.navigate(['/viewfeedback']);

@@ -15,6 +15,7 @@ public class Feedback {
 
     private Long feedbackid;
     private String comment;
+    private String oid;
 
 
     @ManyToOne(fetch = FetchType.EAGER)
@@ -31,12 +32,13 @@ public class Feedback {
 
     public Feedback(){}
 
-    public Feedback(Taste taste,Service service,Vibe vibe,Price price,String comment){
+    public Feedback(Taste taste,Service service,Vibe vibe,Price price,String comment,String oid){
         this.taste = taste;
         this.service = service;
         this.vibe = vibe;
         this.price = price;
         this.comment = comment;
+        this.oid = oid;
     }
 
     public void setFeedbackid(Long feedbackid) {
@@ -87,6 +89,14 @@ public class Feedback {
 
     public String getComment() {
         return comment;
+    }
+
+    public void setOid(String oid) {
+        this.oid = oid;
+    }
+
+    public String getOid() {
+        return oid;
     }
 
 }
