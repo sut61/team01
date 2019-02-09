@@ -62,6 +62,13 @@ class MemberController {
         System.out.println(p + " = " + password);
         return p.matches(password);
     }
+    //===================================                 Sprint2                   ==================================================
+    
+    @DeleteMapping("/member/{memberId}")
+    public void deleteMember(@PathVariable Long memberId)
+    {
+        memberRepository.deleteById(memberId);
+    }
 
 //    @GetMapping("/member/{meid}")
 //    public void customer(@PathVariable Long meid) {
