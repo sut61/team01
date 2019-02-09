@@ -5,11 +5,14 @@ import lombok.NonNull;
 import lombok.ToString;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.Date;
 
 @Entity
 @ToString
 @EqualsAndHashCode
+
 public class Point {
     @Id
     @SequenceGenerator(name = "point_seq",sequenceName = "point_seq")
@@ -17,14 +20,15 @@ public class Point {
 
     private @NonNull
     Long id;
-    private String other;
+    private @Size(max = 50,min = 2)  String other;
 
 //    @ManyToOne(fetch = FetchType.EAGER, targetEntity = MessengerArea.class)
 //    @JoinColumn(name = "AREA_ID", insertable = true)
 //    private MessengerArea paidArea;
 
     @Temporal(TemporalType.DATE)
-    private @io.micrometer.core.lang.NonNull
+    // private @io.micrometer.core.lang.NonNull
+    @NotNull
     Date date;
 
     @ManyToOne(fetch = FetchType.EAGER)
