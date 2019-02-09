@@ -1,0 +1,42 @@
+<mat-toolbar class ="top">
+  <mat-toolbar-row>
+    <h1> CoffeeShop CancelMember</h1>&nbsp;&nbsp;&nbsp;
+    <span class="example-spacer"></span>
+    <a mat-stroked-button [routerLink]="['/homestaff']"><i class="material-icons">
+      home
+    </i></a>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<h1 class="aa">CANCEL MEMBER</h1>
+    <br>
+
+<mat-form-field  class="example-mid-width">
+  <mat-select placeholder="ชื่อพนักงาน" [(ngModel)]="nameStaffSelect" name="nameStaffs">
+    <mat-option *ngFor="let gd of nameStaffs" [value]="gd.id">
+      {{gd.staffName}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+<br>
+    
+<mat-form-field class="example-mid-width">
+  <mat-select [(ngModel)]="typeSelect" [ngModelOptions]="{standalone: true}" placeholder="เลือกประเภทที่ลบ"
+              panelClass="example-panel">
+    <mat-option value={{type.typedeleteid}} *ngFor="let type of type">{{type.typtD}} </mat-option>
+  </mat-select>
+</mat-form-field>
+<br>
+<!--     
+<mat-form-field class="example-mid-width" >
+  <input matInput placeholder="อื่นๆ" [(ngModel)]="note">
+</mat-form-field> -->
+
+<br>
+<button mat-button color="primary"  class="example-mid-width" (click)="insert()" >SUBMIT</button> <br>
+
+<br><br>
+
+
+
