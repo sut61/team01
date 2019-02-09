@@ -1,4 +1,15 @@
 
+
+<mat-toolbar class ="top">
+  <mat-toolbar-row>
+    <h1> CoffeeShop Poin</h1>&nbsp;&nbsp;&nbsp;
+    <span class="example-spacer"></span>
+    <a mat-stroked-button [routerLink]="['/homestaff']"><i class="material-icons">
+      home
+    </i></a>
+  </mat-toolbar-row>
+</mat-toolbar>
+
 <h1  class="a">Reward</h1>
 
 <br>
@@ -50,7 +61,7 @@
         glass limited edition make from high material
       </p>
     </mat-card-content>
-    <button mat-raised-button color="primary" class="botton-position"  (click)="insert1()" [value]="category1" >เเรงของรางวัล</button>
+    <button mat-raised-button color="primary" class="botton-position"  (click)="insert1()" [value]="category1"[value]="amount" >เเลกของรางวัล</button>
   </mat-card>
 
   &nbsp;
@@ -65,7 +76,7 @@
         normal sale price 500$ have little of items
       </p>
     </mat-card-content>
-    <button mat-raised-button color="primary" class="botton-position"  (click)="insert2()" [value]="category2" >เเรงของรางวัล</button>
+    <button mat-raised-button color="primary" class="botton-position"  (click)="insert2()" [value]="category2"[value]="amount"  >เเลกของรางวัล</button>
   </mat-card>
 
 
@@ -80,7 +91,7 @@
         this watch for lady
       </p>
     </mat-card-content>
-    <button mat-raised-button color="primary" class="botton-position"  (click)="insert3()" [value]="category3" >เเรงของรางวัล</button>
+    <button mat-raised-button color="primary" class="botton-position"  (click)="insert3()" [value]="category3" [value]="amount" >เเลกของรางวัล</button>
   </mat-card>
 
   &nbsp;
@@ -96,7 +107,7 @@
       </p>
     </mat-card-content>
 
-    <button mat-raised-button color="primary" class="botton-position"  (click)="insert4()" [value]="category4" >เเรงของรางวัล</button>
+    <button mat-raised-button color="primary" class="botton-position"  (click)="insert4()" [value]="category4" [value]="amount" >เเลกของรางวัล</button>
 
   </mat-card>
 
