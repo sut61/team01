@@ -1,0 +1,22 @@
+.top{
+  color: aliceblue;
+  font-size: 250%;
+  background-color: rgb(0, 0, 0);
+}
+.example-spacer {
+  flex: 1 1 auto;
+}
+mat-form-field{
+  flex: 1 1 auto;
+}
+.s1{
+  margin-top: 3%;
+  margin-left: 3%;
+}
+button{
+  color: peru;
+}
+.total {
+  margin-left: 80%
+}
+
