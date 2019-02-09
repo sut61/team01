@@ -23,7 +23,10 @@ export class RecordService {
   getStaff(): Observable<any> {
     return this.http.get(this.API + '/staff');
   }
-  getCustomer(): Observable<any> {
-    return this.http.get(this.API + '/customer');
+  getCredittype(): Observable<any> {
+    return this.http.get(this.API + '/credittype');
+  }
+  getCreditcardpayment(): Observable<any> {
+    return this.http.get(this.API + '/creditcardpayment');
   }
 }
