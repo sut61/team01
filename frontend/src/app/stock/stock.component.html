@@ -1,0 +1,84 @@
+<mat-toolbar class ="top">
+  <mat-toolbar-row>
+    <h1> CoffeeShop Stockสินค้า</h1>
+    <span class="example-spacer"></span>
+    <a mat-stroked-button [routerLink]="['/homestaff']"><i class="material-icons">
+      home
+    </i></a>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<div class = "s1">
+  <form>
+    <mat-form-field>
+      <mat-select placeholder="ชื่อสินค้า" [(ngModel)]="productSelect" name="id">
+        <mat-option *ngFor="let product of products" [value]="product.productid">
+          {{product.product}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    &nbsp;&nbsp;
+    <mat-form-field>
+      <mat-select placeholder="จำนวน" [(ngModel)]="amountSelect" name="id">
+        <mat-option *ngFor="let amount of amounts" [value]="amount.amountid">
+          {{amount.amount}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    &nbsp;&nbsp;
+    <mat-form-field>
+      <mat-select placeholder="หน่วย" [(ngModel)]="unitSelect" name="id">
+        <mat-option *ngFor="let unit of units" [value]="unit.unitid">
+          {{unit.unit}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    &nbsp;&nbsp;
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="ราคา/ชิ้น : บาท" [(ngModel)]="priceperitem"
+             type = "number" [ngModelOptions]="{standalone: true}">
+    </mat-form-field>
+    &nbsp;&nbsp;
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="ราคารวม : บาท" [(ngModel)]="totalprice"
+             type = "number" [ngModelOptions]="{standalone: true}">
+    </mat-form-field>
+    &nbsp;&nbsp;
+    <mat-form-field>
+      <input matInput [matDatepicker]="picker" placeholder="วันที่เช็ค" [(ngModel)]="date" [ngModelOptions]="{standalone: true}">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <br>
+    <div style="text-align:center">
+      <br>
+      <button mat-raised-button (click) = "insert()">ยืนยัน</button> &nbsp;&nbsp;
+      <button mat-raised-button  type="Reset" name="reset" value="Reset">ยกเลิก</button>  <br><br>
+
+      <br>  <br>
+      <table >
+        <tr>
+          <th scope="col">ID</th> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <th scope="col">NameProduct</th> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <th scope="col">Amount</th> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <th scope="col">Unit</th> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <th scope="col">Price/Item</th> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <th scope="col">ToTalPrice</th> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <th scope="col">Date</th>
+        </tr>
+        <br>
+        <tr *ngFor="let stock of stocks">
+          <th scope="row">{{ stock.stockid }}</th> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <td>{{ stock.product.product }}</td> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <td>{{ stock.amount.amount }}</td> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <td>{{ stock.unit.unit }}</td> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <td>{{ stock.priceperitem}}</td> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <td>{{ stock.totalprice }}</td> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <td>{{ stock.date }}</td>
+        </tr>
+      </table>
+
+
+    </div>
+  </form>
+</div>
