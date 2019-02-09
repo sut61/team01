@@ -29,10 +29,10 @@ public class Stock {
     @ManyToOne(fetch = FetchType.EAGER)
     private Product product;
 
-    @OneToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER)
     private Amount amount;
 
-    @OneToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER)
     private Unit unit;
 
     public Long getStockid() {
