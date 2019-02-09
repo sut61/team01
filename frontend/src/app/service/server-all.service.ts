@@ -42,6 +42,9 @@ export class SearchAllService {
   getRewardType () : Observable<any>{
     return this.httpClient.get(this.API+'/typereward');
   }
+  getTypeDelete () : Observable<any>{
+    return this.httpClient.get(this.API+'/typedelete');
+  }
 
 }
 

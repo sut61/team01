@@ -71,6 +71,8 @@ import { ViewfeedbackComponent } from './viewfeedback/viewfeedback.component';
 import { Allservice2Service } from './service/allservice2.service';
 import { StockComponent } from './stock/stock.component';
 import { CreditpaymentComponent } from './creditpayment/creditpayment.component';
+import { CancelMemberComponent } from './cancel-member/cancel-member.component';
+import { DeleteComponent } from './delete/delete.component';
 
 
 const routes: Routes = [
@@ -95,7 +97,9 @@ const routes: Routes = [
   {path: 'feedback', component: FeedbackComponent},
   {path: 'viewfeedback', component: ViewfeedbackComponent},
   {path: 'stock', component: StockComponent},
-  {path: 'creditcardpayment', component: CreditpaymentComponent}
+  {path: 'creditcardpayment', component: CreditpaymentComponent},
+  {path: 'cancel-member', component: CancelMemberComponent},
+  {path: 'delete', component: DeleteComponent}
 
 ];
 
@@ -125,6 +129,8 @@ const routes: Routes = [
     ViewfeedbackComponent,
     StockComponent,
     CreditpaymentComponent,
+    CancelMemberComponent,
+    DeleteComponent,
 
   ],
   imports: [
