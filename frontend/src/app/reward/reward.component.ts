@@ -58,13 +58,15 @@ export class RewardComponent implements OnInit {
   category2: String="shoes";
   category1: String="glass";
 
+  amount:number= 1;
+
   insert4(){
 
     if(this.nameStaffSelect == null  || this.userSelect == null  || this.typeRewardsSelect == null  ){
       alert('กรุณากรอกข้อมูลให้ครบถ้วน')}else {
 
       // @PostMapping(path = "/reward/{category}/{nameStaff}/{nameM}/{typeRe}")
-      this.httpClient.post('http://localhost:8080/reward/' + this.category4 + '/' + this.nameStaffSelect + '/' + this.userSelect + '/' + this.typeRewardsSelect, {})
+      this.httpClient.post('http://localhost:8080/reward/' + this.category4 + '/' + this.nameStaffSelect + '/' + this.userSelect + '/' + this.typeRewardsSelect+'/'+this.amount, {})
         .subscribe()
       alert("SUCCESS");
       this.router.navigate(['/reward']);
@@ -76,7 +78,7 @@ export class RewardComponent implements OnInit {
       alert('กรุณากรอกข้อมูลให้ครบถ้วน')}else {
 
       // @PostMapping(path = "/reward/{category}/{nameStaff}/{nameM}/{typeRe}")
-      this.httpClient.post('http://localhost:8080/reward/' + this.category3 + '/' + this.nameStaffSelect + '/' + this.userSelect + '/' + this.typeRewardsSelect, {})
+      this.httpClient.post('http://localhost:8080/reward/' + this.category3 + '/' + this.nameStaffSelect + '/' + this.userSelect + '/' + this.typeRewardsSelect+'/'+this.amount, {})
         .subscribe()
       alert("SUCCESS");
       this.router.navigate(['/reward']);
@@ -88,7 +90,7 @@ export class RewardComponent implements OnInit {
       alert('กรุณากรอกข้อมูลให้ครบถ้วน')}else {
 
       // @PostMapping(path = "/reward/{category}/{nameStaff}/{nameM}/{typeRe}")
-      this.httpClient.post('http://localhost:8080/reward/' + this.category2 + '/' + this.nameStaffSelect + '/' + this.userSelect + '/' + this.typeRewardsSelect, {})
+      this.httpClient.post('http://localhost:8080/reward/' + this.category2 + '/' + this.nameStaffSelect + '/' + this.userSelect + '/' + this.typeRewardsSelect+'/'+this.amount, {})
         .subscribe()
       alert("SUCCESS");
       this.router.navigate(['/reward']);
@@ -101,7 +103,7 @@ export class RewardComponent implements OnInit {
       alert('กรุณากรอกข้อมูลให้ครบถ้วน')}else {
 
       // @PostMapping(path = "/reward/{category}/{nameStaff}/{nameM}/{typeRe}")
-      this.httpClient.post('http://localhost:8080/reward/' + this.category1 + '/' + this.nameStaffSelect + '/' + this.userSelect + '/' + this.typeRewardsSelect, {})
+      this.httpClient.post('http://localhost:8080/reward/' + this.category1 + '/' + this.nameStaffSelect + '/' + this.userSelect + '/' + this.typeRewardsSelect+'/'+this.amount, {})
         .subscribe()
       alert("SUCCESS");
       this.router.navigate(['/reward']);
