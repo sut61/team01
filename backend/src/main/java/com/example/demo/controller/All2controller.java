@@ -46,12 +46,13 @@ public class All2controller{
 
 
 
-    @PostMapping(path = "/feedback/{taste}/{service}/{vibe}/{price}/{comment}")
-    public Feedback feedback(@PathVariable Long taste, @PathVariable Long service, @PathVariable Long vibe, @PathVariable Long price, @PathVariable String comment){
+    @PostMapping(path = "/feedback/{taste}/{service}/{vibe}/{price}/{comment}/{oid}")
+    public Feedback feedback(@PathVariable Long taste, @PathVariable Long service, @PathVariable Long vibe, @PathVariable Long price, @PathVariable String comment, @PathVariable String oid){
 
 
         Feedback feedback = new Feedback();
         feedback.setComment(comment);
+        feedback.setOid(oid);
 
 
        Taste taste1 = tasteRepository.findById(taste).get();

@@ -32,4 +32,5 @@ export class Allservice2Service {
     return this.httpClient.get(this.API+'/feedback');
   }
 
+
 }
