@@ -11,34 +11,10 @@
 
 <br>
 
-<!--<mat-form-field class="example-mid-width">-->
-<!--<input matInput placeholder="ชื่อพนักงาน" [(ngModel)]="staff">-->
-<!--</mat-form-field>-->
 
-<!--<br>-->
-
-<!--<mat-form-field  class="example-mid-width">-->
-<!--<input matInput [matDatepicker]="picker" placeholder="วันที่เพิ่มเเต้ม" [(ngModel)]="date">-->
-<!--<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>-->
-<!--<mat-datepicker #picker></mat-datepicker>-->
-<!--</mat-form-field>-->
-
-<!--<br>-->
-
-<!--<mat-form-field class="example-mid-width">-->
-<!--<input matInput placeholder="รหัสลูกค้า" [(ngModel)]="staff">-->
-<!--</mat-form-field>-->
-
-<!--<br>-->
-
-<!--<mat-form-field class="example-mid-width">-->
-<!--<input matInput placeholder="จำนวนเงิน" [(ngModel)]="treatmentName">-->
-<!--</mat-form-field>-->
-
-<!--<br>-->
 
 <mat-form-field  class="example-mid-width" >
-  <mat-select placeholder="ชื่อพนักงาน" [(ngModel)]="staffNameSelect" name="addPoint">
+  <mat-select placeholder="ชื่อพนักงาน" [(ngModel)]="staffNameSelect" name="coffeeorder">
     <mat-option *ngFor="let gd of staffNames" [value]="gd.id">
       {{gd.staffName}}
     </mat-option>
@@ -48,13 +24,7 @@
 
 <br>
 
-<!-- <mat-form-field  class="example-mid-width" >
-  <mat-select placeholder="ชื่อลูกค้า" [(ngModel)]="customerNameSelect" name="addPoint">
-    <mat-option *ngFor="let gd of customerNames" [value]="gd.id">
-      {{gd.customerName}}
-    </mat-option>
-  </mat-select>
-</mat-form-field> -->
+
 
 <div>
    <mat-form-field class="example-mid-width">
@@ -68,7 +38,7 @@
 <br>
 
 <mat-form-field  class="example-mid-width" >
-  <mat-select placeholder="ITEMS" [(ngModel)]="itemNameSelect" name="addPoint">
+  <mat-select placeholder="ITEMS" [(ngModel)]="itemNameSelect" name="coffeeorder">
     <mat-option *ngFor="let gd of itemNames" [value]="gd.id">
       {{gd.itemName}}
     </mat-option>
@@ -91,7 +61,7 @@
 <br>
 
 <mat-form-field  class="example-mid-width" >
-  <mat-select placeholder="OrderType" [(ngModel)]="orderTypeSelect" name="addPoint">
+  <mat-select placeholder="OrderType" [(ngModel)]="orderTypeSelect" name="coffeeorder">
     <mat-option *ngFor="let gd of orderTypes" [value]="gd.id">
       {{gd.orderTypes}}
     </mat-option>
@@ -101,13 +71,7 @@
 <br>
 <button mat-button color="primary"  class="example-mid-width" (click)="insert()" routerLink="/viewcoffeeorders"  >SUBMIT</button>
 
-<!--<br><br>-->
 
-<!--<button mat-button color="primary"  class="example-mid-width" routerLink="home" >CHECK POINT</button>-->
-
-<!--<br><br>-->
-
-<!--<button mat-button color="primary"  class="example-mid-width" routerLink="" >BACK</button>-->
 
 <br><br>
 
