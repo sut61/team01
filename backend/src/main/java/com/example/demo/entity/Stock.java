@@ -2,6 +2,7 @@ package com.example.demo.entity;
 
 import lombok.*;
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.*;
 import java.util.Date;
 
@@ -10,21 +11,24 @@ import java.util.Date;
 @Getter
 @Setter
 @ToString
-@NoArgsConstructor
 @EqualsAndHashCode
 @Table(name = "Stock")
 public class Stock {
+
     @Id
     @SequenceGenerator(name="stock_seq",sequenceName="stock_seq")
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="stock_seq")
-    @Column(name = "Stock_Id")
-    private @NotNull Long stockid;
-    @Min(value = 25)
-    @Max(value = 1000)
+
+    private  Long stockid;
     private @NotNull Integer priceperitem;
     private @NotNull Integer totalprice;
     @Temporal(TemporalType.DATE)
-    private Date date;
+    @NotNull Date date;
+
+    @NotNull
+    @Pattern(regexp = "[-A-Zก-๛]+")
+    @Size(min = 2, max = 40 )
+    private  String note;
 
     @ManyToOne(fetch = FetchType.EAGER)
     private Product product;
@@ -47,7 +51,7 @@ public class Stock {
         return priceperitem;
     }
 
-    public void setPriceperitem(int priceperitem) {
+    public void setPriceperitem(Integer priceperitem) {
         this.priceperitem = priceperitem;
     }
 
@@ -55,7 +59,7 @@ public class Stock {
         return totalprice;
     }
 
-    public void setTotalprice(int totalprice) {
+    public void setTotalprice(Integer totalprice) {
         this.totalprice = totalprice;
     }
 
@@ -65,6 +69,14 @@ public class Stock {
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    public String getNote() {
+        return note;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
     }
 
     public Product getProduct() {

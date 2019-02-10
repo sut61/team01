@@ -2,20 +2,28 @@ package com.example.demo.entity;
 
 import lombok.*;
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.*;
 
 @Entity
+@Data
 @Getter
 @Setter
-@NoArgsConstructor
 @ToString
 @EqualsAndHashCode
 @Table(name = "Manu")
 public class Manu {
+
     @Id
-    @GeneratedValue
-    private  int manuid;
-    private @NonNull String name;
-    private @NonNull int price;
+    @SequenceGenerator(name = "manu_seq",sequenceName = "manu_seq")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "manu_seq")
+
+    private  Long manuid;
+    @NotNull
+    @Pattern(regexp = "[-A-Zก-๛]+")
+    @Size(min = 2, max = 40 )
+    private  String name;
+    private @NotNull Integer price;
 
     @ManyToOne(fetch = FetchType.EAGER, targetEntity = ManuType.class)
     @JoinColumn(name = "ManuType_Id")

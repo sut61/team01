@@ -49,6 +49,11 @@
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
+    &nbsp;&nbsp;
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="หมายเหตุ**" [(ngModel)]="note"
+             type = "text" [ngModelOptions]="{standalone: true}">
+    </mat-form-field>
     <br>
     <div style="text-align:center">
       <br>
@@ -64,7 +69,8 @@
           <th scope="col">Unit</th> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <th scope="col">Price/Item</th> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <th scope="col">ToTalPrice</th> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <th scope="col">Date</th>
+          <th scope="col">Date</th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <th scope="col">Note</th>
         </tr>
         <br>
         <tr *ngFor="let stock of stocks">
@@ -74,7 +80,8 @@
           <td>{{ stock.unit.unit }}</td> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <td>{{ stock.priceperitem}}</td> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <td>{{ stock.totalprice }}</td> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <td>{{ stock.date }}</td>
+          <td>{{ stock.date }}</td> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <td>{{ stock.note }}</td>
         </tr>
       </table>
 
