@@ -29,10 +29,7 @@ public class Allcontroller{
         return this.coffeeOrderRepository.findAll().stream().collect(Collectors.toList());
     }
 
-    // @GetMapping(path = "/customer")
-    // private Collection<Customer> getCustomer(){
-    //     return this.customerRepository.findAll().stream().collect(Collectors.toList());
-    // }
+ 
 
     @GetMapping(path = "/staff")
     private Collection<Staff> getStaff(){
@@ -51,7 +48,6 @@ public class Allcontroller{
         return this.orderTypeRepository.findAll().stream().collect(Collectors.toList());
     }
 
-//    @PostMapping(path = "/point/{other}/{date}/{addPoint}/{nameCustomer}/{nameStaff}")
 
     @PostMapping(path = "/coffeeorder/{staffName}/{nameM}/{itemName}/{quantity}/{totalPrice}/{orderType}")
     public CoffeeOrder coffeeOrder(@PathVariable Long staffName, @PathVariable Long nameM, @PathVariable Long itemName, @PathVariable String quantity, @PathVariable String totalPrice, @PathVariable Long orderType){
@@ -64,8 +60,6 @@ public class Allcontroller{
         CoffeeMenu coffeeMenu1 = coffeeMenuRepository.findById(itemName).get();
         coffeeOrder.setCoffeeMenu(coffeeMenu1);
 
-//        Customer customer1 = customerRepository.findById(customerName).get();
-//        coffeeOrder.setCustomer(customer1);
         Member memberxy1 = memberRepository.findById(nameM).get();
         coffeeOrder.setMember(memberxy1);
 
