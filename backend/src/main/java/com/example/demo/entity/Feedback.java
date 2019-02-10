@@ -4,6 +4,10 @@ import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import io.micrometer.core.lang.NonNull;
 
 @Entity
 @ToString
@@ -13,9 +17,10 @@ public class Feedback {
     @SequenceGenerator(name = "feedback_seq",sequenceName = "feedback_seq")
     @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "feedback_seq")
 
-    private Long feedbackid;
-    private String comment;
-    private String oid;
+    private @NonNull Long feedbackid;
+    
+    private  @Size(max = 50,min = 2)  String comment;
+    private @NotNull String oid;
 
 
     @ManyToOne(fetch = FetchType.EAGER)
