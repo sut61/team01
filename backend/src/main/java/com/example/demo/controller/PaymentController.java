@@ -47,9 +47,11 @@ public class PaymentController {
         ObjectMapper mapper = new ObjectMapper();
         JsonNode actualObj = mapper.readTree(dataDis);
         JsonNode jsonNote = actualObj.get("inputNote");
+        JsonNode jsonMoney = actualObj.get("inputMoney");
 
         Payment pa = new Payment();
         pa.setNote(jsonNote.textValue());
+        pa.setMoney(jsonMoney.intValue());
         pa.setM(memberRepository.getOne(meid));
         pa.setC(coffeeorderRepository.getOne(orderid));
         pa.setB(staffRepository.getOne(id));
