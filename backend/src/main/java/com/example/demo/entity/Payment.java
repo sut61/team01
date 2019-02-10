@@ -4,7 +4,10 @@ import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
-        import java.util.Date;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+import java.util.Date;
 
 @Entity
 @Data
@@ -21,8 +24,12 @@ public class Payment {
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="payment_seq")
     @Column(name = "Payment_Id")
 
-    private @NonNull Long payid;
-    private @NonNull String note;
+    private @NotNull Long payid;
+    @Size(min = 1,max = 20)
+    @Pattern(regexp = "[-0-9ก-๛]+")
+    //@Pattern(regexp = "\\w+")
+    private @NotNull String note;
+    private @NotNull Integer money;
 
     @ManyToOne(fetch = FetchType.EAGER, targetEntity = Member.class)
     @JoinColumn(name = "Member_Id",insertable = true)

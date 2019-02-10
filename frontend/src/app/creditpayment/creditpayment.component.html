@@ -1,7 +1,7 @@
 <div class="record">
   <mat-toolbar class ="top">
     <mat-toolbar-row>
-      <h1> CoffeeShop Creditcard Payment</h1>&nbsp;&nbsp;&nbsp;<img width="55"  src="src/image/coffee1.png">
+      <h1> CoffeeShop Creditcard Payment</h1>&nbsp;&nbsp;&nbsp;
       <span class="example-spacer"></span>
       <a mat-stroked-button [routerLink]="['/homestaff']"><i class="material-icons">
         home
@@ -78,6 +78,12 @@
         </mat-select>
       </mat-form-field>
        </div></h4>
+
+      <h4><div style="text-align:center">
+        จำนวนเงินที่หักจากในบัตร &nbsp;&nbsp;<mat-form-field class="example-mid-width" >
+        <input matInput placeholder="กรุณากรอกจำนวนเงิน" [(ngModel)]="money" [ngModelOptions]="{standalone: true}">
+      </mat-form-field>
+      </div></h4>
 
     </mat-card-content>
 

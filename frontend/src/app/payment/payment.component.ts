@@ -16,11 +16,12 @@ export class PaymentComponent implements OnInit {
   ids: Array<any>;
 
   userSelect: number = 0;
-  staffNameSelect:number =0;
-  idsSelect:number =0;
+  staffNameSelect:number = 0;
+  idsSelect:number = 0;
 
   addis: any = {
-    inputNote: ''
+    inputNote: '',
+    inputMoney: ''
   }
 
   constructor(private recordService: RecordService,

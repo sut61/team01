@@ -33,8 +33,8 @@ public class CreditcardpaymentController {
     //    return (CreditcardpaymentRepository) this.creditcardpaymentRepository.findById(creid).get();
    // }
 
-    @PostMapping(path = "/creditcardpayment/{nameM}/{orderid}/{staffName}/{creditname}/{creditnumber}/{csc}/{expireddate}/{typename}")
-    public Creditcardpayment creditcardpayment(@PathVariable String creditname, @PathVariable Long creditnumber, @PathVariable Integer csc, @PathVariable Long staffName, @PathVariable Long nameM, @PathVariable Long orderid, @PathVariable Long typename, @PathVariable Date expireddate){
+    @PostMapping(path = "/creditcardpayment/{nameM}/{orderid}/{staffName}/{creditname}/{creditnumber}/{csc}/{expireddate}/{typename}/{money}")
+    public Creditcardpayment creditcardpayment(@PathVariable String creditname, @PathVariable Long creditnumber, @PathVariable Integer csc, @PathVariable Long staffName, @PathVariable Long nameM, @PathVariable Long orderid, @PathVariable Long typename, @PathVariable Date expireddate, @PathVariable Integer money){
 
 
 
@@ -43,6 +43,7 @@ public class CreditcardpaymentController {
         creditcardpayment.setCreditnumber(creditnumber);
         creditcardpayment.setCsc(csc);
         creditcardpayment.setExpireddate(expireddate);
+        creditcardpayment.setMoney(money);
 
         Staff staff1 = staffRepository.findById(staffName).get();
         creditcardpayment.setStaff(staff1);

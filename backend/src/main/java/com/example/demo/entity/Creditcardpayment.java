@@ -7,11 +7,11 @@ import javax.validation.constraints.*;
 import java.util.Date;
 
 @Entity
-@Data
+//@Data
 @Getter
 @Setter
 @ToString
-@NoArgsConstructor
+//@NoArgsConstructor
 @EqualsAndHashCode
 @Table(name = "Creditcardpayment")
 public class Creditcardpayment {
@@ -24,11 +24,15 @@ public class Creditcardpayment {
     private @NotNull Long creid;
     private @NotNull Long creditnumber;
     private  @NotNull Integer csc;
+
     @Temporal(TemporalType.DATE)
-    private @NotNull Date expireddate;
-    @Size(min = 1,max = 16)
+     @NotNull
+    Date expireddate;
+
     @Pattern(regexp = "\\w+")
-    private @NotNull String creditname;
+    private @Size(min = 1, max = 16) String creditname;
+
+    private @NotNull Integer money;
 
     @ManyToOne(fetch = FetchType.EAGER)
     private Member m;

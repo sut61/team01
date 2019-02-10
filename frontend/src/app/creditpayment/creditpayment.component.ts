@@ -17,6 +17,7 @@ export class CreditpaymentComponent implements OnInit {
   creditnumber:number;
   csc:number;
   expireddate:null;
+  money:number;
 
   //ชื่อสตาฟ
   staffNames : Array<any>;
@@ -58,7 +59,7 @@ export class CreditpaymentComponent implements OnInit {
   }
 
   insert(){
-    this.httpClient.post('http://localhost:8080/creditcardpayment/'+this.nameMSelect+'/'+this.orderidSelect+'/'+this.staffNameSelect+'/'+this.creditname+'/'+this.creditnumber+'/'+this.csc+'/'+this.expireddate+'/'+this.typenameSelect, {})
+    this.httpClient.post('http://localhost:8080/creditcardpayment/'+this.nameMSelect+'/'+this.orderidSelect+'/'+this.staffNameSelect+'/'+this.creditname+'/'+this.creditnumber+'/'+this.csc+'/'+this.expireddate+'/'+this.typenameSelect+'/'+this.money, {})
       .subscribe(data => {
           console.log('PUT Request is successful', data);
           alert("สำเร็จ");
