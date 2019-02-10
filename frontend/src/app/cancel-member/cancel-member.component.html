@@ -10,6 +10,15 @@
 
 <h1 class="aa">CANCEL MEMBER</h1>
     <br>
+   
+
+<mat-form-field  class="example-mid-width">
+  <input matInput [matDatepicker]="picker" placeholder="วันที่ยกเลิก" [(ngModel)]="date">
+  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+</mat-form-field>
+
+<br>
 
 <mat-form-field  class="example-mid-width">
   <mat-select placeholder="ชื่อพนักงาน" [(ngModel)]="nameStaffSelect" name="nameStaffs">
@@ -27,11 +36,18 @@
     <mat-option value={{type.typedeleteid}} *ngFor="let type of type">{{type.typtD}} </mat-option>
   </mat-select>
 </mat-form-field>
+
 <br>
-<!--     
+
 <mat-form-field class="example-mid-width" >
-  <input matInput placeholder="อื่นๆ" [(ngModel)]="note">
-</mat-form-field> -->
+  <input matInput placeholder="Note" [(ngModel)]="note">
+</mat-form-field>
+
+<br>
+
+<mat-form-field class="example-mid-width" >
+  <input matInput placeholder="เหตุผลที่ยกเลิก" [(ngModel)]="reason">
+</mat-form-field>
 
 <br>
 <button mat-button color="primary"  class="example-mid-width" (click)="insert()" >SUBMIT</button> <br>
