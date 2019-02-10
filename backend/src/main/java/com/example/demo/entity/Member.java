@@ -3,6 +3,9 @@ package com.example.demo.entity;
 import lombok.*;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 @Entity
 @Data
@@ -19,14 +22,15 @@ public class Member {
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="member_seq")
     @Column(name = "Member_Id")
 
-    private @NonNull Long meid;
+    private @NotNull Long meid;
    // private @NonNull int gender;
    // private @NonNull int nametype;
    // private @NonNull int province;
-    private @NonNull String password;
-    private @NonNull String user;
-    private @NonNull String address;
-    private @NonNull String nameM;
+    private @NotNull String password;
+    @Pattern(regexp = "\\w+")
+    private @Size(min = 1, max = 10)  String user;
+    private @NotNull String address;
+    private @NotNull String nameM;
 
     @OneToOne(fetch = FetchType.EAGER, targetEntity = Gender.class)
     @JoinColumn(name = "Gender_id",insertable = true)
