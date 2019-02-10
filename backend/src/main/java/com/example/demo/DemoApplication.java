@@ -47,7 +47,8 @@ public class DemoApplication {
 						   AmountRepository amountRepository,
 						   UnitRepository unitRepository,
 						   CredittypeRepository credittypeRepository,
-						   TypeDeleteRepository typeDeleteRepository
+						   TypeDeleteRepository typeDeleteRepository,
+						   StatusRepository statusRepository
 
 
 	) {
@@ -311,6 +312,16 @@ public class DemoApplication {
 					ServiceType serviceType = new ServiceType();
 					serviceType.setService(typeName);
 					serviceTypeRepository.save(serviceType);
+
+				}
+			});
+
+			Stream.of("Sent", "Wait").forEach(typeName-> {
+
+				{
+					Status s = new Status();
+					s.setStatusName(typeName);
+					statusRepository.save(s);
 
 				}
 			});
