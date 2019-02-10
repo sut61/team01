@@ -4,6 +4,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
+import java.util.Optional;
 
 @Entity
 @Getter
@@ -31,7 +32,6 @@ public class Delivery {
     private String statusName;
 //    @Pattern(regexp = "([^0-9])")
     private String staffName;
-    private String note;
 
 
     @ManyToOne(fetch = FetchType.EAGER)
@@ -41,8 +41,14 @@ public class Delivery {
     @OneToOne(fetch = FetchType.EAGER)
     private CoffeeDelivery coffeeDelivery;
 
-    public void setStaff(Long staff) {}
+
+    public void setStaff(Optional<Staff> staff) {}
 
 
+//    public void setCoffeeDelivery(CoffeeDelivery did) {
+//    }
 
+    public void setStaff(Long staff) {
+
+    }
 }
