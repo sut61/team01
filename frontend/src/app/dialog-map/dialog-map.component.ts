@@ -15,6 +15,11 @@ export class DialogMapComponent implements OnInit {
   longitude = 102.024555;
   locationChosen = false;
 
+  memberNeme: Array<any>;
+  member: any = {
+    memberNameSelect: ''
+  };
+
 
   onChoseLocation(enven) {
     this.latitude = enven.coords.lat;
@@ -27,10 +32,25 @@ export class DialogMapComponent implements OnInit {
      this.serviceService.markerLog = this.longitude;
      this.serviceService.markerLat = this.latitude;
      this.serviceService.push = true;
+     this.serviceService.numberMember = this.member.memberNameSelect;
   }
 
 
+
+
+
   ngOnInit() {
+
+    this.serviceService.getMember().subscribe(data => {
+      this.memberNeme = data;
+      console.log(this.memberNeme);
+    });
+
+    if (this.member.memberNameSelect === '') {
+      this.serviceService.push2 = true;
+    }
+
+
   }
 
 }
