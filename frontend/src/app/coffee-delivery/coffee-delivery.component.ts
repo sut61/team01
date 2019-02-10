@@ -32,6 +32,8 @@ export class CoffeeDeliveryComponent implements OnInit {
       }
 
 
+
+
   ngOnInit() {
 
     this.serviceService.getMember().subscribe(data => {
@@ -51,18 +53,19 @@ export class CoffeeDeliveryComponent implements OnInit {
 
 
 
+
   }
 
   save(numberMenu) {
 
-    if (this.serviceService.push === false) {
+    if (this.serviceService.push === false && this.serviceService.push2 === false) {
       alert('กรุณากรอกข้อมูลให้ครบถ้วน   You don\'t choose location.');
     } else {
 
         this.serviceService.counter = this.serviceService.counter + 1 ;
 
 
-        this.httpClient.post('http://localhost:8080/CoffeeDelivery' + '/' + 1 + '/' + this.serviceService.member[0].meid + '/' + this.serviceService.menu[numberMenu].manuid +
+        this.httpClient.post('http://localhost:8080/CoffeeDelivery' + '/' + 1 + '/' + this.serviceService.member[this.serviceService.numberMember - 1].meid + '/' + this.serviceService.menu[numberMenu].manuid +
       '/' + this.serviceService.menu[numberMenu].name + '/' + this.serviceService.menu[numberMenu].price + '/' + this.serviceService.markerLat + '/' + this.serviceService.markerLog, this.serviceService.member)
           .subscribe(
             data => {
@@ -73,6 +76,10 @@ export class CoffeeDeliveryComponent implements OnInit {
             }
           );
     }
+  }
+
+  lond() {
+    window.location.reload();
   }
 
 

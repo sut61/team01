@@ -1,0 +1,34 @@
+<h2> ทำการจัดส่ง </h2>
+<mat-dialog-content>
+
+  <p>
+
+    <!--{{serviceService.coffeeId}}<br>-->
+    เมนู : {{delivery[serviceService.coffeeId-1  ]?.name}}
+    <br><br>
+    ราคา : {{delivery[serviceService.coffeeId - 1]?.price}}
+    <br><br>
+    ตำแหน่งที่จัดส่ง<br>
+    Latitude: {{delivery[serviceService.coffeeId - 1]?.latitude}}
+    <br>
+    Longitude: {{delivery[serviceService.coffeeId - 1]?.longitude}}
+      <br><br>
+    สถานะการจัดส่ง:
+      <mat-select [(ngModel)]="statusSelect" [ngModelOptions]="{standalone: true}" placeholder="Status" panelClass="example-panel">
+        <mat-option value={{status.statusId}}  *ngFor="let status of status">{{status?.statusName}} </mat-option>
+      </mat-select>
+      <br><br>
+    ชื่อผู้จัดส่ง :
+      <mat-select [(ngModel)]="staffNameSelect" [ngModelOptions]="{standalone: true}" placeholder="Staff" panelClass="example-panel">
+      <mat-option value={{staffNames.id}} *ngFor="let staffNames of staffNames">{{staffNames?.staffName}} </mat-option>
+      </mat-select>
+  </p>
+
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-raised-button color="primary" mat-dialog-close (click)="Send()">Enter</button>
+  <button mat-raised-button mat-dialog-close>Close</button>
+
+
+</mat-dialog-actions>
+

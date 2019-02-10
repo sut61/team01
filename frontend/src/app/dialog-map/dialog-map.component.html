@@ -1,5 +1,16 @@
 <h2 mat-dialog-title> Select Your locations </h2>
-<p>: {{latitude}},{{longitude}}</p>
+
+<p>: {{latitude}},{{longitude}}
+  &nbsp;&nbsp;&nbsp;
+    <mat-form-field>
+    <mat-select placeholder="UserName"  [(ngModel)]="member.memberNameSelect" (click)="selectMember()"  name="memberNeme">
+      <mat-option *ngFor="let member of memberNeme" [value]="member.meid">
+        {{member.nameM}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</p>
+
 <mat-dialog-content>
   <agm-map [latitude]="latitude"
            [longitude]="longitude"
@@ -16,13 +27,5 @@
   <button mat-raised-button color="primary" mat-dialog-close (click)="clickEnter()">Enter</button>
   <button mat-raised-button mat-dialog-close>Close</button>
 
-  <!--<mat-form-field>-->
-    <!--<mat-select placeholder="service" [(ngModel)]="serviceService.serviceType"  nameM="serviceType"   [ngModelOptions]="{standalone: true}"  >-->
-      <!--<mat-option  *ngFor="let serviceType of serviceService.serviceType"  [value]="serviceService.serviceType">-->
-        <!--{{serviceService.serviceType}}-->
-      <!--</mat-option>-->
-
-    <!--</mat-select>-->
-  <!--</mat-form-field>-->
 
 </mat-dialog-actions>

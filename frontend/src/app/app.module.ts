@@ -61,10 +61,10 @@ import {
   MatTooltipModule,
   MatTreeModule,
 } from '@angular/material';
-import {DialogShoppingCarComponent} from "./dialog-shopping-car/dialog-shopping-car.component";
-import {DialogMapComponent} from "./dialog-map/dialog-map.component";
-import {CoffeeDeliveryComponent} from "./coffee-delivery/coffee-delivery.component";
-import {FlexLayoutModule} from "@angular/flex-layout";
+import {DialogShoppingCarComponent} from './dialog-shopping-car/dialog-shopping-car.component';
+import {DialogMapComponent} from './dialog-map/dialog-map.component';
+import {CoffeeDeliveryComponent} from './coffee-delivery/coffee-delivery.component';
+import {FlexLayoutModule} from '@angular/flex-layout';
 import { RewardComponent } from './reward/reward.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { ViewfeedbackComponent } from './viewfeedback/viewfeedback.component';
@@ -73,6 +73,8 @@ import { StockComponent } from './stock/stock.component';
 import { CreditpaymentComponent } from './creditpayment/creditpayment.component';
 import { CancelMemberComponent } from './cancel-member/cancel-member.component';
 import { DeleteComponent } from './delete/delete.component';
+import {TableDeliveryComponent} from './table-delivery/table-delivery.component';
+import {DialogSendCoffeeComponent} from './dialog-send-coffee/dialog-send-coffee.component';
 
 
 const routes: Routes = [
@@ -90,16 +92,17 @@ const routes: Routes = [
   { path: 'coffeeorders', component: CoffeeorderComponent},
   { path: 'home', component: HomeComponent },
   { path: 'viewcoffeeorders', component: ViewcoffeeorderComponent },
-  {path:'point',component:PointComponent},
-  {path:'point-view',component:PointViewComponent},
+  {path: 'point', component: PointComponent},
+  {path: 'point-view', component: PointViewComponent},
   {path: 'CoffeeDelivery', component: CoffeeDeliveryComponent},
-  {path:'reward',component:RewardComponent},
+  {path: 'reward', component: RewardComponent},
   {path: 'feedback', component: FeedbackComponent},
   {path: 'viewfeedback', component: ViewfeedbackComponent},
   {path: 'stock', component: StockComponent},
   {path: 'creditcardpayment', component: CreditpaymentComponent},
   {path: 'cancel-member', component: CancelMemberComponent},
-  {path: 'delete', component: DeleteComponent}
+  {path: 'delete', component: DeleteComponent},
+  {path: 'TableDelivery', component: TableDeliveryComponent},
 
 ];
 
@@ -131,6 +134,8 @@ const routes: Routes = [
     CreditpaymentComponent,
     CancelMemberComponent,
     DeleteComponent,
+    TableDeliveryComponent,
+    DialogSendCoffeeComponent,
 
   ],
   imports: [
@@ -182,7 +187,8 @@ const routes: Routes = [
   ],
   entryComponents: [
     DialogMapComponent,
-    DialogShoppingCarComponent
+    DialogShoppingCarComponent,
+    DialogSendCoffeeComponent
   ],
   providers: [ManuService, Allservice2Service],
   bootstrap: [AppComponent]

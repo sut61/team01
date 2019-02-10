@@ -1,0 +1,131 @@
+<body class="inventory-body" bgcolor="#deb887">
+
+    <mat-toolbar color="primary">
+      <div class="DeliveryTable" >
+        <button mat-button color="accent" (click)="lond()" ><h2> Delivery Table </h2></button>
+      </div>
+
+    </mat-toolbar>
+
+    <mat-tab-group color="accent" backgroundColor="accent">
+      <mat-tab label="รายการส่งกาแฟ">
+
+          <div class="grid-tile">
+            <mat-card   class="example-card" >
+              <mat-card-header  >
+                <mat-card-title><h2>รายการส่งกาแฟ</h2></mat-card-title>
+                <mat-card-subtitle>ตารางการสั่งซื้อ</mat-card-subtitle>
+              </mat-card-header>
+              <mat-card-content>
+                <table mat-table  [dataSource]="delivery"   class="mat-elevation-z8">
+
+                  <ng-container matColumnDef="item">
+                    <th mat-header-cell *matHeaderCellDef> Menu  </th>
+                    <td mat-cell *matCellDef="let element"> {{element?.name}} </td>
+                  </ng-container>
+
+                  <ng-container matColumnDef="price">
+                    <th mat-header-cell *matHeaderCellDef>Price</th>
+                    <td mat-cell *matCellDef="let element"> {{element?.price}} </td>
+                  </ng-container>
+
+                  <ng-container matColumnDef="lat">
+                    <th mat-header-cell *matHeaderCellDef>Latitude</th>
+                    <td mat-cell *matCellDef="let element"> {{element?.latitude}} </td>
+                  </ng-container>
+
+                  <ng-container matColumnDef="log">
+                    <th mat-header-cell *matHeaderCellDef>Longitude</th>
+                    <td mat-cell *matCellDef="let element"> {{element?.longitude}} </td>
+                  </ng-container>
+
+                  <ng-container matColumnDef="member">
+                    <th mat-header-cell *matHeaderCellDef>Member</th>
+                    <td mat-cell *matCellDef="let element"> {{element?.member.nameM}} </td>
+                  </ng-container>
+
+                  <ng-container matColumnDef="CreditPay">
+                    <th mat-header-cell *matHeaderCellDef style = "width:10%">...</th>
+                    <td mat-cell *matCellDef="let element"> <button mat-raised-button color="warn"
+                                                                    (click)="openDialogSendCoffee(element.coffeeDeliveryId)">
+                      ทำการจัดส่ง</button> </td>
+                  </ng-container>
+
+                  <tr mat-header-row *matHeaderRowDef="dataColumns"></tr>
+                  <tr mat-row *matRowDef="let row; columns: dataColumns;"></tr>
+                </table>
+              </mat-card-content>
+            </mat-card>
+          </div>
+      </mat-tab>
+
+      <mat-tab label="บันทึกการจัดส่ง">
+        <div class="grid-tile">
+        <mat-card   class="example-card">
+          <mat-card-header  >
+            <mat-card-title><h2>รายการส่งกาแฟ</h2></mat-card-title>
+            <mat-card-subtitle>ตารางการสั่งซื้อ</mat-card-subtitle>
+          </mat-card-header>
+
+          <mat-card-content>
+
+
+
+
+
+
+          <table mat-table  [dataSource]="deliveryTable"   class="mat-elevation-z8">
+
+            <ng-container matColumnDef="id">
+              <th mat-header-cell *matHeaderCellDef> No.  </th>
+              <td mat-cell *matCellDef="let element"> {{element?.deliveryId}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="name">
+              <th mat-header-cell *matHeaderCellDef>Menu</th>
+              <td mat-cell *matCellDef="let element"> {{element?.name}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="price">
+              <th mat-header-cell *matHeaderCellDef>Price</th>
+              <td mat-cell *matCellDef="let element"> {{element?.price}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="lat">
+              <th mat-header-cell *matHeaderCellDef>Latitude</th>
+              <td mat-cell *matCellDef="let element"> {{element?.latitude}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="log">
+              <th mat-header-cell *matHeaderCellDef>Longitude</th>
+              <td mat-cell *matCellDef="let element"> {{element?.longitude}} </td>
+            </ng-container>
+
+            <!--<ng-container matColumnDef="member">-->
+              <!--<th mat-header-cell *matHeaderCellDef>Member</th>-->
+              <!--<td mat-cell *matCellDef="let element"> {{element?.member.nameM}} </td>-->
+            <!--</ng-container>-->
+
+            <ng-container matColumnDef="staff">
+              <th mat-header-cell *matHeaderCellDef>Staff</th>
+              <td mat-cell *matCellDef="let element"> {{element?.staffName}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="status">
+              <th mat-header-cell *matHeaderCellDef style = "width:10%">Status</th>
+              <td mat-cell *matCellDef="let element"> {{element?.statusName}} </td>
+            </ng-container>
+
+
+
+            <tr mat-header-row *matHeaderRowDef="dataColumns2"></tr>
+            <tr mat-row *matRowDef="let row; columns: dataColumns2;"></tr>
+          </table>
+
+          </mat-card-content>
+        </mat-card>
+        </div>
+      </mat-tab>
+
+    </mat-tab-group>
+</body>
