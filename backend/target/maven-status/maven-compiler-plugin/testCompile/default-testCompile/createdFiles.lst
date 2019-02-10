@@ -1,4 +1,8 @@
+com\example\demo\FeedbackTest.class
 com\example\demo\PointRewardTest.class
-com\example\demo\CoffeeDeliveryTest.class
 com\example\demo\DemoApplicationTests.class
+com\example\demo\CreditcardTest.class
 com\example\demo\DeliveryTest.class
+com\example\demo\CancelMemberTest.class
+com\example\demo\StockTest.class
+com\example\demo\PaymentTest.class

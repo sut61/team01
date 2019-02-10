@@ -31,6 +31,7 @@ public class Delivery {
     @Pattern(regexp = "\\D+")
 //    @Size(min=2,max=30)
     private String statusName;
+    @NotNull
     private String staffName;
 
 
