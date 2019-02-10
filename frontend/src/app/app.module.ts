@@ -19,9 +19,7 @@ import { LoginmemComponent } from './loginmem/loginmem.component';
 import { PaymentComponent } from './payment/payment.component';
 import { ViewcoffeeorderComponent } from './viewcoffeeorder/viewcoffeeorder.component';
 import { HomeComponent } from './home/home.component';
-import { ContactComponent } from './contact/contact.component';
 import { CoffeeorderComponent } from './coffeeorder/coffeeorder.component';
-import { AboutComponent } from './about/about.component';
 import { PointComponent } from './point/point.component';
 import { PointViewComponent } from './point-view/point-view.component';
 import {
@@ -87,8 +85,6 @@ const routes: Routes = [
   {path: 'member', component: MemberComponent},
   {path: 'showmanu', component: ShowmanuComponent},
   {path: 'payment', component: PaymentComponent},
-  { path: 'about', component: AboutComponent },
-  { path: 'contact', component: ContactComponent },
   { path: 'coffeeorders', component: CoffeeorderComponent},
   { path: 'home', component: HomeComponent },
   { path: 'viewcoffeeorders', component: ViewcoffeeorderComponent },
@@ -119,9 +115,7 @@ const routes: Routes = [
     PaymentComponent,
     ViewcoffeeorderComponent,
     HomeComponent,
-    ContactComponent,
     CoffeeorderComponent,
-    AboutComponent,
     PointComponent,
     PointViewComponent,
     CoffeeDeliveryComponent,

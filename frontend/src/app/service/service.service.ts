@@ -12,12 +12,15 @@ export class ServiceService {
 
   public counter = 0;
   public push = false;
+  public push2 = false;
   public numberMember = 0;
+
+  public  coffeeId = 0;
 
 
   public member = {
     meid : '',
-    nameM : String,
+    nameM : '',
     tel : '',
     email : '',
     address : '',
