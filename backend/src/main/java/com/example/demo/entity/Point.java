@@ -38,10 +38,10 @@ public class Point {
 //    private Billxy billxy;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    private Member member;
+ private Member member;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    private Staff staff;
+     private Staff staff;
 
     public Point(){}
 
