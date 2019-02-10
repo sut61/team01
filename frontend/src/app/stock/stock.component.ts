@@ -17,6 +17,7 @@ export class StockComponent implements OnInit {
 
   priceperitem: any;
   totalprice: any;
+  note: any;
 
   points: Array<any>;
   products: Array<any>;
@@ -57,12 +58,12 @@ export class StockComponent implements OnInit {
 
   insert() {
     if (this.productSelect === '' || this.amountSelect === '' || this.unitSelect === '' ||
-      this.priceperitem === null || this.totalprice === null || this.date === null) {
+      this.priceperitem === null || this.totalprice === null || this.date === null || this.note === null) {
       alert('กรุณากรอกข้อมูลให้ครบ');
     }
     else {
       this.httpClient.post('http://localhost:8080/stock/' + this.productSelect + '/'
-        + this.amountSelect + '/' + this.unitSelect  + '/' + this.priceperitem + '/' + this.totalprice + '/' + this.date, {})
+        + this.amountSelect + '/' + this.unitSelect  + '/' + this.priceperitem + '/' + this.totalprice + '/' + this.date + '/' + this.note, {})
         .subscribe(
 
           data => {
