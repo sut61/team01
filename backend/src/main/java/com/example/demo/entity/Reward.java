@@ -19,12 +19,10 @@ public class Reward{
     private @NonNull
     Long id;
 
-//    private @Size(max = 25,min = 2) int amount;
-
 private
 @NotNull
 @Min(value = 1)
-@Max(value = 1)
+@Max(value = 50)
 @Positive
 int amount;
 
@@ -32,7 +30,7 @@ int amount;
 //    private @io.micrometer.core.lang.NonNull
 //    Date date;
 
-    private @NotNull String category;
+    private @NotNull @Size(max = 60,min = 1) String category;
 
     //Relation between Entity
 

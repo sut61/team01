@@ -1,6 +1,7 @@
 package com.example.demo;
 
 import com.example.demo.entity.Point;
+import com.example.demo.entity.Reward;
 import com.example.demo.repository.PointRepository;
 import org.junit.Before;
 import org.junit.Test;
@@ -129,6 +130,131 @@ public class PointRewardTest {
             System.out.println("============================================================================================================================================");
         }
     }
+
+
+
+
+    //============================================================================================
+    //******************************************SPRINT 2******************************************
+    //=@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@=
+    //=@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@=
+    //=@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@=
+    //=========================================Reward Entity======================================
+
+
+
+
+
+    @Test
+    //Don't fail
+    public void testGoodAmount() {
+        Reward reward = new Reward();
+        reward.setCategory("Oh na na na");
+        reward.setAmount(1);
+        try {
+            entityManager.persist(reward);
+            entityManager.flush();
+        } catch(javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+            System.out.println("============================================================================================================================================");
+            e.printStackTrace();
+            System.out.println("============================================================================================================================================");
+            System.out.println(e);
+            System.out.println("============================================================================================================================================");
+        }
+    }
+
+
+
+    @Test
+    //max max category
+    public void testMaxCategory() {
+        Reward reward = new Reward();
+        reward.setCategory("WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW");
+        reward.setAmount(1);
+        try {
+            entityManager.persist(reward);
+            entityManager.flush();
+        } catch(javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+            System.out.println("============================================================================================================================================");
+            e.printStackTrace();
+            System.out.println("============================================================================================================================================");
+            System.out.println(e);
+            System.out.println("============================================================================================================================================");
+        }
+    }
+
+
+    @Test
+    //max min category
+    public void testMinCategory() {
+        Reward reward = new Reward();
+        reward.setCategory("WW");
+        reward.setAmount(1);
+        try {
+            entityManager.persist(reward);
+            entityManager.flush();
+        } catch(javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+            System.out.println("============================================================================================================================================");
+            e.printStackTrace();
+            System.out.println("============================================================================================================================================");
+            System.out.println(e);
+            System.out.println("============================================================================================================================================");
+        }
+    }
+
+    @Test
+    //max null category
+    public void testAmountNegative() {
+        Reward reward = new Reward();
+        reward.setCategory(null);
+        reward.setAmount(1);
+        try {
+            entityManager.persist(reward);
+            entityManager.flush();
+            fail("category null");
+        } catch(javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+            System.out.println("============================================================================================================================================");
+            e.printStackTrace();
+            System.out.println("============================================================================================================================================");
+            System.out.println(e);
+            System.out.println("============================================================================================================================================");
+        }
+    }
+
+    @Test
+    //max max amount
+    public void testMaxAmount() {
+        Reward reward = new Reward();
+        reward.setCategory(null);
+        reward.setAmount(50);
+        try {
+            entityManager.persist(reward);
+            entityManager.flush();
+            fail("max amount");
+        } catch(javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+            System.out.println("============================================================================================================================================");
+            e.printStackTrace();
+            System.out.println("============================================================================================================================================");
+            System.out.println(e);
+            System.out.println("============================================================================================================================================");
+        }
+    }
+
 
 
 
