@@ -48,9 +48,7 @@ public class DeliveryController {
         cd = coffeeDeliveryRepository.findByCoffeeDeliveryId(did);
         status1 = statusRepository.findBystatusId(status);
         staff1 = staffRepository.findById(staff);
-//
-//
-//
+
         delivery.setCoffeeDelivery(cd);
         delivery.setName(name);
         delivery.setPrice(price);

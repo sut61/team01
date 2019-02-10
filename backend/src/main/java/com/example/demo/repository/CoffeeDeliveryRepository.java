@@ -7,6 +7,6 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 @RepositoryRestResource
 public interface CoffeeDeliveryRepository  extends JpaRepository  <CoffeeDelivery,Long> {
-
+    CoffeeDelivery findByCoffeeDeliveryId(Long coffeeDeliveryId);
 
 }
