@@ -1,8 +1,12 @@
 package com.example.demo.entity;
 
 import lombok.*;
+
+import java.util.Date;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 @Data
@@ -21,8 +25,18 @@ public class Cancel {
     @Column(name = "Cancel_Id")
 
     private @NotNull Long cancelid;
-    // private @NotNull String note;
+    // private @Size(max = 50,min = 2)  String other;
 
+    @Temporal(TemporalType.DATE)
+    // private @io.micrometer.core.lang.NonNull
+    @NotNull
+    Date date;
+
+    private String note;
+
+    private String reason;
+
+    
     @OneToOne(fetch = FetchType.EAGER, targetEntity = Staff.class)
     @JoinColumn(name = "Staff_id",insertable = true)
     private Staff staff;
@@ -30,6 +44,10 @@ public class Cancel {
     @OneToOne (fetch = FetchType.EAGER, targetEntity = TypeDelete.class)
     @JoinColumn(name = "TypeDelete_id",insertable = true)
     private TypeDelete typeDelete;
+
+
+
+
 
 
 }

@@ -18,16 +18,15 @@ export class CancelMemberComponent implements OnInit {
 
 //nameStaff
 nameStaffs : Array<any>;
-nameStaffSelect:'';
+nameStaffSelect:number =0;
 
 //member
 
 type: Array<any>;
-typeSelect:'';
+typeSelect:number =0;
 
 data:any = {
 }
-
 
 ngOnInit() {
     this.controller.getStaffxy().subscribe(on =>{
@@ -41,14 +40,17 @@ ngOnInit() {
   });
 }
 
-
-
+note:String;
+date:null;
+reason:String;
 
 insert(){
-  if (this.typeSelect === '' || this.nameStaffSelect === '' ) {
+  if (this.typeSelect === 0 || this.nameStaffSelect === 0 ||this.date === 0 ||this.note===''||this.reason==='') {
     alert('กรุณากรอกข้อมูลให้ครบถ้วน');
   } else {
-  this.httpClient.post('http://localhost:8080/cancel/'+this.nameStaffSelect+'/' +this.typeSelect,   {})
+    // @PostMapping(path = "/cancel/{staffid}/{typeDeleteid}/{date}/{note}/{reason}")
+
+  this.httpClient.post('http://localhost:8080/cancel/'+this.nameStaffSelect+'/' +this.typeSelect+'/'+this.date+'/'+this.note+'/'+this.reason ,   {})
     .subscribe()
   alert("สำเร็จ");
   this.router.navigate(['delete']);
