@@ -1,3 +1,4 @@
 com\example\demo\PointRewardTest.class
-com\example\demo\DeliveryTest.class
+com\example\demo\CoffeeDeliveryTest.class
 com\example\demo\DemoApplicationTests.class
+com\example\demo\DeliveryTest.class

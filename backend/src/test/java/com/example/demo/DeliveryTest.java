@@ -110,6 +110,73 @@ public class DeliveryTest {
         }
     }
 
+    @Test
+    public void deliveryTestStaffNameNull() {
+        Delivery d = new Delivery();
+        d.setLongitude(111.222);
+        d.setLatitude(14.555);
+        d.setName("Coffee");
+        d.setPrice(100);
+        d.setStatusName("send");
+        d.setStaffName(null);
+
+        try {
+            entityManager.persist(d);
+            entityManager.flush();
+            entityManager.getEntityManager();
+
+            fail("Should not pass to this line");
+        } catch(javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+
+            System.out.println();
+            System.out.println();
+            System.out.println();
+            System.out.println( "===================================================================================");
+            System.out.println( e );
+            System.out.println( "===================================================================================");
+            System.out.println();
+            System.out.println();
+            System.out.println();
+
+        }
+    }
+
+//    @Test
+//    public void deliveryTestLongitudeNull() {
+//        Delivery d = new Delivery();
+//        d.setLongitude(111.222);
+//        d.setLatitude(L);
+//        d.setName("farm");
+//        d.setPrice(100);
+//        d.setStatusName("send");
+//        d.setStaffName("theerapol");
+//
+//        try {
+//            entityManager.persist(d);
+//            entityManager.flush();
+//            entityManager.getEntityManager();
+//
+//            fail("Should not pass to this line");
+//        } catch(javax.validation.ConstraintViolationException e) {
+//            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+//            assertEquals(violations.isEmpty(), false);
+//
+//            System.out.println();
+//            System.out.println();
+//            System.out.println();
+//            System.out.println( "===================================================================================");
+//            System.out.println( e );
+//            System.out.println( "===================================================================================");
+//            System.out.println();
+//            System.out.println();
+//            System.out.println();
+//
+//        }
+//    }
+//
+
 
     //Test Min ของ Price
     @Test
@@ -147,6 +214,78 @@ public class DeliveryTest {
 
         }
     }
+
+//    @Test
+//    public void deliveryTestLatitudeMin() {
+//        Delivery d = new Delivery();
+//        d.setLongitude(111.222);
+//        d.setLatitude(13.89);
+//        d.setName("เอสเปรสโซ่");
+//        d.setPrice(10);
+//        d.setStatusName("send");
+//        d.setStaffName("theerapol");
+//
+//
+//        try {
+//            entityManager.persist(d);
+//            entityManager.flush();
+//
+//            entityManager.getEntityManager();
+//
+//            fail("Should not pass to this line");
+//        } catch(javax.validation.ConstraintViolationException e) {
+//            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+//            assertEquals(violations.isEmpty(), false);
+//            assertEquals(violations.size(), 1);
+//
+//            System.out.println();
+//            System.out.println();
+//            System.out.println();
+//            System.out.println( "===================================================================================");
+//            System.out.println( e );
+//            System.out.println( "===================================================================================");
+//            System.out.println();
+//            System.out.println();
+//            System.out.println();
+//
+//        }
+//    }
+
+//    @Test
+//    public void deliveryTestLongitudeMin() {
+//        Delivery d = new Delivery();
+//        d.setLongitude(99.999);
+//        d.setLatitude(14.555);
+//        d.setName("เอสเปรสโซ่");
+//        d.setPrice(10);
+//        d.setStatusName("send");
+//        d.setStaffName("theerapol");
+//
+//
+//        try {
+//            entityManager.persist(d);
+//            entityManager.flush();
+//
+//            entityManager.getEntityManager();
+//
+//            fail("Should not pass to this line");
+//        } catch(javax.validation.ConstraintViolationException e) {
+//            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+//            assertEquals(violations.isEmpty(), false);
+//            assertEquals(violations.size(), 1);
+//
+//            System.out.println();
+//            System.out.println();
+//            System.out.println();
+//            System.out.println( "===================================================================================");
+//            System.out.println( e );
+//            System.out.println( "===================================================================================");
+//            System.out.println();
+//            System.out.println();
+//            System.out.println();
+//
+//        }
+//    }
 
 
     //Test Max ของ Price
