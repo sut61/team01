@@ -92,16 +92,16 @@ export class DialogSendCoffeeComponent implements OnInit {
           }
         );
 
-      this.http.delete(this.API + '/CoffeeDelivery' +  '/' + this.serviceService.coffeeId).subscribe(
-        data => {
-          console.log(' Delete is successful>>>>>>>>>>>>', data);
-        },
-        error => {
-          console.log('Error!!!!!!!!!!!', error);
-        }
-      );
+      // this.http.delete(this.API + '/CoffeeDelivery' +  '/' + this.serviceService.coffeeId).subscribe(
+      //   data => {
+      //     console.log(' Delete is successful>>>>>>>>>>>>', data);
+      //   },
+      //   error => {
+      //     console.log('Error!!!!!!!!!!!', error);
+      //   }
+      // );
 
-      // window.location.reload();
+      window.location.reload();
 
     }
   }
