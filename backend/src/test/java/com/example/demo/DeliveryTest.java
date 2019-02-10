@@ -53,7 +53,7 @@ public class DeliveryTest {
         d.setPrice(100);
         d.setStatusName("send");
         d.setStaffName("theerapol");
-        d.setNote("123456789");
+
 
 
 
@@ -89,7 +89,7 @@ public class DeliveryTest {
         d.setPrice(100);
         d.setStatusName("send");
         d.setStaffName("theerapol");
-        d.setNote("123456789");
+
 
         try {
             entityManager.persist(d);
@@ -126,7 +126,7 @@ public class DeliveryTest {
         d.setPrice(10);
         d.setStatusName("send");
         d.setStaffName("theerapol");
-        d.setNote("123456789");
+
 
         try {
             entityManager.persist(d);
@@ -165,7 +165,7 @@ public class DeliveryTest {
         d.setPrice(10000000);
         d.setStatusName("send");
         d.setStaffName("theerapol");
-        d.setNote("123456789");
+
 
         try {
             entityManager.persist(d);
@@ -201,7 +201,7 @@ public class DeliveryTest {
         d.setPrice(100);
         d.setStatusName("send");
         d.setStaffName("asfrwrgff8");
-        d.setNote("123456789");
+
 
         try {
             entityManager.persist(d);
@@ -239,7 +239,7 @@ public class DeliveryTest {
         d1.setPrice(100);
         d1.setStatusName("send");
         d1.setStaffName("theerapol");
-        d1.setNote("123456789");
+
 
         entityManager.persist(d1);
         entityManager.flush();
@@ -252,7 +252,7 @@ public class DeliveryTest {
         d2.setPrice(150);
         d2.setStatusName("sending");
         d2.setStaffName("farm");
-        d2.setNote("1111111");
+
 
 
         entityManager.persist(d2);
