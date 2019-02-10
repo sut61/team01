@@ -18,12 +18,12 @@ public class Manu {
     @SequenceGenerator(name = "manu_seq",sequenceName = "manu_seq")
     @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "manu_seq")
 
-    private  Long manuid;
+    private  int manuid;
     @NotNull
     @Pattern(regexp = "[-A-Zก-๛]+")
     @Size(min = 2, max = 40 )
     private  String name;
-    private @NotNull Integer price;
+    private int price;
 
     @ManyToOne(fetch = FetchType.EAGER, targetEntity = ManuType.class)
     @JoinColumn(name = "ManuType_Id")
