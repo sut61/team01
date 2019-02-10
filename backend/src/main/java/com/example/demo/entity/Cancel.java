@@ -32,9 +32,9 @@ public class Cancel {
     @NotNull
     Date date;
 
-    private String note;
+    private @NotNull String note;
 
-    private String reason;
+    private @NotNull String reason;
 
     
     @OneToOne(fetch = FetchType.EAGER, targetEntity = Staff.class)
