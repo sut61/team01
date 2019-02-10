@@ -25,12 +25,12 @@ public class Delivery {
     @NotNull
     private String name;
     @NotNull
-  //  @Pattern(regexp = "[\\D*]")
     @Min(value = 25)
     @Max(value = 200)
     private int price;
+    @Pattern(regexp = "\\D+")
+//    @Size(min=2,max=30)
     private String statusName;
-//    @Pattern(regexp = "([^0-9])")
     private String staffName;
 
 
