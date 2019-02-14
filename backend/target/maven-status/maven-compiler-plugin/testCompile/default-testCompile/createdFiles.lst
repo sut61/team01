@@ -5,5 +5,6 @@ com\example\demo\DemoApplicationTests.class
 com\example\demo\CreditcardTest.class
 com\example\demo\DeliveryTest.class
 com\example\demo\CancelMemberTest.class
+com\example\demo\memberTest.class
 com\example\demo\StockTest.class
 com\example\demo\PaymentTest.class

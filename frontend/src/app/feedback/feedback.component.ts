@@ -64,13 +64,16 @@ export class FeedbackComponent implements OnInit {
   }
 
   insert(){
-    this.httpClient.post('http://localhost:8080/feedback/' + this.tasteSelect + '/' + this.serviceSelect + '/' + this.vibeSelect + '/' + this.priceSelect + '/' + this.comment+ '/' + this.oid , {})
-    .subscribe()
-    alert("ขอบคุณสำหรับ feedback");
+    if(this.tasteSelect == null || this.serviceSelect == null || this.vibeSelect == null || this.priceSelect == null || this.comment == null || this.oid == null) {
+      alert('กรุณาใส่ข้อมูลให้ครบถ้วน')
+      this.router.navigate(['/feedback']);} else {
+
+    this.httpClient.post('http://localhost:8080/feedback/' + this.tasteSelect + '/' + this.serviceSelect + '/' + this.vibeSelect + '/' + this.priceSelect + '/' + this.comment+ '/' + this.oid , {}).subscribe()
+    alert("ขอบคุณสำหรับ feedback ของท่าน");
     this.router.navigate(['/viewfeedback']);
 
 
   }
-
+}
 
 }
