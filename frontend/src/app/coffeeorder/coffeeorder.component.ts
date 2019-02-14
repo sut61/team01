@@ -64,13 +64,18 @@ export class CoffeeorderComponent implements OnInit {
 
   }
 
+
   insert(){
-    this.httpClient.post('http://localhost:8080/coffeeorder/'+this.staffNameSelect+'/'+this.userSelect+'/'+this.itemNameSelect+'/'+this.quantity+'/'+this.totalPrice+'/'+this.orderTypeSelect,{})
-      .subscribe()
+    if(this.staffNameSelect == null || this.userSelect == null || this.itemNameSelect == null || this.quantity == null || this.totalPrice == null || this.orderTypeSelect == null) {
+      alert('กรุณาใส่ข้อมูลให้ครบถ้วน')
+      this.router.navigate(['/coffeeorders']);} else {
+
+    this.httpClient.post('http://localhost:8080/coffeeorder/'+this.staffNameSelect+'/'+this.userSelect+'/'+this.itemNameSelect+'/'+this.quantity+'/'+this.totalPrice+'/'+this.orderTypeSelect,{}).subscribe()
     alert("SUCCESS");
     this.router.navigate(['/viewcoffeeorders']);
 
 
   }
+}
 
 }
