@@ -33,7 +33,7 @@ export class PointComponent implements OnInit {
   nameMSelect:'';
 
   users: Array<any>;
-  userSelect: number = 0;
+  userSelect: '';
 
   data:any = {
 
@@ -61,11 +61,22 @@ export class PointComponent implements OnInit {
 
 
   insert(){
-    this.httpClient.post('http://localhost:8080/point/'+this.other+'/'+this.date+'/'+this.addPointSelect+'/'+this.userSelect+'/'+this.nameStaffSelect,   {})
-      .subscribe()
-    alert("สำเร็จ");
-    this.router.navigate(['point-view']);
-
+    if(this.date == null){
+      alert("กรุณากรอกวันที่");
+    }else if(this.other == null) {
+      alert("กรุณากรอกข้อมูลอื่นๆ");
+    }else if(this.addPointSelect == null){
+      alert("กรุณาเลือกจำนวนพอยท์");
+    }else if(this.userSelect == null){
+      alert("กรุณาเลือกลูกค้า");
+    }else if (this.nameStaffSelect == null) {
+      alert("กรุณาเลือกพนักงานที่จำการบันทึกข้อมูล");
+    }else {
+      this.httpClient.post('http://localhost:8080/point/' + this.other + '/' + this.date + '/' + this.addPointSelect + '/' + this.userSelect + '/' + this.nameStaffSelect, {})
+        .subscribe()
+      alert("สำเร็จ");
+      this.router.navigate(['point-view']);
+    }
   }
 
 }

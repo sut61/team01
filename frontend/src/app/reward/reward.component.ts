@@ -26,7 +26,7 @@ export class RewardComponent implements OnInit {
 
 
   users: Array<any>;
-  userSelect: number = 0;
+  userSelect:'';
 
   data:any = {
 
@@ -62,9 +62,10 @@ export class RewardComponent implements OnInit {
 
   insert4(){
 
-    if(this.nameStaffSelect == null  || this.userSelect == null  || this.typeRewardsSelect == null  ){
-      alert('กรุณากรอกข้อมูลให้ครบถ้วน')}else {
-
+    if(this.nameStaffSelect == null ){alert('กรุณาเลือกพนักงานที่ทำการบันทึกข้อมูล')}
+    else  if(this.userSelect == null){alert('กรุณาเลือกชื่อลูกค้า')}
+    else  if(this.typeRewardsSelect == null){alert('กรุณาเลือกประเภทขแงรางวัล')}
+    else {
       // @PostMapping(path = "/reward/{category}/{nameStaff}/{nameM}/{typeRe}")
       this.httpClient.post('http://localhost:8080/reward/' + this.category4 + '/' + this.nameStaffSelect + '/' + this.userSelect + '/' + this.typeRewardsSelect+'/'+this.amount, {})
         .subscribe()
@@ -74,8 +75,10 @@ export class RewardComponent implements OnInit {
   }
 
   insert3(){
-    if(this.nameStaffSelect == null  || this.userSelect == null  || this.typeRewardsSelect == null  ){
-      alert('กรุณากรอกข้อมูลให้ครบถ้วน')}else {
+    if(this.nameStaffSelect == null ){alert('กรุณาเลือกพนักงานที่ทำการบันทึกข้อมูล')}
+    else  if(this.userSelect == null){alert('กรุณาเลือกชื่อลูกค้า')}
+    else  if(this.typeRewardsSelect == null){alert('กรุณาเลือกประเภทขแงรางวัล')}
+    else {
 
       // @PostMapping(path = "/reward/{category}/{nameStaff}/{nameM}/{typeRe}")
       this.httpClient.post('http://localhost:8080/reward/' + this.category3 + '/' + this.nameStaffSelect + '/' + this.userSelect + '/' + this.typeRewardsSelect+'/'+this.amount, {})
@@ -86,8 +89,10 @@ export class RewardComponent implements OnInit {
   }
 
   insert2(){
-    if(this.nameStaffSelect == null  || this.userSelect == null  || this.typeRewardsSelect == null  ){
-      alert('กรุณากรอกข้อมูลให้ครบถ้วน')}else {
+    if(this.nameStaffSelect == null ){alert('กรุณาเลือกพนักงานที่ทำการบันทึกข้อมูล')}
+    else  if(this.userSelect == null){alert('กรุณาเลือกชื่อลูกค้า')}
+    else  if(this.typeRewardsSelect == null){alert('กรุณาเลือกประเภทขแงรางวัล')}
+    else {
 
       // @PostMapping(path = "/reward/{category}/{nameStaff}/{nameM}/{typeRe}")
       this.httpClient.post('http://localhost:8080/reward/' + this.category2 + '/' + this.nameStaffSelect + '/' + this.userSelect + '/' + this.typeRewardsSelect+'/'+this.amount, {})
@@ -99,9 +104,12 @@ export class RewardComponent implements OnInit {
   }
 
   insert1(){
-    if(this.nameStaffSelect == null  || this.userSelect == null  || this.typeRewardsSelect == null  ){
-      alert('กรุณากรอกข้อมูลให้ครบถ้วน')}else {
-
+    // if(this.nameStaffSelect == null  || this.userSelect == null  || this.typeRewardsSelect == null  ){
+    //   alert('กรุณากรอกข้อมูลให้ครบถ้วน')}else {
+    if(this.nameStaffSelect == null ){alert('กรุณาเลือกพนักงานที่ทำการบันทึกข้อมูล')}
+    else  if(this.userSelect == null){alert('กรุณาเลือกชื่อลูกค้า')}
+    else  if(this.typeRewardsSelect == null){alert('กรุณาเลือกประเภทขแงรางวัล')}
+    else {
       // @PostMapping(path = "/reward/{category}/{nameStaff}/{nameM}/{typeRe}")
       this.httpClient.post('http://localhost:8080/reward/' + this.category1 + '/' + this.nameStaffSelect + '/' + this.userSelect + '/' + this.typeRewardsSelect+'/'+this.amount, {})
         .subscribe()
