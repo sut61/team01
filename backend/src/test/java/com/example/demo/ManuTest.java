@@ -21,11 +21,10 @@ import static org.junit.Assert.fail;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
-public class StockTest {
-
+public class ManuTest {
 
     @Autowired
-    private StockRepository stockRepository;
+    private ManuRepository manuRepository;
 
     @Autowired
     private TestEntityManager entityManager;
@@ -38,14 +37,37 @@ public class StockTest {
     }
 
     @Test
-    public void StocktestNullPriceperitem() {
-        Stock stock = new Stock();
-        stock.setPriceperitem(null);
-        stock.setTotalprice(100);
-        stock.setDate(null);
-        stock.setNote("มีปัญหาอะไร");
+    public void ManutestSuccess() {
+        Manu manu = new Manu();
+        manu.setName("ชาชมพู");
+        manu.setPrice(100);
         try {
-            entityManager.persist(stock);
+            entityManager.persist(manu);
+            entityManager.flush();
+
+            System.out.println();
+            System.out.println();
+            System.out.println();
+            System.out.println( "===================================================================================");
+            System.out.println("Test Successful");
+            System.out.println( "===================================================================================");
+            System.out.println();
+            System.out.println();
+            System.out.println();
+
+        } catch(javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+
+        }
+    }
+    public void ManutestNullName() {
+        Manu manu = new Manu();
+        manu.setName(null);
+        manu.setPrice(100);
+        try {
+            entityManager.persist(manu);
             entityManager.flush();
             entityManager.getEntityManager();
 
@@ -67,14 +89,67 @@ public class StockTest {
         }
     }
     @Test
-    public void StocktestNullTotalPrice() {
-        Stock stock = new Stock();
-        stock.setPriceperitem(100);
-        stock.setTotalprice(null);
-        stock.setDate(null);
-        stock.setNote("มีปัญหาอะไร");
+    public void ManutestSizeMinPrice() {
+        Manu manu = new Manu();
+        manu.setName("ชาชมพู");
+        manu.setPrice(10);
         try {
-            entityManager.persist(stock);
+            entityManager.persist(manu);
+            entityManager.flush();
+            entityManager.getEntityManager();
+
+            fail("Should not pass to this line");
+        } catch(javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+
+            System.out.println();
+            System.out.println();
+            System.out.println();
+            System.out.println( "===================================================================================");
+            System.out.println( e );
+            System.out.println( "===================================================================================");
+            System.out.println();
+            System.out.println();
+            System.out.println();
+
+        }
+    }
+    @Test
+    public void ManutestSizeMaxPrice() {
+        Manu manu = new Manu();
+        manu.setName("ชาชมพู");
+        manu.setPrice(10000000);
+        try {
+            entityManager.persist(manu);
+            entityManager.flush();
+            entityManager.getEntityManager();
+
+            fail("Should not pass to this line");
+        } catch(javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+
+            System.out.println();
+            System.out.println();
+            System.out.println();
+            System.out.println( "===================================================================================");
+            System.out.println( e );
+            System.out.println( "===================================================================================");
+            System.out.println();
+            System.out.println();
+            System.out.println();
+        }
+    }
+    @Test
+    public void ManutestPatternName() {
+        Manu manu = new Manu();
+        manu.setName("0.0!");
+        manu.setPrice(100);
+        try {
+            entityManager.persist(manu);
             entityManager.flush();
             entityManager.getEntityManager();
 
@@ -96,138 +171,22 @@ public class StockTest {
         }
     }
     @Test
-    public void StocktestNullDate() {
-        Stock stock = new Stock();
-        stock.setPriceperitem(100);
-        stock.setTotalprice(100);
-        stock.setDate(null);
-        stock.setNote("มีปัญหาอะไร");
-        try {
-            entityManager.persist(stock);
-            entityManager.flush();
-            entityManager.getEntityManager();
-
-            fail("Should not pass to this line");
-        } catch(javax.validation.ConstraintViolationException e) {
-            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
-            assertEquals(violations.isEmpty(), false);
-
-            System.out.println();
-            System.out.println();
-            System.out.println();
-            System.out.println( "===================================================================================");
-            System.out.println( e );
-            System.out.println( "===================================================================================");
-            System.out.println();
-            System.out.println();
-            System.out.println();
-
-        }
-    }
-    @Test
-    public void StocktestSizeMinNote() {
-        Stock stock = new Stock();
-        stock.setPriceperitem(100);
-        stock.setTotalprice(100);
-        stock.setDate(null);
-        stock.setNote("G");
-        try {
-            entityManager.persist(stock);
-            entityManager.flush();
-            entityManager.getEntityManager();
-
-            fail("Should not pass to this line");
-        } catch(javax.validation.ConstraintViolationException e) {
-            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
-            assertEquals(violations.isEmpty(), false);
-
-            System.out.println();
-            System.out.println();
-            System.out.println();
-            System.out.println( "===================================================================================");
-            System.out.println( e );
-            System.out.println( "===================================================================================");
-            System.out.println();
-            System.out.println();
-            System.out.println();
-
-        }
-    }
-    @Test
-    public void StocktestSizeMaxNote() {
-        Stock stock = new Stock();
-        stock.setPriceperitem(100);
-        stock.setTotalprice(100);
-        stock.setDate(null);
-        stock.setNote("Gxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
-        try {
-            entityManager.persist(stock);
-            entityManager.flush();
-            entityManager.getEntityManager();
-
-            fail("Should not pass to this line");
-        } catch(javax.validation.ConstraintViolationException e) {
-            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
-            assertEquals(violations.isEmpty(), false);
-
-            System.out.println();
-            System.out.println();
-            System.out.println();
-            System.out.println( "===================================================================================");
-            System.out.println( e );
-            System.out.println( "===================================================================================");
-            System.out.println();
-            System.out.println();
-            System.out.println();
-
-        }
-    }
-    @Test
-    public void StocktestPatternNote() {
-        Stock stock = new Stock();
-        stock.setPriceperitem(100);
-        stock.setTotalprice(100);
-        stock.setDate(null);
-        stock.setNote("O.O!");
-        try {
-            entityManager.persist(stock);
-            entityManager.flush();
-            entityManager.getEntityManager();
-
-            fail("Should not pass to this line");
-        } catch(javax.validation.ConstraintViolationException e) {
-            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
-            assertEquals(violations.isEmpty(), false);
-
-            System.out.println();
-            System.out.println();
-            System.out.println();
-            System.out.println( "===================================================================================");
-            System.out.println( e );
-            System.out.println( "===================================================================================");
-            System.out.println();
-            System.out.println();
-            System.out.println();
-
-        }
-    }
-    @Test
-    public void UnittestUnique() {
-        Unit u = new Unit();
-        u.setUnit("กล่อง");
-        entityManager.persist(u);
+    public void ManuTypetestUnique() {
+        ManuType m = new ManuType();
+        m.setManut("กาแฟ");
+        entityManager.persist(m);
         entityManager.flush();
 
-        Unit u1 = new Unit();
-        u1.setUnit("กล่อง");
+        ManuType m1 = new ManuType();
+        m1.setManut("กาแฟ");
 
 
         try{
-            entityManager.persist(u1);
+            entityManager.persist(m1);
             entityManager.flush();
 
         } catch(javax.validation.ConstraintViolationException e) {
-            System.out.println("================FROM UnittestUnique ======================");
+            System.out.println("================FROM ManuTypetestUnique ======================");
             e.printStackTrace();
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             assertEquals(violations.isEmpty(), false);
@@ -238,5 +197,60 @@ public class StockTest {
             e.printStackTrace();
         }
     }
+    @Test
+    public void CoffeeTypetestUnique() {
+        CoffeeType c = new CoffeeType();
+        c.setCoffee("อุ่นมั๊ยหละ?");
+        entityManager.persist(c);
+        entityManager.flush();
+
+        CoffeeType c1 = new CoffeeType();
+        c1.setCoffee("อุ่นมั๊ยหละ?");
+
+
+        try{
+            entityManager.persist(c1);
+            entityManager.flush();
+
+        } catch(javax.validation.ConstraintViolationException e) {
+            System.out.println("================FROM CoffeeTypetestUnique ======================");
+            e.printStackTrace();
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+        }
+        catch (javax.persistence.PersistenceException e){
+            System.out.println("==================================================================");
+            e.printStackTrace();
+        }
+    }
+    @Test
+    public void BakeryTypetestUnique() {
+        BakeryType b = new BakeryType();
+        b.setBakery("กล้วยหอมจอมชน");
+        entityManager.persist(b);
+        entityManager.flush();
+
+        BakeryType b1 = new BakeryType();
+        b1.setBakery("กล้วยหอมจอมชน");
+
+
+        try{
+            entityManager.persist(b1);
+            entityManager.flush();
+
+        } catch(javax.validation.ConstraintViolationException e) {
+            System.out.println("================FROM BakeryTypetestUnique ======================");
+            e.printStackTrace();
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+        }
+        catch (javax.persistence.PersistenceException e){
+            System.out.println("==================================================================");
+            e.printStackTrace();
+        }
+    }
+
 
 }
