@@ -26,8 +26,8 @@ public class Stock {
     @NotNull Date date;
 
     @NotNull
-    @Pattern(regexp = "[-A-Zก-๛]+")
-    @Size(min = 2, max = 40 )
+    @Pattern(regexp = "[-a-zก-๛]+")
+    @Size(min = 6, max = 40 )
     private  String note;
 
     @ManyToOne(fetch = FetchType.EAGER)

@@ -20,9 +20,12 @@ public class Manu {
 
     private  int manuid;
     @NotNull
-    @Pattern(regexp = "[-A-Zก-๛]+")
-    @Size(min = 2, max = 40 )
+    @Pattern(regexp = "[-a-zก-๛]+")
+//    @Size(min = 2, max = 40 )
     private  String name;
+    @NotNull
+    @Min(value = 25)
+    @Max(value = 200)
     private int price;
 
     @ManyToOne(fetch = FetchType.EAGER, targetEntity = ManuType.class)

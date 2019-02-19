@@ -26,9 +26,10 @@ public class StockController {
         return this.stockRepository.findAll().stream().collect(Collectors.toList());
     }
 
-    @PostMapping(path = "/stock/{product}/{amount}/{unit}/{priceperitem}/{totalprice}/{date}")
+    @PostMapping(path = "/stock/{product}/{amount}/{unit}/{priceperitem}/{totalprice}/{date}/{note}")
     public Stock stock(@PathVariable Long product, @PathVariable Long amount, @PathVariable Long unit,
-                       @PathVariable Integer priceperitem, @PathVariable Integer totalprice, @PathVariable Date date){
+                       @PathVariable Integer priceperitem, @PathVariable Integer totalprice,
+                       @PathVariable Date date, @PathVariable String note){
 
 
 
@@ -36,6 +37,7 @@ public class StockController {
         stock.setPriceperitem(priceperitem);
         stock.setTotalprice(totalprice);
         stock.setDate(date);
+        stock.setNote(note);
 
         Product product1 = productRepository.findById(product).get();
         stock.setProduct(product1);
