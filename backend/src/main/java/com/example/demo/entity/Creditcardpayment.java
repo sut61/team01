@@ -7,11 +7,11 @@ import javax.validation.constraints.*;
 import java.util.Date;
 
 @Entity
-//@Data
+@Data
 @Getter
 @Setter
 @ToString
-//@NoArgsConstructor
+@NoArgsConstructor
 @EqualsAndHashCode
 @Table(name = "Creditcardpayment")
 public class Creditcardpayment {
@@ -35,42 +35,42 @@ public class Creditcardpayment {
     private @NotNull Integer money;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    private Member m;
+    private Member member;
 
     @OneToOne(fetch = FetchType.EAGER)
-    private CoffeeOrder c;
+    private CoffeeOrder coffeeorder;
 
     @OneToOne(fetch = FetchType.EAGER)
-    private Credittype t;
+    private Credittype credittype;
 
     @ManyToOne(fetch = FetchType.EAGER)
     private Staff staff;
 
-    public void setMember(Member member) {
-        this.m = member;
-    }
-    public Member getMember() {
-        return m;
-    }
-
-    public void setStaff(Staff staff) {
-        this.staff = staff;
-    }
-    public Staff getStaff() {
-        return staff;
-    }
-
-    public void setCoffeeorder(CoffeeOrder coffeeorder) {
-        this.c = coffeeorder;
-    }
-    public CoffeeOrder getCoffeeorder() {
-        return c;
-    }
-
-    public void setCredittype(Credittype credittype) {
-        this.t = credittype;
-    }
-    public Credittype getCredittype() {
-        return t;
-    }
+//    public void setMember(Member member) {
+//        this.m = member;
+//    }
+//    public Member getMember() {
+//        return m;
+//    }
+//
+//    public void setStaff(Staff staff) {
+//        this.staff = staff;
+//    }
+//    public Staff getStaff() {
+//        return staff;
+//    }
+//
+//    public void setCoffeeorder(CoffeeOrder coffeeorder) {
+//        this.c = coffeeorder;
+//    }
+//    public CoffeeOrder getCoffeeorder() {
+//        return c;
+//    }
+//
+//    public void setCredittype(Credittype credittype) {
+//        this.t = credittype;
+//    }
+//    public Credittype getCredittype() {
+//        return t;
+//    }
 }

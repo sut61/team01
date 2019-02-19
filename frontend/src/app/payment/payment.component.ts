@@ -48,7 +48,7 @@ export class PaymentComponent implements OnInit {
   }
 
   save() {
-    if (this.addis.inputNote === '' || this.userSelect === 0 || this.idsSelect === 0 || this.staffNameSelect === 0 ) {
+    if (this.addis.inputNote === '' || this.userSelect === 0 || this.idsSelect === 0 || this.staffNameSelect === 0 || this.addis.inputMoney === '') {
       alert('กรุณากรอกข้อมูลให้ครบถ้วน');
     } else {
       this.httpClient.post('//localhost:8080/payment' + '/' + this.userSelect + '/' + this.idsSelect + '/' +
@@ -62,6 +62,7 @@ export class PaymentComponent implements OnInit {
 
           }
         );
+      alert('สำเร็จ');
     }
 
   }
