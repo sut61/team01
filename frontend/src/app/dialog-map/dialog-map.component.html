@@ -3,8 +3,8 @@
 <p>: {{latitude}},{{longitude}}
   &nbsp;&nbsp;&nbsp;
     <mat-form-field>
-    <mat-select placeholder="UserName"  [(ngModel)]="member.memberNameSelect" (click)="selectMember()"  name="memberNeme">
-      <mat-option *ngFor="let member of memberNeme" [value]="member.meid">
+    <mat-select placeholder="UserName"  [(ngModel)]="member.memberNameSelect"   name="memberNeme">
+      <mat-option *ngFor="let member of memberNeme" [value]="member.meid" (click)="addMember()">
         {{member.nameM}}
       </mat-option>
     </mat-select>

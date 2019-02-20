@@ -58,8 +58,8 @@ export class CoffeeDeliveryComponent implements OnInit {
 
   save(numberMenu) {
 
-    if (this.serviceService.push === false && this.serviceService.push2 === false) {
-      alert('กรุณากรอกข้อมูลให้ครบถ้วน   You don\'t choose location.');
+    if (this.serviceService.push === false || this.serviceService.push2 === false || this.serviceService.numberMember === 0) {
+      alert('กรุณากรอกข้อมูลให้ครบถ้วน   You don\'t choose location. or User');
     } else {
 
         this.serviceService.counter = this.serviceService.counter + 1 ;

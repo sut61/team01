@@ -13,10 +13,10 @@ export class ServiceService {
   public counter = 0;
   public push = false;
   public push2 = false;
+
   public numberMember = 0;
 
   public  coffeeId = 0;
-
 
   public member = {
     meid : '',
@@ -26,19 +26,14 @@ export class ServiceService {
     address : '',
     province : '',
     sex : '',
-
   };
 
-  menu = {
+  public  menu = {
     manuid : Number,
     name : String,
     price : '',
   };
   public i = 0;
-
-
-
-
 
   public serviceType: any;
 
@@ -52,10 +47,6 @@ export class ServiceService {
   getServiceType(): Observable<any> {
     return this.http.get(this.API + '/ServiceType');
   }
-
-
-
-
 
   constructor(public  http: HttpClient ) { }
 }

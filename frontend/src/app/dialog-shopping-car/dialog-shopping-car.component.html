@@ -22,21 +22,25 @@
     </ng-container>
 
     <ng-container matColumnDef="CreditPay">
-      <th mat-header-cell *matHeaderCellDef style = "width:20%">...</th>
-      <td mat-cell *matCellDef="let element"> <button mat-raised-button color="warn" (click)="DeleteDelivery(element.coffeeDeliveryId)">
-        Remove</button> </td>
+      <th mat-header-cell *matHeaderCellDef style = "width:20%" >...</th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-raised-button color="warn" (click)="DeleteDelivery(element.coffeeDeliveryId)">
+        Remove</button>
+      </td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="dataColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: dataColumns;"></tr>
   </table>
+  <br><br>
+  <br><br>
 
 
 </mat-dialog-content>
 
 <mat-dialog-actions>
-  <button mat-raised-button color="primary">
-    <mat-icon color="accent" (click)="end()" [routerLink]="['/creditcardpayment']" >add_shopping_cart</mat-icon>
+  <button mat-raised-button (click)="end()"  color="primary">
+    <mat-icon color="accent"  >add_shopping_cart</mat-icon>
     order review
   </button>
 

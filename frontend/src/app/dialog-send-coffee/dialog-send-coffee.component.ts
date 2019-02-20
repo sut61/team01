@@ -18,6 +18,8 @@ export class DialogSendCoffeeComponent implements OnInit {
     coffeeDeliveryId : Number,
     price : Number,
     name : String,
+    latitude : Number,
+    longitude : Number,
   };
 
   public member = {
@@ -44,14 +46,11 @@ export class DialogSendCoffeeComponent implements OnInit {
   public statusSelect = 0;
 
 
-  note: number;
-
 
 
 
   getDelivery(): Observable<any> {
-
-    return this.http.get(this.API + '/CoffeeDelivery');
+    return this.http.get(this.API + '/CoffeeDelivery/' + this.serviceService.coffeeId);
   }
 
   getMember(): Observable<any> {
@@ -66,21 +65,20 @@ export class DialogSendCoffeeComponent implements OnInit {
     return this.http.get(this.API + '/Status');
   }
 
-
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
   Send() {
-    this.note = this.serviceService.coffeeId - 1;
+    // this.note = this.serviceService.coffeeId  - this.serviceService.deleteCounter - 1;
 
-    if (this.statusSelect === null ) {
-      alert('กรุณากรอกข้อมูลให้ครบถ้วน   You don\'t choose location.');
+    if (this.statusSelect === 0 || this.staffNameSelect === 0) {
+      alert('กรุณากรอกข้อมูลให้ครบถ้วน  >>> คุณยังไม่เลือกสถานะ หรือ ชื่่อพนักงาน');
+
     } else {
-
-
       this.httpClient.post('http://localhost:8080/Delivery' + '/' + this.serviceService.coffeeId  + '/'
-        + this.delivery[ this.serviceService.coffeeId - 1 ].name + '/'
-        + this.delivery[this.serviceService.coffeeId - 1].price + '/'
-        + this.delivery[this.serviceService.coffeeId - 1].latitude + '/' + this.delivery[this.serviceService.coffeeId - 1].longitude + '/'
+        + this.delivery.name + '/'
+        + this.delivery.price + '/'
+        + this.delivery.latitude + '/' + this.delivery.longitude + '/'
         + this.staffNameSelect + '/' + this.status[this.statusSelect - 1].statusName + '/' + this.staffNameSelect + '/'
         + this.staffNames[this.staffNameSelect - 1].staffName , this.delivery)
         .subscribe(
@@ -92,6 +90,8 @@ export class DialogSendCoffeeComponent implements OnInit {
           }
         );
 
+      alert('<<< บันทึกสำเร็จ! >>>');
+
       // this.http.delete(this.API + '/CoffeeDelivery' +  '/' + this.serviceService.coffeeId).subscribe(
       //   data => {
       //     console.log(' Delete is successful>>>>>>>>>>>>', data);
@@ -101,11 +101,13 @@ export class DialogSendCoffeeComponent implements OnInit {
       //   }
       // );
 
-      window.location.reload();
+     // window.location.reload();
 
     }
   }
 
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
   ngOnInit() {
 
