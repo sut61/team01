@@ -1,4 +1,5 @@
 package com.example.demo;
+import com.example.demo.entity.CoffeeDelivery;
 import com.example.demo.entity.Delivery;
 import com.example.demo.entity.Status;
 import com.example.demo.repository.CoffeeDeliveryRepository;
@@ -25,12 +26,6 @@ public class CoffeeDeliveryTest {
     private CoffeeDeliveryRepository coffeedeliveryRepository;
 
     @Autowired
-    private StatusRepository statusRepository;
-
-    @Autowired
-    private StaffRepository staffRepository;
-
-    @Autowired
     private TestEntityManager entityManager;
 
     private Validator validator;
@@ -42,8 +37,8 @@ public class CoffeeDeliveryTest {
     }
 
     @Test
-    public void deliveryTest() {
-        Delivery d = new Delivery();
+    public void CoffeeDeliveryTest() {
+        CoffeeDelivery d = new CoffeeDelivery();
         d.setLongitude(111.222);
         d.setLatitude(14.555);
         d.setName("เอสเปรสโซ่");
@@ -54,15 +49,9 @@ public class CoffeeDeliveryTest {
             entityManager.persist(d);
             entityManager.flush();
 
-            System.out.println();
-            System.out.println();
-            System.out.println();
             System.out.println( "===================================================================================");
-            System.out.println("Test Successful");
+            System.out.println("CoffeeDeliveryTestPass");
             System.out.println( "===================================================================================");
-            System.out.println();
-            System.out.println();
-            System.out.println();
 
         } catch(javax.validation.ConstraintViolationException e) {
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
@@ -73,8 +62,8 @@ public class CoffeeDeliveryTest {
     }
 
     @Test
-    public void deliveryTestNameNull() {
-        Delivery d = new Delivery();
+    public void CoffeeDeliveryTestNameNull() {
+        CoffeeDelivery d = new CoffeeDelivery();
         d.setLongitude(111.222);
         d.setLatitude(14.555);
         d.setName(null);
@@ -83,96 +72,124 @@ public class CoffeeDeliveryTest {
         try {
             entityManager.persist(d);
             entityManager.flush();
-            entityManager.getEntityManager();
 
             fail("Should not pass to this line");
         } catch(javax.validation.ConstraintViolationException e) {
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             assertEquals(violations.isEmpty(), false);
-
-            System.out.println();
-            System.out.println();
-            System.out.println();
-            System.out.println( "===================================================================================");
+            assertEquals(violations.size(), 1);
+            System.out.println( "================================ CoffeeDeliveryTestNameNull ============================");
             System.out.println( e );
-            System.out.println( "===================================================================================");
-            System.out.println();
-            System.out.println();
-            System.out.println();
+            System.out.println( "===============================  CoffeeDeliveryTestNameNull ============================");
 
         }
     }
 
     @Test
-    public void deliveryTestPriceMin() {
-        Delivery d = new Delivery();
+    public void CoffeeDeliveryTestPriceMin() {
+        CoffeeDelivery d = new CoffeeDelivery();
         d.setLongitude(111.222);
         d.setLatitude(14.555);
         d.setName("เอสเปรสโซ่");
         d.setPrice(10);
-//        d.setStatusName("send");
-//        d.setStaffName("theerapol");
-
 
         try {
             entityManager.persist(d);
             entityManager.flush();
 
-            entityManager.getEntityManager();
-
             fail("Should not pass to this line");
         } catch(javax.validation.ConstraintViolationException e) {
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             assertEquals(violations.isEmpty(), false);
-//            assertEquals(violations.size(), 1);
-
-            System.out.println();
-            System.out.println();
-            System.out.println();
-            System.out.println( "===================================================================================");
+            assertEquals(violations.size(), 1);
+            System.out.println( "================================ CoffeeDeliveryTestPriceMin ================================");
             System.out.println( e );
-            System.out.println( "===================================================================================");
-            System.out.println();
-            System.out.println();
-            System.out.println();
-
+            System.out.println( "================================ CoffeeDeliveryTestPriceMin ================================");
         }
     }
 
-    public void deliveryTestPattern() {
-        Delivery d = new Delivery();
+
+    @Test
+    public void CoffeeDeliveryTestPriceMax() {
+        CoffeeDelivery d = new CoffeeDelivery();
         d.setLongitude(111.222);
         d.setLatitude(14.555);
         d.setName("เอสเปรสโซ่");
+        d.setPrice(3000);
+
+        try {
+            entityManager.persist(d);
+            entityManager.flush();
+
+            fail("Should not pass to this line");
+        } catch(javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+            System.out.println( "================================ CoffeeDeliveryTestPriceMax ================================");
+            System.out.println( e );
+            System.out.println( "================================ CoffeeDeliveryTestPriceMax ================================");
+
+        }
+    }
+
+    @Test
+    public void CoffeeDeliveryTestLongitudeMin() {
+        CoffeeDelivery d = new CoffeeDelivery();
+        d.setLongitude(99.999);
+        d.setLatitude(14.555);
+        d.setName("เอสเปรสโซ่");
         d.setPrice(100);
-//        d.setStatusName("send");
-//        d.setStaffName("asfrwrgff000");
 
 
         try {
             entityManager.persist(d);
             entityManager.flush();
 
-            entityManager.getEntityManager();
 
             fail("Should not pass to this line");
         } catch(javax.validation.ConstraintViolationException e) {
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             assertEquals(violations.isEmpty(), false);
-//            assertEquals(violations.size(), 1);
+            assertEquals(violations.size(), 1);
 
-            System.out.println();
-            System.out.println();
-            System.out.println();
-            System.out.println( "===================================================================================");
+            System.out.println( "============================= CoffeeDeliveryTestLongitudeMin ===========================");
             System.out.println( e );
-            System.out.println( "===================================================================================");
-            System.out.println();
-            System.out.println();
-            System.out.println();
+            System.out.println( "==========================================|||============================================");
+
 
         }
     }
+
+    @Test
+    public void CoffeeDeliveryTestLatitudeMin() {
+        CoffeeDelivery d = new CoffeeDelivery();
+        d.setLongitude(115.2);
+        d.setLatitude(13.99);
+        d.setName("เอสเปรสโซ่");
+        d.setPrice(100);
+
+
+        try {
+            entityManager.persist(d);
+            entityManager.flush();
+
+
+            fail("Should not pass to this line");
+        } catch(javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+
+            System.out.println( "============================= CoffeeDeliveryTestLatitudeMin ===========================");
+            System.out.println( e );
+            System.out.println( "==========================================|||============================================");
+
+
+        }
+    }
+
+
 
 
 }

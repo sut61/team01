@@ -20,36 +20,36 @@ public class Delivery {
     @GeneratedValue(strategy= GenerationType.SEQUENCE, generator="Delivery_seq")
     @NotNull
     private Long deliveryId;
+
+    @Min(value = 14)
     private double latitude;
+
+    @Min(value = 100)
     private double longitude;
+
     @NotNull
     private String name;
+
     @NotNull
     @Min(value = 25)
     @Max(value = 200)
     private int price;
+
     @Pattern(regexp = "\\D+")
-//    @Size(min=2,max=30)
     private String statusName;
+
     @NotNull
     private String staffName;
 
 
     @ManyToOne(fetch = FetchType.EAGER)
     private Status status;
+
     @ManyToOne(fetch = FetchType.EAGER)
     private Staff staff;
-    @OneToOne(fetch = FetchType.EAGER)
+
+    @OneToOne(fetch = FetchType.EAGER )
     private CoffeeDelivery coffeeDelivery;
 
 
-    public void setStaff(Optional<Staff> staff) {}
-
-
-//    public void setCoffeeDelivery(CoffeeDelivery did) {
-//    }
-
-    public void setStaff(Long staff) {
-
-    }
 }
