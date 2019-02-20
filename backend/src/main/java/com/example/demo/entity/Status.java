@@ -21,5 +21,6 @@ public class Status {
     @GeneratedValue(strategy= GenerationType.SEQUENCE, generator="status_seq")
     @NotNull
     private Long statusId;
+    @NotNull
     private String statusName;
 }

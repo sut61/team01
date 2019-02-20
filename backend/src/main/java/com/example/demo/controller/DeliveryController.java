@@ -42,12 +42,13 @@ public class DeliveryController {
     {
         Delivery delivery = new Delivery();
         Status status1 = new Status();
-        Optional<Staff> staff1 = Optional.of(new Staff());
+
+        Staff staff1 = new Staff();
         CoffeeDelivery cd = new CoffeeDelivery();
 
         cd = coffeeDeliveryRepository.findByCoffeeDeliveryId(did);
         status1 = statusRepository.findBystatusId(status);
-        staff1 = staffRepository.findById(staff);
+//        staff1 = staffRepository.getOne(staff);
 
         delivery.setCoffeeDelivery(cd);
         delivery.setName(name);
@@ -56,7 +57,7 @@ public class DeliveryController {
         delivery.setLongitude(longitude);
         delivery.setStatus(status1);
         delivery.setStatusName(statusName);
-        delivery.setStaff(staff1);
+        delivery.setStaff(staffRepository.findById(staff).get());
         delivery.setStaffName(staffName);
 
 

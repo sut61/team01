@@ -19,6 +19,8 @@ public class ServiceType {
     @SequenceGenerator(name="orderType_seq",sequenceName="orderType_seq")
     @GeneratedValue(strategy= GenerationType.SEQUENCE, generator="orderType_seq")
     private @NotNull Long serviceTypeId;
+
+    @NotNull
     private  String service;
 
 

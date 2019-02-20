@@ -53,20 +53,16 @@ public class DeliveryTest {
         d.setPrice(100);
         d.setStatusName("send");
         d.setStaffName("theerapol");
+        d.setStatus(statusRepository.findBystatusId(1l));
+
 
         try {
             entityManager.persist(d);
             entityManager.flush();
 
-            System.out.println();
-            System.out.println();
-            System.out.println();
             System.out.println( "===================================================================================");
-            System.out.println("Test Successful");
+            System.out.println("Test Successfully");
             System.out.println( "===================================================================================");
-            System.out.println();
-            System.out.println();
-            System.out.println();
 
         } catch(javax.validation.ConstraintViolationException e) {
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
@@ -100,9 +96,9 @@ public class DeliveryTest {
             System.out.println();
             System.out.println();
             System.out.println();
-            System.out.println( "===================================================================================");
+            System.out.println( "==================== deliveryTestNameNull =========================");
             System.out.println( e );
-            System.out.println( "===================================================================================");
+            System.out.println( "===================== deliveryTestNameNull =========================");
             System.out.println();
             System.out.println();
             System.out.println();
@@ -130,52 +126,15 @@ public class DeliveryTest {
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             assertEquals(violations.isEmpty(), false);
 
-            System.out.println();
-            System.out.println();
-            System.out.println();
-            System.out.println( "===================================================================================");
+
+            System.out.println( "============================ deliveryTestStaffNameNull =============================");
             System.out.println( e );
-            System.out.println( "===================================================================================");
-            System.out.println();
-            System.out.println();
-            System.out.println();
+            System.out.println( "============================= deliveryTestStaffNameNull ============================");
+
 
         }
     }
 
-//    @Test
-//    public void deliveryTestLongitudeNull() {
-//        Delivery d = new Delivery();
-//        d.setLongitude(111.222);
-//        d.setLatitude(L);
-//        d.setName("farm");
-//        d.setPrice(100);
-//        d.setStatusName("send");
-//        d.setStaffName("theerapol");
-//
-//        try {
-//            entityManager.persist(d);
-//            entityManager.flush();
-//            entityManager.getEntityManager();
-//
-//            fail("Should not pass to this line");
-//        } catch(javax.validation.ConstraintViolationException e) {
-//            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
-//            assertEquals(violations.isEmpty(), false);
-//
-//            System.out.println();
-//            System.out.println();
-//            System.out.println();
-//            System.out.println( "===================================================================================");
-//            System.out.println( e );
-//            System.out.println( "===================================================================================");
-//            System.out.println();
-//            System.out.println();
-//            System.out.println();
-//
-//        }
-//    }
-//
 
 
     //Test Min ของ Price
@@ -205,9 +164,9 @@ public class DeliveryTest {
             System.out.println();
             System.out.println();
             System.out.println();
-            System.out.println( "===================================================================================");
+            System.out.println( "============================= deliveryTestPriceMin ===============================");
             System.out.println( e );
-            System.out.println( "===================================================================================");
+            System.out.println( "============================== deliveryTestPriceMin ==============================");
             System.out.println();
             System.out.println();
             System.out.println();
@@ -215,77 +174,63 @@ public class DeliveryTest {
         }
     }
 
-//    @Test
-//    public void deliveryTestLatitudeMin() {
-//        Delivery d = new Delivery();
-//        d.setLongitude(111.222);
-//        d.setLatitude(13.89);
-//        d.setName("เอสเปรสโซ่");
-//        d.setPrice(10);
-//        d.setStatusName("send");
-//        d.setStaffName("theerapol");
-//
-//
-//        try {
-//            entityManager.persist(d);
-//            entityManager.flush();
-//
-//            entityManager.getEntityManager();
-//
-//            fail("Should not pass to this line");
-//        } catch(javax.validation.ConstraintViolationException e) {
-//            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
-//            assertEquals(violations.isEmpty(), false);
-//            assertEquals(violations.size(), 1);
-//
-//            System.out.println();
-//            System.out.println();
-//            System.out.println();
-//            System.out.println( "===================================================================================");
-//            System.out.println( e );
-//            System.out.println( "===================================================================================");
-//            System.out.println();
-//            System.out.println();
-//            System.out.println();
-//
-//        }
-//    }
+    @Test
+    public void deliveryTestLatitudeMin() {
+        Delivery d = new Delivery();
+        d.setLongitude(111.222);
+        d.setLatitude(13.89);
+        d.setName("เอสเปรสโซ่");
+        d.setPrice(100);
+        d.setStatusName("send");
+        d.setStaffName("theerapol");
 
-//    @Test
-//    public void deliveryTestLongitudeMin() {
-//        Delivery d = new Delivery();
-//        d.setLongitude(99.999);
-//        d.setLatitude(14.555);
-//        d.setName("เอสเปรสโซ่");
-//        d.setPrice(10);
-//        d.setStatusName("send");
-//        d.setStaffName("theerapol");
-//
-//
-//        try {
-//            entityManager.persist(d);
-//            entityManager.flush();
-//
-//            entityManager.getEntityManager();
-//
-//            fail("Should not pass to this line");
-//        } catch(javax.validation.ConstraintViolationException e) {
-//            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
-//            assertEquals(violations.isEmpty(), false);
-//            assertEquals(violations.size(), 1);
-//
-//            System.out.println();
-//            System.out.println();
-//            System.out.println();
-//            System.out.println( "===================================================================================");
-//            System.out.println( e );
-//            System.out.println( "===================================================================================");
-//            System.out.println();
-//            System.out.println();
-//            System.out.println();
-//
-//        }
-//    }
+
+        try {
+            entityManager.persist(d);
+            entityManager.flush();
+
+            fail("Should not pass to this line");
+        } catch(javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+            System.out.println( "======================== deliveryTestLatitudeMin =============================");
+            System.out.println( e );
+            System.out.println( "===================================================================================");
+
+        }
+    }
+
+    @Test
+    public void deliveryTestLongitudeMin() {
+        Delivery d = new Delivery();
+        d.setLongitude(99.999);
+        d.setLatitude(14.555);
+        d.setName("เอสเปรสโซ่");
+        d.setPrice(100);
+        d.setStatusName("send");
+        d.setStaffName("theerapol");
+
+
+        try {
+            entityManager.persist(d);
+            entityManager.flush();
+
+            entityManager.getEntityManager();
+
+            fail("Should not pass to this line");
+        } catch(javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+
+            System.out.println( "============================= deliveryTestLongitudeMin ===========================");
+            System.out.println( e );
+            System.out.println( "===================================================================================");
+
+
+        }
+    }
 
 
     //Test Max ของ Price
@@ -310,15 +255,10 @@ public class DeliveryTest {
             assertEquals(violations.isEmpty(), false);
             assertEquals(violations.size(), 1);
 
-            System.out.println();
-            System.out.println();
-            System.out.println();
-            System.out.println( "===================================================================================");
+            System.out.println( "============================ deliveryTestPriceMax ===============================");
             System.out.println( e );
-            System.out.println( "===================================================================================");
-            System.out.println();
-            System.out.println();
-            System.out.println();
+            System.out.println( "============================= deliveryTestPriceMax =================================");
+
         }
     }
 
@@ -336,71 +276,63 @@ public class DeliveryTest {
             entityManager.persist(d);
             entityManager.flush();
 
-            entityManager.getEntityManager();
-
             fail("Should not pass to this line");
         } catch(javax.validation.ConstraintViolationException e) {
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             assertEquals(violations.isEmpty(), false);
-//            assertEquals(violations.size(), 1);
+          //  assertEquals(violations.size(), 1);
 
-            System.out.println();
-            System.out.println();
-            System.out.println();
-            System.out.println( "===================================================================================");
+            System.out.println( "=================================== deliveryTestPattern ===========================");
             System.out.println( e );
             System.out.println( "===================================================================================");
-            System.out.println();
-            System.out.println();
-            System.out.println();
 
         }
     }
 
-
-    @Test(expected=javax.persistence.PersistenceException.class)
-    public void testIdMustBeUnique() {
-        Delivery d1 = new Delivery();
-        d1.setDeliveryId(Long.valueOf(1));
-        d1.setLongitude(111.222);
-        d1.setLatitude(14.555);
-        d1.setName("เอสเปรสโซ่");
-        d1.setPrice(100);
-        d1.setStatusName("send");
-        d1.setStaffName("theerapol");
-
-
-        entityManager.persist(d1);
-        entityManager.flush();
-
-        Delivery d2 = new Delivery();
-        d2.setDeliveryId(Long.valueOf(1));
-        d2.setLongitude(155.22);
-        d2.setLatitude(15.555);
-        d2.setName("ลาเต้");
-        d2.setPrice(150);
-        d2.setStatusName("sending");
-        d2.setStaffName("farm");
-
-
-
-        entityManager.persist(d2);
-        entityManager.flush();
-
-        System.out.println();
-        System.out.println();
-        System.out.println();
-        System.out.println( "===================================================================================");
-        System.out.println("Test Unique");
-        System.out.println( "===================================================================================");
-        System.out.println();
-        System.out.println();
-        System.out.println();
-
-
-        fail("Should not pass to this line");
-    }
-
+//
+//    @Test(expected=javax.persistence.PersistenceException.class)
+//    public void testIdMustBeUnique() {
+//        Delivery d1 = new Delivery();
+//        d1.setDeliveryId(Long.valueOf(1));
+//        d1.setLongitude(111.222);
+//        d1.setLatitude(14.555);
+//        d1.setName("เอสเปรสโซ่");
+//        d1.setPrice(100);
+//        d1.setStatusName("send");
+//        d1.setStaffName("theerapol");
+//
+//
+//        entityManager.persist(d1);
+//        entityManager.flush();
+//
+//        Delivery d2 = new Delivery();
+//        d2.setDeliveryId(Long.valueOf(1));
+//        d2.setLongitude(155.22);
+//        d2.setLatitude(15.555);
+//        d2.setName("ลาเต้");
+//        d2.setPrice(150);
+//        d2.setStatusName("sending");
+//        d2.setStaffName("farm");
+//
+//
+//
+//        entityManager.persist(d2);
+//        entityManager.flush();
+//
+//        System.out.println();
+//        System.out.println();
+//        System.out.println();
+//        System.out.println( "===================================================================================");
+//        System.out.println("Test Unique");
+//        System.out.println( "===================================================================================");
+//        System.out.println();
+//        System.out.println();
+//        System.out.println();
+//
+//
+//        fail("Should not pass to this line");
+//    }
+//
 
 
 }

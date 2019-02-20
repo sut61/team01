@@ -15,6 +15,9 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Collection;
 
 
+import java.util.Collections;
+import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 @RestController
@@ -43,6 +46,11 @@ public class CoffeeDeliveryController {
 
     }
 
+    @GetMapping("/CoffeeDelivery/{id}")
+    private CoffeeDelivery getId(@PathVariable Long id){
+        return coffeeDeliveryRepository.findByCoffeeDeliveryId(id);
+    }
+
     @PostMapping("/CoffeeDelivery/{serviceType}/{member}/{manu}/{menuName}/{priece}/{lat}/{lng}")
     public CoffeeDelivery newPostCoffee(@PathVariable Long serviceType, @PathVariable Long member,
                                         @PathVariable int manu,@PathVariable int priece, @PathVariable Double lat,
@@ -56,14 +64,14 @@ public class CoffeeDeliveryController {
         member1 = memberRepository.findByMeid(member);
 
         Manu manu1 = new Manu();
-        manu1 = manuRepository.findByManuid(manu);
+        manu1 = (Manu) manuRepository.findByManuid(manu);
 
         newPostCoffee.setLatitude(lat);
         newPostCoffee.setLongitude(lng);
         newPostCoffee.setPrice(priece);
         newPostCoffee.setName(menuName);
         newPostCoffee.setServiceType(serviceType1);
-        newPostCoffee.setManu(manu1);
+        newPostCoffee.setManuid(manu1);
 
         newPostCoffee.setMember(member1);
 
@@ -74,7 +82,6 @@ public class CoffeeDeliveryController {
     @DeleteMapping("/CoffeeDelivery/{coffeeDeliveryId}")
     public void deleteCoffeeDelivery(@PathVariable Long coffeeDeliveryId)
     {
-
         coffeeDeliveryRepository.deleteById(coffeeDeliveryId);
 
 
