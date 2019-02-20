@@ -35,6 +35,10 @@ export class DialogMapComponent implements OnInit {
      this.serviceService.numberMember = this.member.memberNameSelect;
   }
 
+  addMember() {
+    this.serviceService.push2 = true;
+  }
+
 
 
 
@@ -45,11 +49,6 @@ export class DialogMapComponent implements OnInit {
       this.memberNeme = data;
       console.log(this.memberNeme);
     });
-
-    if (this.member.memberNameSelect === '') {
-      this.serviceService.push2 = true;
-    }
-
 
   }
 

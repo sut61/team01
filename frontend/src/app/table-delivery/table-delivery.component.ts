@@ -51,20 +51,8 @@ export class TableDeliveryComponent implements OnInit {
     this.serviceService.coffeeId = idd;
     console.log(`Dialog result: ${idd}`);
 
-    dialogConfig.data = {
-      id : idd,
-      title: 'Angular For Beginners'
-    };
-
     this.dialog.open(DialogSendCoffeeComponent, dialogConfig);
 
-
-
-    // dialogRef.disableClose.subscribe(result => {
-    //   console.log(`Dialog result: ${id}`);
-    // });dialogConfig.disableClose = true;
-    //     dialogConfig.autoFocus = true;dialogConfig.disableClose = true;
-    //     dialogConfig.autoFocus = true;
 
   }
 

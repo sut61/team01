@@ -24,17 +24,17 @@ export class DialogShoppingCarComponent implements OnInit {
     if (this.serviceService.push === false) {
       this.http.delete(this.API + '/CoffeeDelivery' +  '/' + deliveryId).subscribe(
         data => {
-          console.log(' Delet is successful', data);
+          console.log(' Delete is successful', data);
         },
         error => {
           console.log('Error', error);
         }
       );
     } else {
-      this.serviceService.counter = this.serviceService.counter - 1 ;
+      this.serviceService.counter = this.serviceService.counter + 1 ;
       this.http.delete(this.API + '/CoffeeDelivery' +  '/' + deliveryId).subscribe(
         data => {
-          console.log(' Delet is successful', data);
+          console.log(' Delete is successful', data);
         },
         error => {
           console.log('Error', error);
@@ -47,10 +47,10 @@ export class DialogShoppingCarComponent implements OnInit {
   }
 
   end() {
-    if (this.serviceService.push === false) {
+    if (this.serviceService.push === false && this.serviceService.push === false ) {
       alert('กรุณากรอกข้อมูลให้ครบถ้วน ');
     } else {
-      alert('ดำเนินการเสร็จสิ้น');
+      alert('<<< ดำเนินการเสร็จสิ้น >>>');
     }
   }
 

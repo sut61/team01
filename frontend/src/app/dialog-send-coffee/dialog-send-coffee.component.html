@@ -2,16 +2,16 @@
 <mat-dialog-content>
 
   <p>
-
-    <!--{{serviceService.coffeeId}}<br>-->
-    เมนู : {{delivery[serviceService.coffeeId-1  ]?.name}}
+    <!--{{delivery.member}}-->
+    <!--<br>-->
+    เมนู : {{delivery?.name}}
     <br><br>
-    ราคา : {{delivery[serviceService.coffeeId - 1]?.price}}
+    ราคา : {{delivery?.price}}
     <br><br>
     ตำแหน่งที่จัดส่ง<br>
-    Latitude: {{delivery[serviceService.coffeeId - 1]?.latitude}}
+    Latitude: {{delivery?.latitude}}
     <br>
-    Longitude: {{delivery[serviceService.coffeeId - 1]?.longitude}}
+    Longitude: {{delivery?.longitude}}
       <br><br>
     สถานะการจัดส่ง:
       <mat-select [(ngModel)]="statusSelect" [ngModelOptions]="{standalone: true}" placeholder="Status" panelClass="example-panel">
