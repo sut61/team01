@@ -32,15 +32,15 @@ public class Member {
     @NotNull 
     private  String nameM;
 
-    @OneToOne(fetch = FetchType.EAGER, targetEntity = Gender.class)
+    @ManyToOne(fetch = FetchType.EAGER, targetEntity = Gender.class)
     @JoinColumn(name = "Gender_id",insertable = true)
     private Gender g;
 
-    @OneToOne (fetch = FetchType.EAGER, targetEntity = Nametype.class)
+    @ManyToOne (fetch = FetchType.EAGER, targetEntity = Nametype.class)
     @JoinColumn(name = "Nametype_id",insertable = true)
     private Nametype n;
 
-    @OneToOne (fetch = FetchType.EAGER, targetEntity = Province.class)
+    @ManyToOne (fetch = FetchType.EAGER, targetEntity = Province.class)
     @JoinColumn(name = "Province_id",insertable = true)
     private Province p;
 
