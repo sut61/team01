@@ -33,44 +33,19 @@ public class Creditcardpayment {
     private @Size(min = 1, max = 16) String creditname;
 
     private @NotNull Integer money;
+    private @NotNull Integer discount;
 
     @ManyToOne(fetch = FetchType.EAGER)
     private Member member;
 
-    @OneToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER)
     private CoffeeOrder coffeeorder;
 
-    @OneToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER)
     private Credittype credittype;
 
     @ManyToOne(fetch = FetchType.EAGER)
     private Staff staff;
 
-//    public void setMember(Member member) {
-//        this.m = member;
-//    }
-//    public Member getMember() {
-//        return m;
-//    }
-//
-//    public void setStaff(Staff staff) {
-//        this.staff = staff;
-//    }
-//    public Staff getStaff() {
-//        return staff;
-//    }
-//
-//    public void setCoffeeorder(CoffeeOrder coffeeorder) {
-//        this.c = coffeeorder;
-//    }
-//    public CoffeeOrder getCoffeeorder() {
-//        return c;
-//    }
-//
-//    public void setCredittype(Credittype credittype) {
-//        this.t = credittype;
-//    }
-//    public Credittype getCredittype() {
-//        return t;
-//    }
+
 }

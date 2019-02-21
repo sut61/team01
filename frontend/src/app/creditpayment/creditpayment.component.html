@@ -80,6 +80,12 @@
        </div></h4>
 
       <h4><div style="text-align:center">
+        ส่วนลด &nbsp;&nbsp;<mat-form-field class="example-mid-width" >
+        <input matInput placeholder="กรุณากรอกจำนวนเงิน" [(ngModel)]="discount" [ngModelOptions]="{standalone: true}">
+      </mat-form-field>
+      </div></h4>
+
+      <h4><div style="text-align:center">
         จำนวนเงินที่หักจากในบัตร &nbsp;&nbsp;<mat-form-field class="example-mid-width" >
         <input matInput placeholder="กรุณากรอกจำนวนเงิน" [(ngModel)]="money" [ngModelOptions]="{standalone: true}">
       </mat-form-field>

@@ -19,6 +19,7 @@ export class CreditpaymentComponent implements OnInit {
   csc: number;
   expireddate: null;
   money: number;
+  discount: number;
 
   //ชื่อสตาฟ
   staffNames: Array<any>;
@@ -68,31 +69,34 @@ export class CreditpaymentComponent implements OnInit {
       alert('กรุณาเลือกพนักงาน')
     }
     else if (this.creditname == null) {
-      alert('กรุณาเกรอกชื่อเจ้าของบัตร')
+      alert('กรุณากรอกชื่อเจ้าของบัตร')
     }
     else if (this.creditname == null) {
-      alert('กรุณาเกรอกชื่อเจ้าของบัตร')
+      alert('กรุณากรอกชื่อเจ้าของบัตร')
     }
     else if (this.creditname == null) {
-      alert('กรุณาเกรอกชื่อเจ้าของบัตร')
+      alert('กรุณากรอกชื่อเจ้าของบัตร')
     }
     else if (this.creditnumber == null) {
-      alert('กรุณาเกรอกหมายเลขบัตร')
+      alert('กรุณากรอกหมายเลขบัตร')
     }
     else if (this.csc == null) {
-      alert('กรุณาเกรอกรหัส 3ตัว ของบัตร')
+      alert('กรุณากรอกรหัส 3ตัว ของบัตร')
     }
     else if (this.expireddate == null) {
-      alert('กรุณาเเลือกวันที่')
+      alert('กรุณาเลือกวันที่')
     }
     else if (this.money == null) {
       alert('กรุณากรอกจำนวนเงิน')
     }
     else if (this.typenameSelect == null) {
-      alert('กรุณาเเลือกประเภทของบัตร')
+      alert('กรุณาเลือกประเภทของบัตร')
+    }
+    else if (this.discount == null) {
+      alert('กรุณากรอกจำนวนเงิน')
     }
     else {
-      this.httpClient.post('http://localhost:8080/creditcardpayment/' + this.nameMSelect + '/' + this.orderidSelect + '/' + this.staffNameSelect + '/' + this.creditname + '/' + this.creditnumber + '/' + this.csc + '/' + this.expireddate + '/' + this.typenameSelect + '/' + this.money, {})
+      this.httpClient.post('http://localhost:8080/creditcardpayment/' + this.nameMSelect + '/' + this.orderidSelect + '/' + this.staffNameSelect + '/' + this.creditname + '/' + this.creditnumber + '/' + this.csc + '/' + this.expireddate + '/' + this.typenameSelect + '/' + this.discount + '/' + this.money, {})
         .subscribe(data => {
             console.log('PUT Request is successful', data);
             alert("สำเร็จ");

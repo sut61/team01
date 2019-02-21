@@ -27,21 +27,23 @@ public class Payment {
     private @NotNull Long payid;
     @Size(min = 1,max = 20)
     @Pattern(regexp = "[-0-9ก-๛]+")
-    //@Pattern(regexp = "\\w+")
     private @NotNull String note;
-    private @NotNull Integer money;
+    private @NotNull Integer cash;
+    private @NotNull Integer discount;
+    private @NotNull Integer change;
 
-    @ManyToOne(fetch = FetchType.EAGER, targetEntity = Member.class)
-    @JoinColumn(name = "Member_Id",insertable = true)
-    private Member m;
+    @Temporal(TemporalType.DATE)
+    @NotNull
+    Date date;
 
-   @ManyToOne(fetch = FetchType.EAGER, targetEntity = CoffeeOrder.class)
-    @JoinColumn(name = "Coffeeorder_Id",insertable = true)
-    private CoffeeOrder c;
+    @ManyToOne(fetch = FetchType.EAGER)
+    private Member member;
 
-    @OneToOne(fetch = FetchType.EAGER, targetEntity = Staff.class)
-    @JoinColumn(name = "Staff_Id",insertable = true)
-    private Staff b;
+    @ManyToOne(fetch = FetchType.EAGER)
+    private CoffeeOrder coffeeorder;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    private Staff staff;
 
 
 }

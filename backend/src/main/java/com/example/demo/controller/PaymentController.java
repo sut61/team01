@@ -11,6 +11,7 @@ import com.example.demo.repository.*;
 import java.io.IOException;
 import java.net.URLDecoder;
 import  java.util.Collection;
+import java.util.Date;
 import java.util.stream.Collectors;
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
@@ -34,30 +35,28 @@ public class PaymentController {
     private Collection<Payment> getPaymentCollection(){
         return this.paymentRepository.findAll().stream().collect(Collectors.toList());
     }
-    @GetMapping(path = "/payment/{payid}")
-    private PaymentRepository getPaymentById(@PathVariable Long payid){
-        return (PaymentRepository) this.paymentRepository.findById(payid).get();
-    }
-    @PostMapping(path = "/payment/{meid}/{orderid}/{id}")
-    private Payment newPayments(@RequestBody String dataDis, @PathVariable Long meid, @PathVariable Long orderid, @PathVariable Long id)throws JsonParseException, IOException {
 
+    @PostMapping(path = "/payment/{nameM}/{orderid}/{staffName}/{discount}/{cash}/{change}/{date}/{note}")
+    public Payment payment (@PathVariable Long staffName, @PathVariable Long nameM, @PathVariable Long orderid, @PathVariable Integer discount, @PathVariable Integer cash, @PathVariable Integer change, @PathVariable Date date, @PathVariable String note){
 
-        final String decoded = URLDecoder.decode(dataDis, "UTF-8");
-        dataDis = decoded;
-        ObjectMapper mapper = new ObjectMapper();
-        JsonNode actualObj = mapper.readTree(dataDis);
-        JsonNode jsonNote = actualObj.get("inputNote");
-        JsonNode jsonMoney = actualObj.get("inputMoney");
+        Payment payment = new Payment();
+        payment.setDiscount(discount);
+        payment.setCash(cash);
+        payment.setChange(change);
+        payment.setDate(date);
+        payment.setNote(note);
 
-        Payment pa = new Payment();
-        pa.setNote(jsonNote.textValue());
-        pa.setMoney(jsonMoney.intValue());
-        pa.setM(memberRepository.getOne(meid));
-        pa.setC(coffeeorderRepository.getOne(orderid));
-        pa.setB(staffRepository.getOne(id));
-        return paymentRepository.save(pa);
+        Staff staff1 = staffRepository.findById(staffName).get();
+        payment.setStaff(staff1);
 
+        Member member1 = memberRepository.findById(nameM).get();
+        payment.setMember(member1);
 
+        CoffeeOrder coffeeOrder1 = coffeeorderRepository.findById(orderid).get();
+        payment.setCoffeeorder(coffeeOrder1);
+
+        paymentRepository.save(payment);
+        return payment;
     }
 
 }
