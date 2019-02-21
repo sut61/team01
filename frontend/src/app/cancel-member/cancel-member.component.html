@@ -36,6 +36,11 @@
     <mat-option value={{type.typedeleteid}} *ngFor="let type of type">{{type.typtD}} </mat-option>
   </mat-select>
 </mat-form-field>
+<br>
+
+<mat-form-field class="example-mid-width" >
+  <input matInput placeholder="USER ที่จะลบ" [(ngModel)]="reason">
+</mat-form-field>
 
 <br>
 
@@ -43,11 +48,7 @@
   <input matInput placeholder="Note" [(ngModel)]="note">
 </mat-form-field>
 
-<br>
 
-<mat-form-field class="example-mid-width" >
-  <input matInput placeholder="เหตุผลที่ยกเลิก" [(ngModel)]="reason">
-</mat-form-field>
 
 <br>
 <button mat-button color="primary"  class="example-mid-width" (click)="insert()" >SUBMIT</button> <br>

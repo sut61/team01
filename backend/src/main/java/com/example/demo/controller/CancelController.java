@@ -23,29 +23,7 @@ class CancelController {
         return this.cancelRepository.findAll().stream().collect(Collectors.toList());
     }
 
-    // @PostMapping("/Cancel/{staffid}/{meid}")
-    // private Cancel newcancels(@RequestBody String dataDis,@PathVariable Long staffid, @PathVariable Long meid) throws JsonParseException, IOException {
-
-    //     final String decoded = URLDecoder.decode(dataDis, "UTF-8");
-    //     dataDis = decoded;
-    //     ObjectMapper mapper = new ObjectMapper();
-    //     JsonNode actualObj = mapper.readTree(dataDis);
-    //     JsonNode jsonNote = actualObj.get("inputNote");
-
-
-    //     Cancel cancel = new Cancel();
-    //     cancel.setNote(jsonNote.textValue());
-    //     cancel.setStaff(staffRepository.getOne(staffid));
-    //     cancel.setMember(memberRepository.getOne(meid));
-
-    //     return cancelRepository.save(cancel);
-    // }
-
 //======================================================================
-
-// private String note;
-
-// private String reason;
 
 
      @PostMapping(path = "/cancel/{staffid}/{typeDeleteid}/{date}/{note}/{reason}")
@@ -55,7 +33,7 @@ class CancelController {
 
         newCancel.setDate(date);
         newCancel.setNote(note);
-        newCancel.setReason(reason);
+        newCancel.setUserDeleted(reason);
 
         Staff staffxy1 = staffRepository.findById(staffid).get();
         newCancel.setStaff(staffxy1);

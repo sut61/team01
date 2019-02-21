@@ -21,16 +21,16 @@ public class Member {
     @SequenceGenerator(name="member_seq",sequenceName="member_seq")
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="member_seq")
     @Column(name = "Member_Id")
-
-    private @NotNull Long meid;
-   // private @NonNull int gender;
-   // private @NonNull int nametype;
-   // private @NonNull int province;
-    private @NotNull String password;
+    @NotNull
+    private  Long meid;
+    @NotNull
+    private  String password;
     @Pattern(regexp = "\\w+")
     private @Size(min = 1, max = 10)  String user;
-    private @NotNull String address;
-    private @NotNull String nameM;
+    @NotNull
+    private  String address;
+    @NotNull 
+    private  String nameM;
 
     @OneToOne(fetch = FetchType.EAGER, targetEntity = Gender.class)
     @JoinColumn(name = "Gender_id",insertable = true)
