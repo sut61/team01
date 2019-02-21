@@ -28,13 +28,10 @@ public class CreditcardpaymentController {
     private Collection<Creditcardpayment> getCreditcardpayment(){
         return this.creditcardpaymentRepository.findAll().stream().collect(Collectors.toList());
     }
-  //  @GetMapping(path = "/creditcardpayment/{creid}")
-  //  private CreditcardpaymentRepository getCreditcardpaymentById(@PathVariable Long creid){
-    //    return (CreditcardpaymentRepository) this.creditcardpaymentRepository.findById(creid).get();
-   // }
 
-    @PostMapping(path = "/creditcardpayment/{nameM}/{orderid}/{staffName}/{creditname}/{creditnumber}/{csc}/{expireddate}/{typename}/{money}")
-    public Creditcardpayment creditcardpayment(@PathVariable String creditname, @PathVariable Long creditnumber, @PathVariable Integer csc, @PathVariable Long staffName, @PathVariable Long nameM, @PathVariable Long orderid, @PathVariable Long typename, @PathVariable Date expireddate, @PathVariable Integer money){
+
+    @PostMapping(path = "/creditcardpayment/{nameM}/{orderid}/{staffName}/{creditname}/{creditnumber}/{csc}/{expireddate}/{typename}/{discount}/{money}")
+    public Creditcardpayment creditcardpayment(@PathVariable String creditname, @PathVariable Long creditnumber, @PathVariable Integer csc, @PathVariable Long staffName, @PathVariable Long nameM, @PathVariable Long orderid, @PathVariable Long typename, @PathVariable Date expireddate, @PathVariable Integer money, @PathVariable Integer discount){
 
 
 
@@ -43,6 +40,7 @@ public class CreditcardpaymentController {
         creditcardpayment.setCreditnumber(creditnumber);
         creditcardpayment.setCsc(csc);
         creditcardpayment.setExpireddate(expireddate);
+        creditcardpayment.setDiscount(discount);
         creditcardpayment.setMoney(money);
 
         Staff staff1 = staffRepository.findById(staffName).get();

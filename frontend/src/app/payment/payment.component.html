@@ -1,60 +1,85 @@
 <div class="record">
   <mat-toolbar class ="top">
     <mat-toolbar-row>
-    <h1> CoffeeShop Payment</h1>&nbsp;&nbsp;&nbsp;
-    <span class="example-spacer"></span>
-    <a mat-stroked-button [routerLink]="['/homestaff']"><i class="material-icons">
-      home
-    </i></a>
-  </mat-toolbar-row>
+      <h1> CoffeeShop Payment</h1>&nbsp;&nbsp;&nbsp;
+      <span class="example-spacer"></span>
+      <a mat-stroked-button [routerLink]="['/homestaff']"><i class="material-icons">
+        home
+      </i></a>
+    </mat-toolbar-row>
   </mat-toolbar>
 
-  <h1><p align = "center"> การชำระเงินสินค้า </p> </h1>
+  <h1><p align = "center"> การชำระเงินสินค้าด้วยเงินสด </p> </h1>
   <form class="name">
 
     <mat-card-content>
-      <h3><div style="text-align:center">
-        ชื่อสมาชิก    <mat-form-field>
-        <mat-select [(ngModel)]="userSelect" [ngModelOptions]="{standalone: true}" placeholder="กรุณาเลือก"
-                    panelClass="example-panel">
-          <mat-option value={{user.meid}} *ngFor="let user of users">{{user.nameM}} </mat-option>
+      <h4><div style="text-align:center">
+        ชื่อสมาชิก <mat-form-field  class="example-mid-width">
+        <mat-select placeholder="กรุณาเลือก" [(ngModel)]="nameMSelect" [ngModelOptions]="{standalone: true}" name="nameMs">
+          <mat-option *ngFor="let gd of nameMs" [value]="gd.meid">
+            {{gd.nameM}}
+          </mat-option>
         </mat-select>
       </mat-form-field>
-      </div></h3>
+      </div></h4>
 
-      <h3><div style="text-align:center">
-        ID Order    <mat-form-field>
-        <mat-select [(ngModel)]="idsSelect" [ngModelOptions]="{standalone: true}" placeholder="กรุณาเลือก"
-                    panelClass="example-panel">
-          <mat-option value={{ids.orderid}} *ngFor="let ids of ids">{{ids.orderid}} </mat-option>
+      <h4><div style="text-align:center">
+        ID order <mat-form-field  class="example-mid-width">
+        <mat-select placeholder="กรุณาเลือก" [(ngModel)]="orderidSelect" [ngModelOptions]="{standalone: true}" name="orderids">
+          <mat-option *ngFor="let gd of orderids" [value]="gd.orderid">
+            {{gd.orderid}}
+          </mat-option>
         </mat-select>
       </mat-form-field>
-      </div></h3>
+      </div></h4>
 
-
-      <h3><div style="text-align:center">
-        ชื่อพนักงาน     <mat-form-field>
-        <mat-select [(ngModel)]="staffNameSelect" [ngModelOptions]="{standalone: true}" placeholder="กรุณาเลือก"
-                    panelClass="example-panel">
-          <mat-option value={{staffname.id}} *ngFor="let staffname of staffNames">{{staffname.staffName}} </mat-option>
+      <h4><div style="text-align:center">
+        ชื่อพนักงาน <mat-form-field  class="example-mid-width">
+        <mat-select placeholder="กรุณาเลือก" [(ngModel)]="staffNameSelect" [ngModelOptions]="{standalone: true}" name="staffNames">
+          <mat-option *ngFor="let gd of staffNames" [value]="gd.id">
+            {{gd.staffName}}
+          </mat-option>
         </mat-select>
       </mat-form-field>
-      </div></h3>
+      </div></h4>
 
-      <h3><mat-form-field class="example-full-width">
-        จำนวนเงินที่รับมา <input matInput [(ngModel)]="addis.inputMoney" placeholder="" type="number" [ngModelOptions]="{standalone: true}">
-      </mat-form-field></h3>
+      <h4><div style="text-align:center">
+        ส่วนลด &nbsp;&nbsp;<mat-form-field class="example-mid-width" >
+        <input matInput placeholder="กรุณากรอกจำนวนเงิน" [(ngModel)]="discount" [ngModelOptions]="{standalone: true}">
+      </mat-form-field>
+      </div></h4>
 
-      <h3><mat-form-field class="example-full-width">
-        หมายเหตุ <input matInput [(ngModel)]="addis.inputNote" placeholder="" type="text" [ngModelOptions]="{standalone: true}">
-      </mat-form-field></h3>
+      <h4><div style="text-align:center">
+        จำนวนเงินที่รับมา &nbsp;&nbsp; <mat-form-field class="example-mid-width" >
+        <input matInput placeholder="กรุณากรอกจำนวนเงิน" [(ngModel)]="cash" maxlength="16" [ngModelOptions]="{standalone: true}">
+      </mat-form-field>
+      </div></h4>
+
+      <h4><div style="text-align:center">
+        จำนวนเงินทอน&nbsp;&nbsp;<mat-form-field class="example-mid-width" >
+        <input matInput placeholder="กรุณากรอกจำนวนเงิน" [(ngModel)]="change" maxlength="3" [ngModelOptions]="{standalone: true}">
+      </mat-form-field>
+      </div></h4>
+
+      <h4><div style="text-align:center">
+        วันที่ &nbsp;&nbsp;<mat-form-field  class="example-mid-width">
+        <input matInput [matDatepicker]="picker" placeholder="กรุณาเลือกวันที่" [(ngModel)]="date" [ngModelOptions]="{standalone: true}">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      </div></h4>
+
+      <h4><div style="text-align:center">
+        หมายเหตุ &nbsp;&nbsp;<mat-form-field class="example-mid-width" >
+        <input matInput placeholder="กรุณากรอกหมายเหตุ" [(ngModel)]="note" [ngModelOptions]="{standalone: true}">
+      </mat-form-field>
+      </div></h4>
 
     </mat-card-content>
 
 
     <div class ="button-row">
-      <a mat-raised-button color ="warn" (click)= "save()" >บันทึกการชำระเงิน</a>
+      <a mat-raised-button color ="warn" (click)= "insert()" >บันทึกการชำระเงิน</a>
     </div>
   </form>
 </div>
-
