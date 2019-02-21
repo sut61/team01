@@ -47,6 +47,7 @@ public class CreditcardTest {
         creditcardpayment.setCsc(623);
         creditcardpayment.setExpireddate(null);
         creditcardpayment.setMoney(20);
+        creditcardpayment.setDiscount(20);
         try {
             entityManager.persist(creditcardpayment);
             entityManager.flush();
@@ -67,6 +68,7 @@ public class CreditcardTest {
         creditcardpayment.setCreditname("P");
         creditcardpayment.setCsc(623);
         creditcardpayment.setMoney(20);
+        creditcardpayment.setDiscount(20);
         try {
             entityManager.persist(creditcardpayment);
             entityManager.flush();
@@ -88,6 +90,7 @@ public class CreditcardTest {
         creditcardpayment.setCreditname("PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP");
         creditcardpayment.setCsc(623);
         creditcardpayment.setMoney(20);
+        creditcardpayment.setDiscount(20);
         try {
             entityManager.persist(creditcardpayment);
             entityManager.flush();
@@ -109,6 +112,7 @@ public class CreditcardTest {
         creditcardpayment.setCreditname("นภัส");
         creditcardpayment.setCsc(623);
         creditcardpayment.setMoney(20);
+        creditcardpayment.setDiscount(20);
         try {
             entityManager.persist(creditcardpayment);
             entityManager.flush();
@@ -130,6 +134,7 @@ public class CreditcardTest {
         creditcardpayment.setCreditname("napat");
         creditcardpayment.setCsc(623);
         creditcardpayment.setMoney(null);
+        creditcardpayment.setDiscount(20);
         try {
             entityManager.persist(creditcardpayment);
             entityManager.flush();
@@ -152,6 +157,7 @@ public class CreditcardTest {
         creditcardpayment.setCsc(623);
         creditcardpayment.setMoney(20);
         creditcardpayment.setCreditnumber(null);
+        creditcardpayment.setDiscount(20);
         try {
             entityManager.persist(creditcardpayment);
             entityManager.flush();
@@ -173,6 +179,7 @@ public class CreditcardTest {
         creditcardpayment.setCreditname("napat");
         creditcardpayment.setCsc(null);
         creditcardpayment.setMoney(20);
+        creditcardpayment.setDiscount(20);
         try {
             entityManager.persist(creditcardpayment);
             entityManager.flush();
@@ -188,114 +195,26 @@ public class CreditcardTest {
     }
 
     @Test
-    public void testCoffeeorderUnique() {
-        CoffeeOrder coffeeOrder = new CoffeeOrder();
-        coffeeOrder.setOrderid(Long.valueOf(100000000));
-        //entityManager.persist(coffeeOrder);
-        entityManager.flush();
-
-        CoffeeOrder c1 = new CoffeeOrder();
-        c1.setOrderid(Long.valueOf(100000000));
-
+    //not null money
+    public void testDiscountCannotNull() {
+        Creditcardpayment creditcardpayment = new Creditcardpayment();
+        creditcardpayment.setCreditname("napat");
+        creditcardpayment.setCsc(623);
+        creditcardpayment.setMoney(20);
+        creditcardpayment.setDiscount(20);
         try {
-            entityManager.persist(c1);
+            entityManager.persist(creditcardpayment);
             entityManager.flush();
-
-            //fail("Should not pass to this line");
-        } catch (javax.validation.ConstraintViolationException e) {
-            System.out.println("================coffeeorder is Notnull ======================");
-            e.printStackTrace();
-            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
-            assertEquals(violations.isEmpty(), false);
-            assertEquals(violations.size(), 1);
-        } catch (javax.persistence.PersistenceException e) {
-            System.out.println("==================================================================");
-            e.printStackTrace();
-        }
-
-    }
-
-    @Test
-    public void testStaffUnique() {
-        Staff s = new Staff();
-        s.setStaffName("นภัสวรรณ");
-        entityManager.persist(s);
-        entityManager.flush();
-
-        Staff s1 = new Staff();
-        s1.setStaffName("นภัสวรรณ");
-
-        try{
-            entityManager.persist(s1);
-            entityManager.flush();
-
-            //fail("Should not pass to this line");
+            fail("Discount is Null");
         } catch(javax.validation.ConstraintViolationException e) {
-            System.out.println("================Staff is Notnull ======================");
-            e.printStackTrace();
-            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
-            assertEquals(violations.isEmpty(), false);
-            assertEquals(violations.size(), 1);
-        }
-        catch (javax.persistence.PersistenceException e){
-            System.out.println("==================================================================");
-            e.printStackTrace();
-        }
-    }
-
-    @Test
-    public void testMemberUnique() {
-        Member m = new Member();
-        m.setNameM("1234");
-        entityManager.persist(m);
-       // entityManager.flush();
-
-        Member m1 = new Member();
-        m1.setNameM("1234");
-
-        try{
-            entityManager.persist(m1);
-            entityManager.flush();
-
-            //fail("Should not pass to this line");
-        } catch(javax.validation.ConstraintViolationException e) {
-            System.out.println("================Member is Notnull ======================");
-            e.printStackTrace();
+            System.out.println("================================ Discount Cannot Null ==================");
+            System.out.println(e.getConstraintViolations());
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             assertEquals(violations.isEmpty(), false);
             assertEquals(violations.size(), 2);
-        }
-        catch (javax.persistence.PersistenceException e){
-            System.out.println("==================================================================");
-            e.printStackTrace();
+
         }
     }
 
-    @Test
-    public void testCredittypeUnique() {
-        Credittype credittype = new Credittype();
-        credittype.setTypename("JJB");
-        entityManager.persist(credittype);
-        entityManager.flush();
 
-        Credittype credittype1 = new Credittype();
-        credittype1.setTypename("JJB");
-
-        try{
-            entityManager.persist(credittype1);
-            entityManager.flush();
-
-            //fail("Should not pass to this line");
-        } catch(javax.validation.ConstraintViolationException e) {
-            System.out.println("================Credittype is Notnull ======================");
-            e.printStackTrace();
-            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
-            assertEquals(violations.isEmpty(), false);
-            assertEquals(violations.size(), 2);
-        }
-        catch (javax.persistence.PersistenceException e){
-            System.out.println("==================================================================");
-            e.printStackTrace();
-        }
-    }
 }
