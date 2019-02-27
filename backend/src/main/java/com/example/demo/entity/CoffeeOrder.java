@@ -4,6 +4,13 @@ import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
 import javax.persistence.*;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
+import io.micrometer.core.lang.Nullable;
 
 @Entity
 @ToString
@@ -12,10 +19,16 @@ public class CoffeeOrder{
     @Id
     @SequenceGenerator(name = "coffeeorder_seq",sequenceName = "coffeeorder_seq")
     @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "coffeeorder_seq")
-
     private Long orderid;
-    private String totalPrice;
-    private String quantity;
+    
+    @Column(unique = true)
+   
+    
+    private double totalPrice;
+    @NotNull
+    @Max(value = 99)
+    @Min(value = 1)
+    private int quantity;
 
 
     @ManyToOne(fetch = FetchType.EAGER)
@@ -32,7 +45,7 @@ public class CoffeeOrder{
 
     public CoffeeOrder(){}
 
-    public CoffeeOrder(CoffeeMenu coffeeMenu,Member member,Staff staff,String totalPrice,String quantity,OrderType orderType){
+    public CoffeeOrder(CoffeeMenu coffeeMenu,Member member,Staff staff,double totalPrice,int quantity,OrderType orderType){
         this.coffeeMenu = coffeeMenu;
         this.member = member;
         this.staff = staff;
@@ -62,33 +75,27 @@ public class CoffeeOrder{
         this.staff = staff;
     }
 
-    public void setTotalPrice(String totalPrice) {
+    public void setTotalPrice(double totalPrice) {
         this.totalPrice = totalPrice;
     }
 
-    public String getTotalPrice() {
+    public double getTotalPrice() {
         return totalPrice;
     }
 
-    public void setQuantity(String quantity) {
+    public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
 
-    public String getQuantity() {
+    public int getQuantity() {
         return quantity;
     }
 
-//    public void setCustomer(Customer customer) {
-//        this.customer = customer;
-//    }
+
 
     public Staff getStaff() {
         return staff;
     }
-
-//    public Customer getCustomer() {
-//        return customer;
-//    }
 
     public CoffeeMenu getCoffeeMenu() {
         return coffeeMenu;

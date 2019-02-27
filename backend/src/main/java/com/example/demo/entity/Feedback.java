@@ -4,7 +4,10 @@ import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
 import javax.persistence.*;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 import io.micrometer.core.lang.NonNull;
@@ -18,8 +21,10 @@ public class Feedback {
     @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "feedback_seq")
 
     private @NonNull Long feedbackid;
-    
+  
     private  @Size(max = 50,min = 2)  String comment;
+    @Column(unique = true)
+    @Pattern(regexp = "^[0-9]{1,3}$")
     private @NotNull String oid;
 
 

@@ -50,7 +50,7 @@ public class Allcontroller{
 
 
     @PostMapping(path = "/coffeeorder/{staffName}/{nameM}/{itemName}/{quantity}/{totalPrice}/{orderType}")
-    public CoffeeOrder coffeeOrder(@PathVariable Long staffName, @PathVariable Long nameM, @PathVariable Long itemName, @PathVariable String quantity, @PathVariable String totalPrice, @PathVariable Long orderType){
+    public CoffeeOrder coffeeOrder(@PathVariable Long staffName, @PathVariable Long nameM, @PathVariable Long itemName, @PathVariable int quantity, @PathVariable double totalPrice, @PathVariable Long orderType){
 
 
         CoffeeOrder coffeeOrder = new CoffeeOrder();
