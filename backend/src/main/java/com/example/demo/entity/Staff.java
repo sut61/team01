@@ -4,6 +4,9 @@ import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 
 @Entity
 @ToString
@@ -15,7 +18,10 @@ public class Staff{
     @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "staff_seq")
 
     private Long id;
+
+    
     private String staffName;
+    @Size(max = 50,min = 2) 
     private String username;
     private String password;
 

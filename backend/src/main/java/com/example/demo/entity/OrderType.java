@@ -4,6 +4,7 @@ import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @ToString
@@ -14,6 +15,7 @@ public class OrderType{
     @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "ordertype_sreq")
 
     private Long id;
+
     private String orderTypes;
 
     public OrderType(){}
