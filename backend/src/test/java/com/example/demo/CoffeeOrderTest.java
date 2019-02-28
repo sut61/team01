@@ -191,7 +191,7 @@ public class CoffeeOrderTest {
     
     @Test
     // TEST Size STAFFNAME
-    public void testPatternOID() {
+    public void testSizeSTAFFNAME() {
         CoffeeOrder coffeeorder = new CoffeeOrder();
         coffeeorder.setCoffeeMenu(coffeeMenuRepository.findByItemName("Late"));
         coffeeorder.setMember(memberRepository.findByUser("Kongtahong Menawun"));
@@ -199,6 +199,29 @@ public class CoffeeOrderTest {
         coffeeorder.setTotalPrice(2000);
         coffeeorder.setQuantity(0);
         coffeeorder.setOrderType(orderTypeRepository.findByOrderTypes("Dine-In"));
+
+        try {
+            entityManager.persist(coffeeorder);
+            entityManager.flush();
+            fail("Should not pass to this line");
+        } catch(javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            System.out.println("-------------------------------"+violations+"--------------------------");
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+        }
+    }
+
+    @Test
+    // TEST NOTNULL ORDER TYPE
+    public void testNotnullOrdertype() {
+        CoffeeOrder coffeeorder = new CoffeeOrder();
+        coffeeorder.setCoffeeMenu(coffeeMenuRepository.findByItemName("Late"));
+        coffeeorder.setMember(memberRepository.findByUser("Kongtahong Menawun"));
+        coffeeorder.setStaff(staffRepository.findByUsername("A"));
+        coffeeorder.setTotalPrice(2000);
+        coffeeorder.setQuantity(0);
+        coffeeorder.setOrderType(orderTypeRepository.findByOrderTypes(null));
 
         try {
             entityManager.persist(coffeeorder);
