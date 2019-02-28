@@ -16,6 +16,7 @@ public class OrderType{
 
     private Long id;
 
+    @NotNull
     private String orderTypes;
 
     public OrderType(){}
