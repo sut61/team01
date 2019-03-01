@@ -41,13 +41,15 @@ public class Delivery {
     @NotNull
     private String staffName;
 
-
+    @NotNull
     @ManyToOne(fetch = FetchType.EAGER)
     private Status status;
 
+    @NotNull
     @ManyToOne(fetch = FetchType.EAGER)
     private Staff staff;
 
+    @NotNull
     @OneToOne(fetch = FetchType.EAGER )
     private CoffeeDelivery coffeeDelivery;
 

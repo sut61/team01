@@ -1,7 +1,10 @@
 package com.example.demo;
 
+import com.example.demo.entity.CoffeeDelivery;
 import com.example.demo.entity.Delivery;
+import com.example.demo.entity.Staff;
 import com.example.demo.entity.Status;
+import com.example.demo.repository.CoffeeDeliveryRepository;
 import com.example.demo.repository.DeliveryRepository;
 import com.example.demo.repository.StaffRepository;
 import com.example.demo.repository.StatusRepository;
@@ -32,6 +35,9 @@ public class DeliveryTest {
     private StaffRepository staffRepository;
 
     @Autowired
+    private CoffeeDeliveryRepository coffeeDeliveryRepository;
+
+    @Autowired
     private TestEntityManager entityManager;
 
     private Validator validator;
@@ -42,10 +48,23 @@ public class DeliveryTest {
         validator = factory.getValidator();
     }
 
+    public  void setDataTest(){
+        Status status1 = new Status();
+        status1.setStatusName("Sent");
+        Staff staff1 = new Staff();
+        staff1.setStaffName("คนดีศรีกาแฟ");
+        CoffeeDelivery coffeeDelivery1 = new CoffeeDelivery();
+        coffeeDelivery1.setLongitude(111.222);
+        coffeeDelivery1.setLatitude(14.555);
+
+
+    }
+
 
     //Test ผ่าน
     @Test
     public void deliveryTest() {
+        setDataTest();
         Delivery d = new Delivery();
         d.setLongitude(111.222);
         d.setLatitude(14.555);
@@ -54,11 +73,13 @@ public class DeliveryTest {
         d.setStatusName("send");
         d.setStaffName("theerapol");
         d.setStatus(statusRepository.findBystatusId(1l));
+        d.setStaff(staffRepository.getOne(1L));
+        d.setCoffeeDelivery(coffeeDeliveryRepository.getOne(1L));
 
 
         try {
             entityManager.persist(d);
-            entityManager.flush();
+            //entityManager.flush();
 
             System.out.println( "===================================================================================");
             System.out.println("Test Successfully");
@@ -75,6 +96,7 @@ public class DeliveryTest {
     //Test Null ของ Name
     @Test
     public void deliveryTestNameNull() {
+        setDataTest();
         Delivery d = new Delivery();
         d.setLongitude(111.222);
         d.setLatitude(14.555);
@@ -82,6 +104,9 @@ public class DeliveryTest {
         d.setPrice(100);
         d.setStatusName("send");
         d.setStaffName("theerapol");
+        d.setStatus(statusRepository.findBystatusId(1l));
+        d.setStaff(staffRepository.getOne(1L));
+        d.setCoffeeDelivery(coffeeDeliveryRepository.getOne(1L));
 
         try {
             entityManager.persist(d);
@@ -108,6 +133,7 @@ public class DeliveryTest {
 
     @Test
     public void deliveryTestStaffNameNull() {
+        setDataTest();
         Delivery d = new Delivery();
         d.setLongitude(111.222);
         d.setLatitude(14.555);
@@ -115,7 +141,9 @@ public class DeliveryTest {
         d.setPrice(100);
         d.setStatusName("send");
         d.setStaffName(null);
-
+        d.setStatus(statusRepository.findBystatusId(1l));
+        d.setStaff(staffRepository.getOne(1L));
+        d.setCoffeeDelivery(coffeeDeliveryRepository.getOne(1L));d.setCoffeeDelivery(coffeeDeliveryRepository.getOne(1L));
         try {
             entityManager.persist(d);
             entityManager.flush();
@@ -140,6 +168,7 @@ public class DeliveryTest {
     //Test Min ของ Price
     @Test
     public void deliveryTestPriceMin() {
+        setDataTest();
         Delivery d = new Delivery();
         d.setLongitude(111.222);
         d.setLatitude(14.555);
@@ -147,7 +176,9 @@ public class DeliveryTest {
         d.setPrice(10);
         d.setStatusName("send");
         d.setStaffName("theerapol");
-
+        d.setStatus(statusRepository.findBystatusId(1l));
+        d.setStaff(staffRepository.getOne(1L));
+        d.setCoffeeDelivery(coffeeDeliveryRepository.getOne(1L));
 
         try {
             entityManager.persist(d);
@@ -176,6 +207,7 @@ public class DeliveryTest {
 
     @Test
     public void deliveryTestLatitudeMin() {
+        setDataTest();
         Delivery d = new Delivery();
         d.setLongitude(111.222);
         d.setLatitude(13.89);
@@ -183,7 +215,9 @@ public class DeliveryTest {
         d.setPrice(100);
         d.setStatusName("send");
         d.setStaffName("theerapol");
-
+        d.setStatus(statusRepository.findBystatusId(1l));
+        d.setStaff(staffRepository.getOne(1L));
+        d.setCoffeeDelivery(coffeeDeliveryRepository.getOne(1L));
 
         try {
             entityManager.persist(d);
@@ -203,6 +237,7 @@ public class DeliveryTest {
 
     @Test
     public void deliveryTestLongitudeMin() {
+        setDataTest();
         Delivery d = new Delivery();
         d.setLongitude(99.999);
         d.setLatitude(14.555);
@@ -210,7 +245,9 @@ public class DeliveryTest {
         d.setPrice(100);
         d.setStatusName("send");
         d.setStaffName("theerapol");
-
+        d.setStatus(statusRepository.findBystatusId(1l));
+        d.setStaff(staffRepository.getOne(1L));
+        d.setCoffeeDelivery(coffeeDeliveryRepository.getOne(1L));
 
         try {
             entityManager.persist(d);
@@ -236,6 +273,7 @@ public class DeliveryTest {
     //Test Max ของ Price
     @Test
     public void deliveryTestPriceMax() {
+        setDataTest();
         Delivery d = new Delivery();
         d.setLongitude(111.222);
         d.setLatitude(14.555);
@@ -243,7 +281,9 @@ public class DeliveryTest {
         d.setPrice(10000000);
         d.setStatusName("send");
         d.setStaffName("theerapol");
-
+        d.setStatus(statusRepository.findBystatusId(1l));
+        d.setStaff(staffRepository.getOne(1L));
+        d.setCoffeeDelivery(coffeeDeliveryRepository.getOne(1L));
         try {
             entityManager.persist(d);
             entityManager.flush();
@@ -263,6 +303,7 @@ public class DeliveryTest {
     }
 
     public void deliveryTestPattern() {
+        setDataTest();
         Delivery d = new Delivery();
         d.setLongitude(111.222);
         d.setLatitude(14.555);
@@ -270,7 +311,9 @@ public class DeliveryTest {
         d.setPrice(100);
         d.setStatusName("send");
         d.setStaffName("asfrwrgff000");
-
+        d.setStatus(statusRepository.findBystatusId(1l));
+        d.setStaff(staffRepository.getOne(1L));
+        d.setCoffeeDelivery(coffeeDeliveryRepository.getOne(1L));
 
         try {
             entityManager.persist(d);
@@ -289,50 +332,100 @@ public class DeliveryTest {
         }
     }
 
-//
-//    @Test(expected=javax.persistence.PersistenceException.class)
-//    public void testIdMustBeUnique() {
-//        Delivery d1 = new Delivery();
-//        d1.setDeliveryId(Long.valueOf(1));
-//        d1.setLongitude(111.222);
-//        d1.setLatitude(14.555);
-//        d1.setName("เอสเปรสโซ่");
-//        d1.setPrice(100);
-//        d1.setStatusName("send");
-//        d1.setStaffName("theerapol");
-//
-//
-//        entityManager.persist(d1);
-//        entityManager.flush();
-//
-//        Delivery d2 = new Delivery();
-//        d2.setDeliveryId(Long.valueOf(1));
-//        d2.setLongitude(155.22);
-//        d2.setLatitude(15.555);
-//        d2.setName("ลาเต้");
-//        d2.setPrice(150);
-//        d2.setStatusName("sending");
-//        d2.setStaffName("farm");
-//
-//
-//
-//        entityManager.persist(d2);
-//        entityManager.flush();
-//
-//        System.out.println();
-//        System.out.println();
-//        System.out.println();
-//        System.out.println( "===================================================================================");
-//        System.out.println("Test Unique");
-//        System.out.println( "===================================================================================");
-//        System.out.println();
-//        System.out.println();
-//        System.out.println();
-//
-//
-//        fail("Should not pass to this line");
-//    }
-//
+    @Test
+    public void deliveryTestStatus() {
+        setDataTest();
+        Delivery d = new Delivery();
+        d.setLongitude(111.222);
+        d.setLatitude(14.555);
+        d.setName("เอสเปรสโซ่");
+        d.setPrice(100);
+        d.setStatusName("send");
+        d.setStaffName("coffee");
+        d.setStatus(null);
+        d.setStaff(staffRepository.getOne(1L));
+        d.setCoffeeDelivery(coffeeDeliveryRepository.getOne(1L));
+
+        try {
+            entityManager.persist(d);
+            entityManager.flush();
+
+            fail("Should not pass to this line");
+        } catch(javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            //  assertEquals(violations.size(), 1);
+
+            System.out.println( "=================================== deliveryTestStatus ===========================");
+            System.out.println( e );
+            System.out.println( "===================================================================================");
+
+        }
+    }
+
+    @Test
+    public void deliveryTestStaff() {
+        setDataTest();
+        Delivery d = new Delivery();
+        d.setLongitude(111.222);
+        d.setLatitude(14.555);
+        d.setName("เอสเปรสโซ่");
+        d.setPrice(100);
+        d.setStatusName("send");
+        d.setStaffName("coffee");
+        d.setStatus(statusRepository.findBystatusId(1L));
+        d.setStaff(null);
+        d.setCoffeeDelivery(coffeeDeliveryRepository.getOne(1L));
+
+        try {
+            entityManager.persist(d);
+            entityManager.flush();
+
+            fail("Should not pass to this line");
+        } catch(javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            //  assertEquals(violations.size(), 1);
+
+            System.out.println( "=================================== deliveryTestStaff ===========================");
+            System.out.println( e );
+            System.out.println( "===================================================================================");
+
+        }
+    }
+
+    @Test
+    public void deliveryTestCoffeeDelivery() {
+        setDataTest();
+        Delivery d = new Delivery();
+        d.setLongitude(111.222);
+        d.setLatitude(14.555);
+        d.setName("เอสเปรสโซ่");
+        d.setPrice(100);
+        d.setStatusName("send");
+        d.setStaffName("coffee");
+        d.setStatus(statusRepository.findBystatusId(1L));
+        d.setStaff(staffRepository.getOne(1L));
+        d.setCoffeeDelivery(null);
+
+
+        try {
+            entityManager.persist(d);
+            entityManager.flush();
+
+            fail("Should not pass to this line");
+        } catch(javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            //  assertEquals(violations.size(), 1);
+
+            System.out.println( "============================= deliveryTestCoffeeDelivery ===========================");
+            System.out.println( e );
+            System.out.println( "===================================================================================");
+
+        }
+    }
+
 
 
 }
