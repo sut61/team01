@@ -1,10 +1,14 @@
 com\example\demo\PointRewardTest.class
 com\example\demo\CoffeeDeliveryTest.class
+com\example\demo\CoffeeOrderTest.class
 com\example\demo\CreditcardTest.class
 com\example\demo\memberTest.class
 com\example\demo\PaymentTest.class
+com\example\demo\ManuTest.class
 com\example\demo\FeedbackTest.class
+com\example\demo\ServiceTypeTest.class
 com\example\demo\DemoApplicationTests.class
 com\example\demo\DeliveryTest.class
 com\example\demo\CancelMemberTest.class
 com\example\demo\StockTest.class
+com\example\demo\StatusTest.class

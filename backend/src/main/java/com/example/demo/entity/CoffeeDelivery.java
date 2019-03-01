@@ -6,9 +6,7 @@ import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
-import java.util.Collection;
-import java.util.List;
-import java.util.Set;
+
 
 @Entity
 @Getter
@@ -23,7 +21,7 @@ public class CoffeeDelivery {
 //    @GeneratedValue(strategy= GenerationType.SEQUENCE, generator="coffeeDelivery_seq")
     @GeneratedValue
     @Column(nullable=false)
-   // @NotNull
+    @NotNull
     private  Long coffeeDeliveryId;
 
     @Min(value = 14)
@@ -33,6 +31,7 @@ public class CoffeeDelivery {
     private  double longitude;
 
     @NotNull
+    @Pattern(regexp = "\\D+")
     private  String name;
 
     @NotNull
@@ -40,14 +39,16 @@ public class CoffeeDelivery {
     @Max(value = 200)
     private  int price;
 
+    @NotNull
     @ManyToOne(fetch = FetchType.EAGER)
          private  Member member;
 
+    @NotNull
     @ManyToOne(fetch = FetchType.EAGER)
         private ServiceType serviceType;
 
+    @NotNull
     @ManyToOne(fetch = FetchType.EAGER)
      private Manu manuid;
-
 
 }
