@@ -30,20 +30,27 @@ public class Creditcardpayment {
     Date expireddate;
 
     @Pattern(regexp = "\\w+")
-    private @Size(min = 1, max = 16) String creditname;
+    private @Size(min = 1, max = 16) @NotNull String creditname;
 
-    private @NotNull Integer money;
-    private @NotNull Integer discount;
+    private @NotNull Double money;
 
+    @Min(1)
+    @Max(500)
+    private @NotNull Double discount;
+
+    @NotNull
     @ManyToOne(fetch = FetchType.EAGER)
     private Member member;
 
+    @NotNull
     @ManyToOne(fetch = FetchType.EAGER)
     private CoffeeOrder coffeeorder;
 
+    @NotNull
     @ManyToOne(fetch = FetchType.EAGER)
     private Credittype credittype;
 
+    @NotNull
     @ManyToOne(fetch = FetchType.EAGER)
     private Staff staff;
 
