@@ -41,7 +41,7 @@ public class StockTest {
     public void StocktestNullPriceperitem() {
         Stock stock = new Stock();
         stock.setPriceperitem(null);
-        stock.setTotalprice(100);
+        stock.setTotalprice(100.00);
         stock.setDate(null);
         stock.setNote("มีปัญหาอะไร");
         try {
@@ -69,7 +69,7 @@ public class StockTest {
     @Test
     public void StocktestNullTotalPrice() {
         Stock stock = new Stock();
-        stock.setPriceperitem(100);
+        stock.setPriceperitem(100.00);
         stock.setTotalprice(null);
         stock.setDate(null);
         stock.setNote("มีปัญหาอะไร");
@@ -98,8 +98,8 @@ public class StockTest {
     @Test
     public void StocktestNullDate() {
         Stock stock = new Stock();
-        stock.setPriceperitem(100);
-        stock.setTotalprice(100);
+        stock.setPriceperitem(100.00);
+        stock.setTotalprice(100.00);
         stock.setDate(null);
         stock.setNote("มีปัญหาอะไร");
         try {
@@ -125,12 +125,12 @@ public class StockTest {
         }
     }
     @Test
-    public void StocktestSizeMinNote() {
+    public void StocktestSizeMinPriceperitem() {
         Stock stock = new Stock();
-        stock.setPriceperitem(100);
-        stock.setTotalprice(100);
+        stock.setPriceperitem(10.00);
+        stock.setTotalprice(100.00);
         stock.setDate(null);
-        stock.setNote("G");
+        stock.setNote("ีปัญหาอะไร");
         try {
             entityManager.persist(stock);
             entityManager.flush();
@@ -154,12 +154,12 @@ public class StockTest {
         }
     }
     @Test
-    public void StocktestSizeMaxNote() {
+    public void StocktestSizeMaxPriceperitem() {
         Stock stock = new Stock();
-        stock.setPriceperitem(100);
-        stock.setTotalprice(100);
+        stock.setPriceperitem(10000000.00);
+        stock.setTotalprice(100.00);
         stock.setDate(null);
-        stock.setNote("Gxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+        stock.setNote("ีปัญหาอะไร");
         try {
             entityManager.persist(stock);
             entityManager.flush();
@@ -185,8 +185,8 @@ public class StockTest {
     @Test
     public void StocktestPatternNote() {
         Stock stock = new Stock();
-        stock.setPriceperitem(100);
-        stock.setTotalprice(100);
+        stock.setPriceperitem(100.00);
+        stock.setTotalprice(100.00);
         stock.setDate(null);
         stock.setNote("O.O!");
         try {

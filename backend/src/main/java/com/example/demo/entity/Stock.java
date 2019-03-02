@@ -19,24 +19,29 @@ public class Stock {
     @SequenceGenerator(name="stock_seq",sequenceName="stock_seq")
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="stock_seq")
 
-    private  Long stockid;
-    private @NotNull Integer priceperitem;
-    private @NotNull Integer totalprice;
+    private  @NotNull Long stockid;
+    @NotNull
+    @Min(value = 25)
+    @Max(value = 1000)
+    private Double priceperitem;
+    private @NotNull Double totalprice;
     @Temporal(TemporalType.DATE)
     @NotNull Date date;
 
     @NotNull
     @Pattern(regexp = "[-a-zก-๛]+")
-    @Size(min = 6, max = 40 )
     private  String note;
 
     @ManyToOne(fetch = FetchType.EAGER)
+    @NotNull
     private Product product;
 
     @ManyToOne(fetch = FetchType.EAGER)
+    @NotNull
     private Amount amount;
 
     @ManyToOne(fetch = FetchType.EAGER)
+    @NotNull
     private Unit unit;
 
     public Long getStockid() {
@@ -47,19 +52,11 @@ public class Stock {
         this.stockid = stockid;
     }
 
-    public int getPriceperitem() {
-        return priceperitem;
-    }
-
-    public void setPriceperitem(Integer priceperitem) {
+    public void setPriceperitem(Double priceperitem) {
         this.priceperitem = priceperitem;
     }
 
-    public int getTotalprice() {
-        return totalprice;
-    }
-
-    public void setTotalprice(Integer totalprice) {
+    public void setTotalprice(Double totalprice) {
         this.totalprice = totalprice;
     }
 

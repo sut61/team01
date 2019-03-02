@@ -18,7 +18,7 @@ public class Manu {
     @SequenceGenerator(name = "manu_seq",sequenceName = "manu_seq")
     @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "manu_seq")
 
-    private  int manuid;
+    private  @NotNull int manuid;
     @NotNull
     @Pattern(regexp = "[-a-zก-๛]+")
 //    @Size(min = 2, max = 40 )
@@ -26,18 +26,21 @@ public class Manu {
     @NotNull
     @Min(value = 25)
     @Max(value = 200)
-    private int price;
+    private Double price;
 
     @ManyToOne(fetch = FetchType.EAGER, targetEntity = ManuType.class)
     @JoinColumn(name = "ManuType_Id")
+    @NotNull
     private ManuType manutype;
 
     @ManyToOne(fetch = FetchType.EAGER, targetEntity = CoffeeType.class)
     @JoinColumn(name = "CoffeeType_ID")
+    @NotNull
     private CoffeeType coffeetype;
 
     @ManyToOne(fetch = FetchType.EAGER, targetEntity = BakeryType.class)
     @JoinColumn(name = "BakeryType_ID")
+    @NotNull
     private BakeryType bakerytype;
 
 }
