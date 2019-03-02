@@ -37,7 +37,7 @@ public class CoffeeDelivery {
     @NotNull
     @Min(value = 25)
     @Max(value = 200)
-    private  int price;
+    private  double price;
 
     @NotNull
     @ManyToOne(fetch = FetchType.EAGER)

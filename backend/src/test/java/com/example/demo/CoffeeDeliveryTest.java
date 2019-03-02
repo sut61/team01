@@ -59,7 +59,7 @@ public class CoffeeDeliveryTest {
         d.setLongitude(111.222);
         d.setLatitude(14.555);
         d.setName("เอสเปรสโซ่");
-        d.setPrice(100);
+        d.setPrice(100.0);
         d.setManuid(manuRepository.findByManuid(1));
         d.setServiceType(serviceTypeRepository.findByServiceTypeId(1L));
         d.setMember(memberRepository.findByMeid(1L));
@@ -90,7 +90,7 @@ public class CoffeeDeliveryTest {
         d.setLongitude(111.222);
         d.setLatitude(14.555);
         d.setName(null);
-        d.setPrice(100);
+        d.setPrice(100.0);
         d.setManuid(manuRepository.findByManuid(1));
         d.setServiceType(serviceTypeRepository.findByServiceTypeId(1L));
         d.setMember(memberRepository.findByMeid(1L));
@@ -118,7 +118,7 @@ public class CoffeeDeliveryTest {
         d.setLongitude(111.222);
         d.setLatitude(14.555);
         d.setName("เอสเปรสโซ่");
-        d.setPrice(10);
+        d.setPrice(10.0);
         d.setManuid(manuRepository.findByManuid(1));
         d.setServiceType(serviceTypeRepository.findByServiceTypeId(1L));
         d.setMember(memberRepository.findByMeid(1L));
@@ -146,7 +146,7 @@ public class CoffeeDeliveryTest {
         d.setLongitude(111.222);
         d.setLatitude(14.555);
         d.setName("เอสเปรสโซ่");
-        d.setPrice(3000);
+        d.setPrice(3000.0);
         d.setManuid(manuRepository.findByManuid(1));
         d.setServiceType(serviceTypeRepository.findByServiceTypeId(1L));
         d.setMember(memberRepository.findByMeid(1L));
@@ -174,7 +174,7 @@ public class CoffeeDeliveryTest {
         d.setLongitude(99.999);
         d.setLatitude(14.555);
         d.setName("เอสเปรสโซ่");
-        d.setPrice(100);
+        d.setPrice(100.0);
         d.setManuid(manuRepository.findByManuid(1));
         d.setServiceType(serviceTypeRepository.findByServiceTypeId(1L));
         d.setMember(memberRepository.findByMeid(1L));
@@ -206,7 +206,7 @@ public class CoffeeDeliveryTest {
         d.setLongitude(115.2);
         d.setLatitude(13.99);
         d.setName("เอสเปรสโซ่");
-        d.setPrice(100);
+        d.setPrice(100.0);
         d.setManuid(manuRepository.findByManuid(1));
         d.setServiceType(serviceTypeRepository.findByServiceTypeId(1L));
         d.setMember(memberRepository.findByMeid(1L));
@@ -238,7 +238,7 @@ public class CoffeeDeliveryTest {
         d.setLongitude(115.2);
         d.setLatitude(14.00);
         d.setName("Name99");
-        d.setPrice(100);
+        d.setPrice(100.0);
         d.setManuid(manuRepository.findByManuid(1));
         d.setServiceType(serviceTypeRepository.findByServiceTypeId(1L));
         d.setMember(memberRepository.findByMeid(1L));
@@ -270,7 +270,7 @@ public class CoffeeDeliveryTest {
         d.setLongitude(111.222);
         d.setLatitude(14.555);
         d.setName("aaa");
-        d.setPrice(100);
+        d.setPrice(100.0);
         d.setManuid(manuRepository.findByManuid(1));
         d.setServiceType(serviceTypeRepository.findByServiceTypeId(1L));
         d.setMember(null);
@@ -297,7 +297,7 @@ public class CoffeeDeliveryTest {
         d.setLongitude(111.222);
         d.setLatitude(14.555);
         d.setName("aaa");
-        d.setPrice(100);
+        d.setPrice(100.0);
         d.setManuid(manuRepository.findByManuid(1));
         d.setServiceType(null);
         d.setMember(memberRepository.findByMeid(1L));
@@ -326,7 +326,7 @@ public class CoffeeDeliveryTest {
         d.setLongitude(111.222);
         d.setLatitude(14.555);
         d.setName("aaa");
-        d.setPrice(100);
+        d.setPrice(100.0);
         d.setManuid(null);
         d.setServiceType(serviceTypeRepository.findByServiceTypeId(1L));
         d.setMember(memberRepository.findByMeid(1L));

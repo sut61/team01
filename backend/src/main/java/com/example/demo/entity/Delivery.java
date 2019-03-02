@@ -4,7 +4,6 @@ import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
-import java.util.Optional;
 
 @Entity
 @Getter
@@ -33,7 +32,7 @@ public class Delivery {
     @NotNull
     @Min(value = 25)
     @Max(value = 200)
-    private int price;
+    private  double price;
 
     @Pattern(regexp = "\\D+")
     private String statusName;
