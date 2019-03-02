@@ -40,7 +40,7 @@ public class ManuTest {
     public void ManutestSuccess() {
         Manu manu = new Manu();
         manu.setName("ชาชมพู");
-        manu.setPrice(100);
+        manu.setPrice(100.00);
         try {
             entityManager.persist(manu);
             entityManager.flush();
@@ -58,14 +58,14 @@ public class ManuTest {
         } catch(javax.validation.ConstraintViolationException e) {
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             assertEquals(violations.isEmpty(), false);
-            assertEquals(violations.size(), 1);
+            assertEquals(violations.size(), 3);
 
         }
     }
     public void ManutestNullName() {
         Manu manu = new Manu();
         manu.setName(null);
-        manu.setPrice(100);
+        manu.setPrice(100.00);
         try {
             entityManager.persist(manu);
             entityManager.flush();
@@ -92,7 +92,7 @@ public class ManuTest {
     public void ManutestSizeMinPrice() {
         Manu manu = new Manu();
         manu.setName("ชาชมพู");
-        manu.setPrice(10);
+        manu.setPrice(10.00);
         try {
             entityManager.persist(manu);
             entityManager.flush();
@@ -102,7 +102,7 @@ public class ManuTest {
         } catch(javax.validation.ConstraintViolationException e) {
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             assertEquals(violations.isEmpty(), false);
-            assertEquals(violations.size(), 1);
+            assertEquals(violations.size(), 4);
 
             System.out.println();
             System.out.println();
@@ -120,7 +120,7 @@ public class ManuTest {
     public void ManutestSizeMaxPrice() {
         Manu manu = new Manu();
         manu.setName("ชาชมพู");
-        manu.setPrice(10000000);
+        manu.setPrice(10000000.00);
         try {
             entityManager.persist(manu);
             entityManager.flush();
@@ -130,7 +130,7 @@ public class ManuTest {
         } catch(javax.validation.ConstraintViolationException e) {
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             assertEquals(violations.isEmpty(), false);
-            assertEquals(violations.size(), 1);
+            assertEquals(violations.size(), 4);
 
             System.out.println();
             System.out.println();
@@ -147,7 +147,7 @@ public class ManuTest {
     public void ManutestPatternName() {
         Manu manu = new Manu();
         manu.setName("0.0!");
-        manu.setPrice(100);
+        manu.setPrice(100.00);
         try {
             entityManager.persist(manu);
             entityManager.flush();

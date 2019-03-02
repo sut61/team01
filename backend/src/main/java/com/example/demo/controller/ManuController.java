@@ -68,7 +68,7 @@ class ManuController {
 
         Manu manu = new Manu();
         manu.setName(jsonName.textValue());
-        manu.setPrice(jsonPrice.intValue());
+        manu.setPrice(jsonPrice.doubleValue());
         manu.setManutype(manutypeRepository.getOne(manutypeid));
         manu.setBakerytype(bakerytypeRepository.getOne(bakeryid));
         manu.setCoffeetype(coffeetypeRepository.getOne(coffeeid));

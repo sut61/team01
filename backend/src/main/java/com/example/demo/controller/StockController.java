@@ -28,7 +28,7 @@ public class StockController {
 
     @PostMapping(path = "/stock/{product}/{amount}/{unit}/{priceperitem}/{totalprice}/{date}/{note}")
     public Stock stock(@PathVariable Long product, @PathVariable Long amount, @PathVariable Long unit,
-                       @PathVariable Integer priceperitem, @PathVariable Integer totalprice,
+                       @PathVariable Double priceperitem, @PathVariable Double totalprice,
                        @PathVariable Date date, @PathVariable String note){
 
 

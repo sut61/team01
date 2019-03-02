@@ -75,7 +75,7 @@ public class DemoApplication {
 
 			Manu manu = new Manu();
 			manu.setName("ลาเต้");
-			manu.setPrice(40);
+			manu.setPrice(40.00);
 			manu.setManutype(manutypeRepository.getOne(1L));
 			manu.setCoffeetype(coffeetypeRepository.getOne(2L));
 			manu.setBakerytype(bakerytypeRepository.getOne(1L));
@@ -83,7 +83,7 @@ public class DemoApplication {
 
 			Manu manu2 = new Manu();
 			manu2.setName("มอลค่า");
-			manu2.setPrice(45);
+			manu2.setPrice(45.00);
 			manu2.setManutype(manutypeRepository.getOne(1L));
 			manu2.setCoffeetype(coffeetypeRepository.getOne(2L));
 			manu2.setBakerytype(bakerytypeRepository.getOne(1L));
@@ -91,7 +91,7 @@ public class DemoApplication {
 
 			Manu manu3 = new Manu();
 			manu3.setName("ชาเขียว");
-			manu3.setPrice(49);
+			manu3.setPrice(49.00);
 			manu3.setManutype(manutypeRepository.getOne(1L));
 			manu3.setCoffeetype(coffeetypeRepository.getOne(2L));
 			manu3.setBakerytype(bakerytypeRepository.getOne(1L));
@@ -190,49 +190,49 @@ public class DemoApplication {
 			});
 
 //===========================================Vibe===============================================
-Vibe vibe1 = new Vibe("บรรยากาศยอดเยี่ยม");
-Vibe vibe2 = new Vibe("บรรยากาศดี");
-Vibe vibe3 = new Vibe("บรรยากาศพอใช้ได้");
-Vibe vibe4 = new Vibe("บรรยากาศแย่");
-Vibe vibe5 = new Vibe("บรรยากาศแย่มาก");
-vibeRepository.save(vibe1);
-vibeRepository.save(vibe2);
-vibeRepository.save(vibe3);
-vibeRepository.save(vibe4);
-vibeRepository.save(vibe5);
+			Vibe vibe1 = new Vibe("1");
+			Vibe vibe2 = new Vibe("2");
+			Vibe vibe3 = new Vibe("3");
+			Vibe vibe4 = new Vibe("4");
+			Vibe vibe5 = new Vibe("5");
+			vibeRepository.save(vibe1);
+			vibeRepository.save(vibe2);
+			vibeRepository.save(vibe3);
+			vibeRepository.save(vibe4);
+			vibeRepository.save(vibe5);
 //=========================================== Service ===============================================
-Service service1 = new Service("บริการยอดเยี่ยม");
-Service service2 = new Service("บริการดี");
-Service service3 = new Service("บริการพอใช้ได้");
-Service service4 = new Service("บริการแย่");
-Service service5 = new Service("บริการแย่มาก");
-serviceRepository.save(service1);
-serviceRepository.save(service2);
-serviceRepository.save(service3);
-serviceRepository.save(service4);
-serviceRepository.save(service5);
+			Service service1 = new Service("1");
+			Service service2 = new Service("2");
+			Service service3 = new Service("3");
+			Service service4 = new Service("4");
+			Service service5 = new Service("5");
+			serviceRepository.save(service1);
+			serviceRepository.save(service2);
+			serviceRepository.save(service3);
+			serviceRepository.save(service4);
+			serviceRepository.save(service5);
 //=========================================== Taste ===============================================
-Taste taste1 = new Taste("รสชาติยอดเยี่ยม");
-Taste taste2 = new Taste("รสชาติดี");
-Taste taste3 = new Taste("รสชาติพอใช้ได้");
-Taste taste4 = new Taste("รสชาติแย่");
-Taste taste5 = new Taste("รสชาติแย่มาก");
-tasteRepository.save(taste1);
-tasteRepository.save(taste2);
-tasteRepository.save(taste3);
-tasteRepository.save(taste4);
-tasteRepository.save(taste5);
+			Taste taste1 = new Taste("1");
+			Taste taste2 = new Taste("2");
+			Taste taste3 = new Taste("3");
+			Taste taste4 = new Taste("4");
+			Taste taste5 = new Taste("5");
+			tasteRepository.save(taste1);
+			tasteRepository.save(taste2);
+			tasteRepository.save(taste3);
+			tasteRepository.save(taste4);
+			tasteRepository.save(taste5);
 //=========================================== Price ===============================================
-Price price1 = new Price("ถูกมาก");
-Price price2 = new Price("ถูก");
-Price price3 = new Price("ปานกลาง");
-Price price4 = new Price("แพง");
-Price price5 = new Price("แพงมากๆ");
-priceRepository.save(price1);
-priceRepository.save(price2);
-priceRepository.save(price3);
-priceRepository.save(price4);
-priceRepository.save(price5);
+			Price price1 = new Price("1");
+			Price price2 = new Price("2");
+			Price price3 = new Price("3");
+			Price price4 = new Price("4");
+			Price price5 = new Price("5");
+			priceRepository.save(price1);
+			priceRepository.save(price2);
+			priceRepository.save(price3);
+			priceRepository.save(price4);
+			priceRepository.save(price5);
 
 //===========================================Pek===============================================
 			Staff staff1 = new Staff("Nuntawut Hahara");
