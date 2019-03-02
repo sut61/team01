@@ -14,6 +14,7 @@ import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
 import javax.validation.Validator;
 import javax.validation.ValidatorFactory;
+import java.util.Date;
 import java.util.Set;
 
 import static org.junit.Assert.assertEquals;
@@ -26,6 +27,12 @@ public class StockTest {
 
     @Autowired
     private StockRepository stockRepository;
+    @Autowired
+    private AmountRepository amountRepository;
+    @Autowired
+    private UnitRepository unitRepository;
+    @Autowired
+    private ProductRepository productRepository;
 
     @Autowired
     private TestEntityManager entityManager;
@@ -42,8 +49,8 @@ public class StockTest {
         Stock stock = new Stock();
         stock.setPriceperitem(null);
         stock.setTotalprice(100.00);
-        stock.setDate(null);
         stock.setNote("มีปัญหาอะไร");
+        stock.setDate(new Date(02-02-2018));
         try {
             entityManager.persist(stock);
             entityManager.flush();
@@ -71,8 +78,8 @@ public class StockTest {
         Stock stock = new Stock();
         stock.setPriceperitem(100.00);
         stock.setTotalprice(null);
-        stock.setDate(null);
         stock.setNote("มีปัญหาอะไร");
+        stock.setDate(new Date(02-02-2018));
         try {
             entityManager.persist(stock);
             entityManager.flush();
@@ -129,8 +136,8 @@ public class StockTest {
         Stock stock = new Stock();
         stock.setPriceperitem(10.00);
         stock.setTotalprice(100.00);
-        stock.setDate(null);
         stock.setNote("ีปัญหาอะไร");
+        stock.setDate(new Date(02-02-2018));
         try {
             entityManager.persist(stock);
             entityManager.flush();
@@ -158,8 +165,8 @@ public class StockTest {
         Stock stock = new Stock();
         stock.setPriceperitem(10000000.00);
         stock.setTotalprice(100.00);
-        stock.setDate(null);
         stock.setNote("ีปัญหาอะไร");
+        stock.setDate(new Date(02-02-2018));
         try {
             entityManager.persist(stock);
             entityManager.flush();
@@ -187,8 +194,8 @@ public class StockTest {
         Stock stock = new Stock();
         stock.setPriceperitem(100.00);
         stock.setTotalprice(100.00);
-        stock.setDate(null);
         stock.setNote("O.O!");
+        stock.setDate(new Date(02-02-2018));
         try {
             entityManager.persist(stock);
             entityManager.flush();
@@ -212,30 +219,75 @@ public class StockTest {
         }
     }
     @Test
-    public void UnittestUnique() {
-        Unit u = new Unit();
-        u.setUnit("กล่อง");
-        entityManager.persist(u);
-        entityManager.flush();
-
-        Unit u1 = new Unit();
-        u1.setUnit("กล่อง");
-
+    public void UnittestNull() {
+        Stock stock = new Stock();
+        stock.setPriceperitem(100.00);
+        stock.setTotalprice(100.00);
+        stock.setNote("มีปัญหาอะไร");
+        stock.setDate((new Date(2018-02-02)));
+        stock.setUnit(null);
+        stock.setAmount(amountRepository.findById(1L).get());
+        stock.setProduct(productRepository.findById(1L).get());
 
         try{
-            entityManager.persist(u1);
+            entityManager.persist(stock);
             entityManager.flush();
 
         } catch(javax.validation.ConstraintViolationException e) {
-            System.out.println("================FROM UnittestUnique ======================");
-            e.printStackTrace();
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             assertEquals(violations.isEmpty(), false);
             assertEquals(violations.size(), 1);
+            System.out.println( "=========********** UnittestNull ********=============");
+            System.out.println( e );
+            System.out.println( "===================*********************============================");
         }
-        catch (javax.persistence.PersistenceException e){
-            System.out.println("==================================================================");
-            e.printStackTrace();
+    }
+    @Test
+    public void AmounttestNull() {
+        Stock stock = new Stock();
+        stock.setPriceperitem(100.00);
+        stock.setTotalprice(100.00);
+        stock.setNote("มีปัญหาอะไร");
+        stock.setDate(new Date(2018-02-02));
+        stock.setUnit(unitRepository.findById(1L).get());
+        stock.setAmount(null);
+        stock.setProduct(productRepository.findById(1L).get());
+
+        try{
+            entityManager.persist(stock);
+            entityManager.flush();
+
+        } catch(javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+            System.out.println( "=========********** AmounttestNull ********=============");
+            System.out.println( e );
+            System.out.println( "===================*********************============================");
+        }
+    }
+    @Test
+    public void ProducttestNull() {
+        Stock stock = new Stock();
+        stock.setPriceperitem(100.00);
+        stock.setTotalprice(100.00);
+        stock.setNote("มีปัญหาอะไร");
+        stock.setDate(new Date(2018-02-02));
+        stock.setUnit(unitRepository.findById(1L).get());
+        stock.setAmount(amountRepository.findById(1L).get());
+        stock.setProduct(null);
+
+        try{
+            entityManager.persist(stock);
+            entityManager.flush();
+
+        } catch(javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+            System.out.println( "=========********** ProducttestNull ********=============");
+            System.out.println( e );
+            System.out.println( "===================*********************============================");
         }
     }
 

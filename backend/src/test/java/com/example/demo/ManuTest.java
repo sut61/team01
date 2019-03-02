@@ -25,6 +25,12 @@ public class ManuTest {
 
     @Autowired
     private ManuRepository manuRepository;
+    @Autowired
+    private ManuTypeRepository manuTypeRepository;
+    @Autowired
+    private BakeryTypeRepository bakeryTypeRepository;
+    @Autowired
+    private CoffeeTypeRepository coffeeTypeRepository;
 
     @Autowired
     private TestEntityManager entityManager;
@@ -41,6 +47,9 @@ public class ManuTest {
         Manu manu = new Manu();
         manu.setName("ชาชมพู");
         manu.setPrice(100.00);
+        manu.setManutype(manuTypeRepository.findById(1L).get());
+        manu.setCoffeetype(coffeeTypeRepository.findById(1L).get());
+        manu.setBakerytype(bakeryTypeRepository.findById(1L).get());
         try {
             entityManager.persist(manu);
             entityManager.flush();
@@ -62,10 +71,14 @@ public class ManuTest {
 
         }
     }
+    @Test
     public void ManutestNullName() {
         Manu manu = new Manu();
         manu.setName(null);
         manu.setPrice(100.00);
+        manu.setManutype(manuTypeRepository.findById(1L).get());
+        manu.setCoffeetype(coffeeTypeRepository.findById(1L).get());
+        manu.setBakerytype(bakeryTypeRepository.findById(1L).get());
         try {
             entityManager.persist(manu);
             entityManager.flush();
@@ -93,6 +106,9 @@ public class ManuTest {
         Manu manu = new Manu();
         manu.setName("ชาชมพู");
         manu.setPrice(10.00);
+        manu.setManutype(manuTypeRepository.findById(1L).get());
+        manu.setCoffeetype(coffeeTypeRepository.findById(1L).get());
+        manu.setBakerytype(bakeryTypeRepository.findById(1L).get());
         try {
             entityManager.persist(manu);
             entityManager.flush();
@@ -102,7 +118,7 @@ public class ManuTest {
         } catch(javax.validation.ConstraintViolationException e) {
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             assertEquals(violations.isEmpty(), false);
-            assertEquals(violations.size(), 4);
+            assertEquals(violations.size(), 1);
 
             System.out.println();
             System.out.println();
@@ -121,6 +137,9 @@ public class ManuTest {
         Manu manu = new Manu();
         manu.setName("ชาชมพู");
         manu.setPrice(10000000.00);
+        manu.setManutype(manuTypeRepository.findById(1L).get());
+        manu.setCoffeetype(coffeeTypeRepository.findById(1L).get());
+        manu.setBakerytype(bakeryTypeRepository.findById(1L).get());
         try {
             entityManager.persist(manu);
             entityManager.flush();
@@ -130,7 +149,7 @@ public class ManuTest {
         } catch(javax.validation.ConstraintViolationException e) {
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             assertEquals(violations.isEmpty(), false);
-            assertEquals(violations.size(), 4);
+            assertEquals(violations.size(), 1);
 
             System.out.println();
             System.out.println();
@@ -148,6 +167,9 @@ public class ManuTest {
         Manu manu = new Manu();
         manu.setName("0.0!");
         manu.setPrice(100.00);
+        manu.setManutype(manuTypeRepository.findById(1L).get());
+        manu.setCoffeetype(coffeeTypeRepository.findById(1L).get());
+        manu.setBakerytype(bakeryTypeRepository.findById(1L).get());
         try {
             entityManager.persist(manu);
             entityManager.flush();
@@ -171,86 +193,69 @@ public class ManuTest {
         }
     }
     @Test
-    public void ManuTypetestUnique() {
-        ManuType m = new ManuType();
-        m.setManut("กาแฟ");
-        entityManager.persist(m);
-        entityManager.flush();
-
-        ManuType m1 = new ManuType();
-        m1.setManut("กาแฟ");
-
+    public void ManuTypetestNull() {
+        Manu manu = new Manu();
+        manu.setName("ชาชมพู");
+        manu.setPrice(100.00);
+        manu.setManutype(null);
+        manu.setCoffeetype(coffeeTypeRepository.findById(1L).get());
+        manu.setBakerytype(bakeryTypeRepository.findById(1L).get());
 
         try{
-            entityManager.persist(m1);
+            entityManager.persist(manu);
             entityManager.flush();
 
         } catch(javax.validation.ConstraintViolationException e) {
-            System.out.println("================FROM ManuTypetestUnique ======================");
-            e.printStackTrace();
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             assertEquals(violations.isEmpty(), false);
             assertEquals(violations.size(), 1);
-        }
-        catch (javax.persistence.PersistenceException e){
-            System.out.println("==================================================================");
-            e.printStackTrace();
+            System.out.println( "=========********** ManuTypetestNull ********=============");
+            System.out.println( e );
+            System.out.println( "===================*********************============================");
         }
     }
     @Test
-    public void CoffeeTypetestUnique() {
-        CoffeeType c = new CoffeeType();
-        c.setCoffee("อุ่นมั๊ยหละ?");
-        entityManager.persist(c);
-        entityManager.flush();
-
-        CoffeeType c1 = new CoffeeType();
-        c1.setCoffee("อุ่นมั๊ยหละ?");
-
+    public void CoffeetypetestSuccess() {
+        Manu manu = new Manu();
+        manu.setName("ชาชมพู");
+        manu.setPrice(100.00);
+        manu.setManutype(manuTypeRepository.findById(1L).get());
+        manu.setCoffeetype(null);
+        manu.setBakerytype(bakeryTypeRepository.findById(1L).get());
 
         try{
-            entityManager.persist(c1);
+            entityManager.persist(manu);
             entityManager.flush();
 
         } catch(javax.validation.ConstraintViolationException e) {
-            System.out.println("================FROM CoffeeTypetestUnique ======================");
-            e.printStackTrace();
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             assertEquals(violations.isEmpty(), false);
             assertEquals(violations.size(), 1);
-        }
-        catch (javax.persistence.PersistenceException e){
-            System.out.println("==================================================================");
-            e.printStackTrace();
+            System.out.println( "=========********** CoffeeTypetestNull ********=============");
+            System.out.println( e );
+            System.out.println( "===================*********************============================");
         }
     }
     @Test
-    public void BakeryTypetestUnique() {
-        BakeryType b = new BakeryType();
-        b.setBakery("กล้วยหอมจอมชน");
-        entityManager.persist(b);
-        entityManager.flush();
-
-        BakeryType b1 = new BakeryType();
-        b1.setBakery("กล้วยหอมจอมชน");
-
+    public void BakerytypetestSuccess() {
+        Manu manu = new Manu();
+        manu.setName("ชาชมพู");
+        manu.setPrice(100.00);
+        manu.setManutype(manuTypeRepository.findById(1L).get());
+        manu.setCoffeetype(coffeeTypeRepository.findById(1L).get());
+        manu.setBakerytype(null);
 
         try{
-            entityManager.persist(b1);
+            entityManager.persist(manu);
             entityManager.flush();
 
         } catch(javax.validation.ConstraintViolationException e) {
-            System.out.println("================FROM BakeryTypetestUnique ======================");
-            e.printStackTrace();
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             assertEquals(violations.isEmpty(), false);
             assertEquals(violations.size(), 1);
-        }
-        catch (javax.persistence.PersistenceException e){
-            System.out.println("==================================================================");
-            e.printStackTrace();
+            System.out.println( "=========********** BakeryTypetestNull ********=============");
+            System.out.println( e );
+            System.out.println( "===================*********************============================");
         }
     }
-
-
 }
