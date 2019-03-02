@@ -15,9 +15,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Collection;
 
 
-import java.util.Collections;
-import java.util.List;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 @RestController
@@ -51,10 +48,10 @@ public class CoffeeDeliveryController {
         return coffeeDeliveryRepository.findByCoffeeDeliveryId(id);
     }
 
-    @PostMapping("/CoffeeDelivery/{serviceType}/{member}/{manu}/{menuName}/{priece}/{lat}/{lng}")
+    @PostMapping("/CoffeeDelivery/{serviceType}/{member}/{manu}/{menuName}/{price}/{lat}/{lng}")
     public CoffeeDelivery newPostCoffee(@PathVariable Long serviceType, @PathVariable Long member,
-                                        @PathVariable int manu,@PathVariable int priece, @PathVariable Double lat,
-                                        @PathVariable Double lng,@PathVariable String menuName){
+                                        @PathVariable int manu, @PathVariable double price, @PathVariable Double lat,
+                                        @PathVariable Double lng, @PathVariable String menuName){
 
         CoffeeDelivery newPostCoffee = new CoffeeDelivery();
         ServiceType serviceType1 = new ServiceType();
@@ -68,7 +65,7 @@ public class CoffeeDeliveryController {
 
         newPostCoffee.setLatitude(lat);
         newPostCoffee.setLongitude(lng);
-        newPostCoffee.setPrice(priece);
+        newPostCoffee.setPrice(price);
         newPostCoffee.setName(menuName);
         newPostCoffee.setServiceType(serviceType1);
         newPostCoffee.setManuid(manu1);

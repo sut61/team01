@@ -5,7 +5,6 @@ import com.example.demo.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.Collection;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @RestController
@@ -36,9 +35,9 @@ public class DeliveryController {
     }
 
     @PostMapping("/Delivery/{did}/{name}/{price}/{latitude}/{longitude}/{status}/{statusName}/{staff}/{staffName}")
-    public Delivery delivery(@PathVariable Long did, @PathVariable String name,@PathVariable int price,@PathVariable double latitude,
-                             @PathVariable double longitude,@PathVariable Long status,@PathVariable Long staff,
-                             @PathVariable String statusName,@PathVariable String staffName)
+    public Delivery delivery(@PathVariable Long did, @PathVariable String name, @PathVariable double price, @PathVariable double latitude,
+                             @PathVariable double longitude, @PathVariable Long status, @PathVariable Long staff,
+                             @PathVariable String statusName, @PathVariable String staffName)
     {
         Delivery delivery = new Delivery();
         Status status1 = new Status();
