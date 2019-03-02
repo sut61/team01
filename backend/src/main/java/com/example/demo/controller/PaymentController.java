@@ -37,7 +37,7 @@ public class PaymentController {
     }
 
     @PostMapping(path = "/payment/{nameM}/{orderid}/{staffName}/{discount}/{cash}/{change}/{date}/{note}")
-    public Payment payment (@PathVariable Long staffName, @PathVariable Long nameM, @PathVariable Long orderid, @PathVariable Integer discount, @PathVariable Integer cash, @PathVariable Integer change, @PathVariable Date date, @PathVariable String note){
+    public Payment payment (@PathVariable Long staffName, @PathVariable Long nameM, @PathVariable Long orderid, @PathVariable Double discount, @PathVariable Double cash, @PathVariable Double change, @PathVariable Date date, @PathVariable String note){
 
         Payment payment = new Payment();
         payment.setDiscount(discount);

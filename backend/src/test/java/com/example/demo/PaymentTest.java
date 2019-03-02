@@ -1,8 +1,7 @@
 package com.example.demo;
 
 import com.example.demo.entity.*;
-import com.example.demo.repository.CreditcardpaymentRepository;
-import com.example.demo.repository.PaymentRepository;
+import com.example.demo.repository.*;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -27,6 +26,12 @@ public class PaymentTest {
 
     @Autowired
     private PaymentRepository paymentRepository;
+    @Autowired
+    private StaffRepository staffRepository;
+    @Autowired
+    private MemberRepository memberRepository;
+    @Autowired
+    private CoffeeOrderRepository coffeeorderRepository;
 
     @Autowired
     private TestEntityManager entityManager;
@@ -37,16 +42,16 @@ public class PaymentTest {
         validator = factory.getValidator();
     }
 
-   //------------------------Sprint1-----------------------------------//
+    //------------------------Sprint1-----------------------------------//
 
     @Test
     //test null
     public void testNoteCannotNull() {
         Payment payment = new Payment();
         payment.setNote(null);
-        payment.setCash(100);
-        payment.setChange(20);
-        payment.setDiscount(10);
+        payment.setCash(100.0);
+        payment.setChange(20.0);
+        payment.setDiscount(10.0);
         try {
             entityManager.persist(payment);
             entityManager.flush();
@@ -56,7 +61,7 @@ public class PaymentTest {
             System.out.println(e.getConstraintViolations());
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             assertEquals(violations.isEmpty(), false);
-            assertEquals(violations.size(), 2);
+            assertEquals(violations.size(), 5);
         }
     }
 
@@ -65,9 +70,9 @@ public class PaymentTest {
     public void testSizeMinNote() {
         Payment payment = new Payment();
         payment.setNote("O");
-        payment.setCash(100);
-        payment.setChange(20);
-        payment.setDiscount(10);
+        payment.setCash(100.0);
+        payment.setChange(20.0);
+        payment.setDiscount(10.0);
         try {
             entityManager.persist(payment);
             entityManager.flush();
@@ -77,7 +82,7 @@ public class PaymentTest {
             System.out.println(e.getConstraintViolations());
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             assertEquals(violations.isEmpty(), false);
-            assertEquals(violations.size(), 2);
+            assertEquals(violations.size(), 5);
 
         }
     }
@@ -87,9 +92,9 @@ public class PaymentTest {
     public void testSizeMaxNote() {
         Payment payment = new Payment();
         payment.setNote("OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO");
-        payment.setCash(100);
-        payment.setChange(20);
-        payment.setDiscount(10);
+        payment.setCash(100.0);
+        payment.setChange(20.0);
+        payment.setDiscount(10.0);
         try {
             entityManager.persist(payment);
             entityManager.flush();
@@ -99,7 +104,7 @@ public class PaymentTest {
             System.out.println(e.getConstraintViolations());
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             assertEquals(violations.isEmpty(), false);
-            assertEquals(violations.size(), 3);
+            assertEquals(violations.size(), 6);
 
         }
     }
@@ -109,9 +114,9 @@ public class PaymentTest {
     public void testPatternNote() {
         Payment payment = new Payment();
         payment.setNote("napat");
-        payment.setCash(100);
-        payment.setChange(20);
-        payment.setDiscount(10);
+        payment.setCash(100.0);
+        payment.setChange(20.0);
+        payment.setDiscount(10.0);
         try {
             entityManager.persist(payment);
             entityManager.flush();
@@ -121,7 +126,7 @@ public class PaymentTest {
             System.out.println(e.getConstraintViolations());
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             assertEquals(violations.isEmpty(), false);
-            assertEquals(violations.size(), 2);
+            assertEquals(violations.size(), 5);
 
         }
     }
@@ -132,8 +137,8 @@ public class PaymentTest {
         Payment payment = new Payment();
         payment.setNote("ไม่มี");
         payment.setCash(null);
-        payment.setChange(20);
-        payment.setDiscount(10);
+        payment.setChange(20.0);
+        payment.setDiscount(10.0);
         try {
             entityManager.persist(payment);
             entityManager.flush();
@@ -143,7 +148,7 @@ public class PaymentTest {
             System.out.println(e.getConstraintViolations());
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             assertEquals(violations.isEmpty(), false);
-            assertEquals(violations.size(), 2);
+            assertEquals(violations.size(), 5);
         }
     }
 
@@ -152,9 +157,9 @@ public class PaymentTest {
     public void testChangeCannotNull() {
         Payment payment = new Payment();
         payment.setNote("ไม่มี");
-        payment.setCash(100);
+        payment.setCash(100.0);
         payment.setChange(null);
-        payment.setDiscount(10);
+        payment.setDiscount(10.0);
         try {
             entityManager.persist(payment);
             entityManager.flush();
@@ -164,7 +169,7 @@ public class PaymentTest {
             System.out.println(e.getConstraintViolations());
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             assertEquals(violations.isEmpty(), false);
-            assertEquals(violations.size(), 2);
+            assertEquals(violations.size(), 5);
         }
     }
 
@@ -173,8 +178,8 @@ public class PaymentTest {
     public void testDiscountCannotNull() {
         Payment payment = new Payment();
         payment.setNote("ไม่มี");
-        payment.setCash(100);
-        payment.setChange(20);
+        payment.setCash(100.0);
+        payment.setChange(20.0);
         payment.setDiscount(null);
         try {
             entityManager.persist(payment);
@@ -185,7 +190,7 @@ public class PaymentTest {
             System.out.println(e.getConstraintViolations());
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             assertEquals(violations.isEmpty(), false);
-            assertEquals(violations.size(), 2);
+            assertEquals(violations.size(), 5);
         }
     }
 
@@ -194,9 +199,9 @@ public class PaymentTest {
     public void testDateCannotNull() {
         Payment payment = new Payment();
         payment.setNote("ไม่มี");
-        payment.setCash(100);
-        payment.setChange(20);
-        payment.setDiscount(20);
+        payment.setCash(100.0);
+        payment.setChange(20.0);
+        payment.setDiscount(20.0);
         payment.setDate(null);
         try {
             entityManager.persist(payment);
@@ -207,8 +212,118 @@ public class PaymentTest {
             System.out.println(e.getConstraintViolations());
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             assertEquals(violations.isEmpty(), false);
-            assertEquals(violations.size(), 1);
+            assertEquals(violations.size(), 4);
         }
     }
 
+    @Test
+    public void testMemberNull() {
+        Payment payment = new Payment();
+        payment.setNote("ไม่มี");
+        payment.setCash(100.0);
+        payment.setChange(20.0);
+        payment.setDiscount(20.0);
+        payment.setMember(null);
+        payment.setStaff(staffRepository.findById(1L).get());
+        try {
+            entityManager.persist(payment);
+            entityManager.flush();
+            fail("Should not pass to this line");
+
+        } catch(javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            System.out.println("------------------------------- Member cannot null --------------------------");
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 3);
+        }
+    }
+
+    @Test
+    public void testStaffNull() {
+        Payment payment = new Payment();
+        payment.setNote("ไม่มี");
+        payment.setCash(100.0);
+        payment.setChange(20.0);
+        payment.setDiscount(20.0);
+        payment.setMember(memberRepository.findById(1L).get());
+        payment.setStaff(null);
+        try {
+            entityManager.persist(payment);
+            entityManager.flush();
+            fail("Should not pass to this line");
+
+        } catch(javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            System.out.println("------------------------------- Staff cannot null --------------------------");
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 3);
+        }
+    }
+
+    @Test
+    public void testCoffeeorderNull() {
+        Payment payment = new Payment();
+        payment.setNote("ไม่มี");
+        payment.setCash(100.0);
+        payment.setChange(20.0);
+        payment.setDiscount(20.0);
+        payment.setMember(memberRepository.findById(1L).get());
+        payment.setStaff(staffRepository.findById(1L).get());
+        payment.setCoffeeorder(null);
+        try {
+            entityManager.persist(payment);
+            entityManager.flush();
+            fail("Should not pass to this line");
+
+        } catch(javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            System.out.println("------------------------------- Coffeeorder cannot null --------------------------");
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 2);
+        }
+    }
+
+    @Test
+    public void testMinDiscount() {
+        Payment payment = new Payment();
+        payment.setNote("ไม่มี");
+        payment.setCash(100.0);
+        payment.setChange(20.0);
+        payment.setDiscount(0.0);
+        payment.setMember(memberRepository.findById(1L).get());
+        payment.setStaff(staffRepository.findById(1L).get());
+        try {
+            entityManager.persist(payment);
+            entityManager.flush();
+            fail("Should not pass to this line");
+
+        } catch(javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            System.out.println("------------------------------- Min Discount --------------------------");
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 3);
+        }
+    }
+
+    @Test
+    public void testMaxDiscount() {
+        Payment payment = new Payment();
+        payment.setNote("ไม่มี");
+        payment.setCash(100.0);
+        payment.setChange(20.0);
+        payment.setDiscount(550.0);
+        payment.setMember(memberRepository.findById(1L).get());
+        payment.setStaff(staffRepository.findById(1L).get());
+        try {
+            entityManager.persist(payment);
+            entityManager.flush();
+            fail("Should not pass to this line");
+
+        } catch(javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            System.out.println("------------------------------- Max Discount --------------------------");
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 3);
+        }
+    }
 }

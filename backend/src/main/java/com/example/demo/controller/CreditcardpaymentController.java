@@ -31,7 +31,7 @@ public class CreditcardpaymentController {
 
 
     @PostMapping(path = "/creditcardpayment/{nameM}/{orderid}/{staffName}/{creditname}/{creditnumber}/{csc}/{expireddate}/{typename}/{discount}/{money}")
-    public Creditcardpayment creditcardpayment(@PathVariable String creditname, @PathVariable Long creditnumber, @PathVariable Integer csc, @PathVariable Long staffName, @PathVariable Long nameM, @PathVariable Long orderid, @PathVariable Long typename, @PathVariable Date expireddate, @PathVariable Integer money, @PathVariable Integer discount){
+    public Creditcardpayment creditcardpayment(@PathVariable String creditname, @PathVariable Long creditnumber, @PathVariable Integer csc, @PathVariable Long staffName, @PathVariable Long nameM, @PathVariable Long orderid, @PathVariable Long typename, @PathVariable Date expireddate, @PathVariable Double money, @PathVariable Double discount){
 
 
 
