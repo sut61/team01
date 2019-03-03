@@ -312,6 +312,30 @@ public void MembertestNullAndNotBlankPasswords() {
             e.printStackTrace();
         }
     }
-
+//TEST11
+//TEST Unique
+    @Test
+	public void testUniqueUser(){
+		Member member = new Member();
+        member.setUser("1namphon");
+        member.setAddress("77/8");
+        member.setNameM("Alis");
+        member.setPassword("12345678901");
+        Member member2 = new Member();
+        member2.setUser("1namphon");
+        
+        try {
+            entityManager.persist(member2);
+            entityManager.flush();
+            fail("Unique is error");
+        } catch(javax.validation.ConstraintViolationException e) {
+            System.out.println("========================================= Unique is error ===============================");
+            System.out.println(e.getConstraintViolations());
+            System.out.println("==================================================================================================");
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            
+        }
+    }
 
 }

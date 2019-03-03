@@ -282,6 +282,29 @@ public class CancelMemberTest {
             e.printStackTrace();
         }
     }
-    
+//TEST11
+//TEST Unique
+    @Test
+	public void testUniqueUserDeleted(){
+		Cancel cancel = new Cancel();
+        cancel.setUserDeleted("user");
+        cancel.setNote("deleted");
+        Cancel cancel2 = new Cancel();
+        cancel2.setUserDeleted("user");
+        
+       
+        try {
+            entityManager.persist(cancel2);
+            entityManager.flush();
+            fail("Unique is error");
+        } catch(javax.validation.ConstraintViolationException e) {
+            System.out.println("========================================= Unique is error ===============================");
+            System.out.println(e.getConstraintViolations());
+            System.out.println("==================================================================================================");
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            
+        }
+    }
 }
 

@@ -31,8 +31,8 @@ public class Cancel {
     Date date;
 
     @NotNull
-    @Size(min=2, max=30)
     @NotBlank
+    @Size(min=2, max=30)
     @Pattern(regexp = "[-a-zก-๛]+")
     private  String note;
 
