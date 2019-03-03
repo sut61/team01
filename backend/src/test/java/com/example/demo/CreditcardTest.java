@@ -15,6 +15,7 @@ import javax.validation.Validation;
 import javax.validation.Validator;
 import javax.validation.ValidatorFactory;
 import javax.validation.constraints.Null;
+import java.util.Date;
 import java.util.Set;
 
 import static org.junit.Assert.assertEquals;
@@ -80,6 +81,7 @@ public class CreditcardTest {
         creditcardpayment.setCsc(623);
         creditcardpayment.setMoney(20.0);
         creditcardpayment.setDiscount(20.0);
+        creditcardpayment.setExpireddate(new Date(02-02-2018));
         creditcardpayment.setMember(memberRepository.findById(1L).get());
         creditcardpayment.setStaff(staffRepository.findById(1L).get());
         creditcardpayment.setCredittype(credittypeRepository.findById(1L).get());
@@ -92,7 +94,7 @@ public class CreditcardTest {
             System.out.println(e.getConstraintViolations());
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             assertEquals(violations.isEmpty(), false);
-            assertEquals(violations.size(), 3);
+            assertEquals(violations.size(), 2);
 
         }
     }
@@ -105,6 +107,7 @@ public class CreditcardTest {
         creditcardpayment.setCsc(623);
         creditcardpayment.setMoney(20.0);
         creditcardpayment.setDiscount(20.0);
+        creditcardpayment.setExpireddate(new Date(02-02-2018));
         creditcardpayment.setMember(memberRepository.findById(1L).get());
         creditcardpayment.setStaff(staffRepository.findById(1L).get());
         creditcardpayment.setCredittype(credittypeRepository.findById(1L).get());
@@ -117,7 +120,7 @@ public class CreditcardTest {
             System.out.println(e.getConstraintViolations());
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             assertEquals(violations.isEmpty(), false);
-            assertEquals(violations.size(), 4);
+            assertEquals(violations.size(), 3);
 
         }
     }
@@ -130,6 +133,7 @@ public class CreditcardTest {
         creditcardpayment.setCsc(623);
         creditcardpayment.setMoney(20.0);
         creditcardpayment.setDiscount(20.0);
+        creditcardpayment.setExpireddate(new Date(02-02-2018));
         creditcardpayment.setMember(memberRepository.findById(1L).get());
         creditcardpayment.setStaff(staffRepository.findById(1L).get());
         creditcardpayment.setCredittype(credittypeRepository.findById(1L).get());
@@ -142,7 +146,7 @@ public class CreditcardTest {
             System.out.println(e.getConstraintViolations());
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             assertEquals(violations.isEmpty(), false);
-            assertEquals(violations.size(), 4);
+            assertEquals(violations.size(), 3);
 
         }
     }
@@ -155,6 +159,7 @@ public class CreditcardTest {
         creditcardpayment.setCsc(623);
         creditcardpayment.setMoney(null);
         creditcardpayment.setDiscount(20.0);
+        creditcardpayment.setExpireddate(new Date(02-02-2018));
         creditcardpayment.setMember(memberRepository.findById(1L).get());
         creditcardpayment.setStaff(staffRepository.findById(1L).get());
         creditcardpayment.setCredittype(credittypeRepository.findById(1L).get());
@@ -167,7 +172,7 @@ public class CreditcardTest {
             System.out.println(e.getConstraintViolations());
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             assertEquals(violations.isEmpty(), false);
-            assertEquals(violations.size(), 4);
+            assertEquals(violations.size(), 3);
 
         }
     }
@@ -181,6 +186,7 @@ public class CreditcardTest {
         creditcardpayment.setMoney(20.0);
         creditcardpayment.setCreditnumber(null);
         creditcardpayment.setDiscount(20.0);
+        creditcardpayment.setExpireddate(new Date(02-02-2018));
         creditcardpayment.setMember(memberRepository.findById(1L).get());
         creditcardpayment.setStaff(staffRepository.findById(1L).get());
         creditcardpayment.setCredittype(credittypeRepository.findById(1L).get());
@@ -193,7 +199,7 @@ public class CreditcardTest {
             System.out.println(e.getConstraintViolations());
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             assertEquals(violations.isEmpty(), false);
-            assertEquals(violations.size(), 3);
+            assertEquals(violations.size(), 2);
 
         }
     }
@@ -206,6 +212,7 @@ public class CreditcardTest {
         creditcardpayment.setCsc(null);
         creditcardpayment.setMoney(20.0);
         creditcardpayment.setDiscount(20.0);
+        creditcardpayment.setExpireddate(new Date(02-02-2018));
         creditcardpayment.setMember(memberRepository.findById(1L).get());
         creditcardpayment.setStaff(staffRepository.findById(1L).get());
         creditcardpayment.setCredittype(credittypeRepository.findById(1L).get());
@@ -218,7 +225,7 @@ public class CreditcardTest {
             System.out.println(e.getConstraintViolations());
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             assertEquals(violations.isEmpty(), false);
-            assertEquals(violations.size(), 4);
+            assertEquals(violations.size(), 3);
 
         }
     }
@@ -231,6 +238,7 @@ public class CreditcardTest {
         creditcardpayment.setCsc(623);
         creditcardpayment.setMoney(20.0);
         creditcardpayment.setDiscount(null);
+        creditcardpayment.setExpireddate(new Date(02-02-2018));
         creditcardpayment.setMember(memberRepository.findById(1L).get());
         creditcardpayment.setStaff(staffRepository.findById(1L).get());
         creditcardpayment.setCredittype(credittypeRepository.findById(1L).get());
@@ -243,7 +251,7 @@ public class CreditcardTest {
             System.out.println(e.getConstraintViolations());
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             assertEquals(violations.isEmpty(), false);
-            assertEquals(violations.size(), 4);
+            assertEquals(violations.size(), 3);
 
         }
     }
@@ -256,6 +264,7 @@ public class CreditcardTest {
         creditcardpayment.setCsc(623);
         creditcardpayment.setMoney(20.0);
         creditcardpayment.setDiscount(20.0);
+        creditcardpayment.setExpireddate(new Date(02-02-2018));
         creditcardpayment.setMember(memberRepository.findById(1L).get());
         creditcardpayment.setStaff(staffRepository.findById(1L).get());
         creditcardpayment.setCredittype(credittypeRepository.findById(1L).get());
@@ -268,7 +277,7 @@ public class CreditcardTest {
             System.out.println(e.getConstraintViolations());
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             assertEquals(violations.isEmpty(), false);
-            assertEquals(violations.size(), 4);
+            assertEquals(violations.size(), 3);
 
         }
     }
@@ -280,6 +289,7 @@ public class CreditcardTest {
         creditcardpayment.setCsc(623);
         creditcardpayment.setMoney(20.0);
         creditcardpayment.setDiscount(20.0);
+        creditcardpayment.setExpireddate(new Date(02-02-2018));
         creditcardpayment.setMember(null);
         creditcardpayment.setStaff(staffRepository.findById(1L).get());
         creditcardpayment.setCredittype(credittypeRepository.findById(1L).get());
@@ -292,7 +302,7 @@ public class CreditcardTest {
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             System.out.println("------------------------------- Member cannot null --------------------------");
             assertEquals(violations.isEmpty(), false);
-            assertEquals(violations.size(), 4);
+            assertEquals(violations.size(), 3);
         }
     }
 
@@ -303,6 +313,7 @@ public class CreditcardTest {
         creditcardpayment.setCsc(623);
         creditcardpayment.setMoney(20.0);
         creditcardpayment.setDiscount(20.0);
+        creditcardpayment.setExpireddate(new Date(02-02-2018));
         creditcardpayment.setMember(memberRepository.findById(1L).get());
         creditcardpayment.setStaff(null);
         creditcardpayment.setCredittype(credittypeRepository.findById(1L).get());
@@ -315,7 +326,7 @@ public class CreditcardTest {
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             System.out.println("------------------------------- Staff cannot null --------------------------");
             assertEquals(violations.isEmpty(), false);
-            assertEquals(violations.size(), 4);
+            assertEquals(violations.size(), 3);
         }
     }
 
@@ -326,6 +337,7 @@ public class CreditcardTest {
         creditcardpayment.setCsc(623);
         creditcardpayment.setMoney(20.0);
         creditcardpayment.setDiscount(20.0);
+        creditcardpayment.setExpireddate(new Date(02-02-2018));
         creditcardpayment.setMember(memberRepository.findById(1L).get());
         creditcardpayment.setStaff(staffRepository.findById(1L).get());
         creditcardpayment.setCredittype(null);
@@ -338,7 +350,7 @@ public class CreditcardTest {
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             System.out.println("------------------------------- Credittype cannot null --------------------------");
             assertEquals(violations.isEmpty(), false);
-            assertEquals(violations.size(), 4);
+            assertEquals(violations.size(), 3);
         }
     }
 
@@ -373,6 +385,7 @@ public class CreditcardTest {
         creditcardpayment.setCsc(623);
         creditcardpayment.setMoney(20.0);
         creditcardpayment.setDiscount(0.0);
+        creditcardpayment.setExpireddate(new Date(02-02-2018));
         creditcardpayment.setMember(memberRepository.findById(1L).get());
         creditcardpayment.setStaff(staffRepository.findById(1L).get());
         creditcardpayment.setCredittype(credittypeRepository.findById(1L).get());
@@ -385,7 +398,7 @@ public class CreditcardTest {
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             System.out.println("------------------------------- Min Discount --------------------------");
             assertEquals(violations.isEmpty(), false);
-            assertEquals(violations.size(), 4);
+            assertEquals(violations.size(), 3);
         }
     }
 
@@ -396,6 +409,7 @@ public class CreditcardTest {
         creditcardpayment.setCsc(623);
         creditcardpayment.setMoney(20.0);
         creditcardpayment.setDiscount(550.0);
+        creditcardpayment.setExpireddate(new Date(02-02-2018));
         creditcardpayment.setMember(memberRepository.findById(1L).get());
         creditcardpayment.setStaff(staffRepository.findById(1L).get());
         creditcardpayment.setCredittype(credittypeRepository.findById(1L).get());
@@ -408,7 +422,7 @@ public class CreditcardTest {
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             System.out.println("------------------------------- Max Discount --------------------------");
             assertEquals(violations.isEmpty(), false);
-            assertEquals(violations.size(), 4);
+            assertEquals(violations.size(), 3);
         }
     }
 

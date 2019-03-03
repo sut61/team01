@@ -28,8 +28,8 @@ public class Payment {
     private @NotNull String note;
     private @NotNull Double cash;
 
-    @Min(1)
-    @Max(500)
+    @Min(value = 1)
+    @Max(value = 500)
     private @NotNull Double discount;
     private @NotNull Double change;
 
