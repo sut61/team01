@@ -30,7 +30,7 @@ public class Creditcardpayment {
     Date expireddate;
 
     @Pattern(regexp = "\\w+")
-    private @Size(min = 1, max = 16) @NotNull String creditname;
+    private @Size(min = 2, max = 25) @NotNull String creditname;
 
     private @NotNull Double money;
 

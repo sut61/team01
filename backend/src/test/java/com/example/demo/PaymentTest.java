@@ -89,7 +89,7 @@ public class PaymentTest {
             System.out.println(e.getConstraintViolations());
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             assertEquals(violations.isEmpty(), false);
-            assertEquals(violations.size(), 2);
+            assertEquals(violations.size(), 3);
 
         }
     }
