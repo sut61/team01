@@ -26,22 +26,20 @@ public class Member {
 
     @NotNull
     @NotBlank
-    @Column(unique = true)
-    @Length (max=10) 
+    @Length (min=5,max=10) 
     private  String password;
 
     @NotNull
     @Pattern(regexp = "\\w+")
+    @Column(unique = true)
     private @Size(min = 1, max = 10)  String user;
 
     @NotNull
     @NotBlank
-    @Column(unique = true)
     private  String address;
 
     @NotNull
     @NotBlank
-    @Column(unique = true) 
     private  String nameM;
 
     @ManyToOne(fetch = FetchType.EAGER, targetEntity = Gender.class)
