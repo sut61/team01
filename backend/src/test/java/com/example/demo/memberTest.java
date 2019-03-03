@@ -37,6 +37,7 @@ public class memberTest {
     }
 
    //------------------------Sprint1-----------------------------------//
+//TEST1
 
    @Test
    public void MembertestSuccess() {
@@ -62,11 +63,13 @@ public class memberTest {
        } catch(javax.validation.ConstraintViolationException e) {
            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
            assertEquals(violations.isEmpty(), false);
-           assertEquals(violations.size(), 1);
+           
 
        }
    }
-   public void MembertestNullAddress() {
+//TEST2
+   @Test
+   public void MembertestNullAndNotBlankAddress() {
         Member member = new Member();
         member.setPassword("1234");
         member.setNameM("lisa malaw");
@@ -85,7 +88,7 @@ public class memberTest {
            System.out.println();
            System.out.println();
            System.out.println();
-           System.out.println( "===================================================================================");
+           System.out.println( "================================NullAndNotBlankAddress=============================");
            System.out.println( e );
            System.out.println( "===================================================================================");
            System.out.println();
@@ -94,7 +97,9 @@ public class memberTest {
 
        }
    }
-   public void MembertestNullNameM() {
+//TEST3
+   @Test
+   public void MembertestNullAndNotBlankNameM() {
     Member member = new Member();
     member.setPassword("1234");
     member.setNameM(null);
@@ -113,7 +118,7 @@ public class memberTest {
        System.out.println();
        System.out.println();
        System.out.println();
-       System.out.println( "===================================================================================");
+       System.out.println( "================================NullAndNotBlankNameM===============================");
        System.out.println( e );
        System.out.println( "===================================================================================");
        System.out.println();
@@ -122,6 +127,8 @@ public class memberTest {
 
    }
 }
+//TEST4
+@Test
 public void MembertestNullUser() {
     Member member = new Member();
     member.setPassword("1234");
@@ -141,7 +148,7 @@ public void MembertestNullUser() {
        System.out.println();
        System.out.println();
        System.out.println();
-       System.out.println( "===================================================================================");
+       System.out.println( "======================================NullUser====================================");
        System.out.println( e );
        System.out.println( "===================================================================================");
        System.out.println();
@@ -150,7 +157,9 @@ public void MembertestNullUser() {
 
    }
 }
-public void MembertestNullPasswords() {
+//TEST5
+@Test
+public void MembertestNullAndNotBlankPasswords() {
     Member member = new Member();
     member.setPassword(null);
     member.setNameM("lisa malaw");
@@ -169,7 +178,7 @@ public void MembertestNullPasswords() {
        System.out.println();
        System.out.println();
        System.out.println();
-       System.out.println( "===================================================================================");
+       System.out.println( "===============================NullAndNotBlankPasswords============================");
        System.out.println( e );
        System.out.println( "===================================================================================");
        System.out.println();
@@ -178,6 +187,7 @@ public void MembertestNullPasswords() {
 
    }
 }
+//TEST6
     @Test
     //pattern 
     public void testPatternUser() {
@@ -191,14 +201,37 @@ public void MembertestNullPasswords() {
             entityManager.flush();
             fail("Note pattern is ascii");
         } catch(javax.validation.ConstraintViolationException e) {
-            System.out.println("================================ Note Pattern is thai and 0-9 ==================");
+            System.out.println("==================================== Note Pattern is thai and 0-9 ===============================");
             System.out.println(e.getConstraintViolations());
+            System.out.println("==================================================================================================");
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             assertEquals(violations.isEmpty(), false);
-            assertEquals(violations.size(), 1);
-
+            
         }
     }
+//TEST7
+    @Test
+    //Length 
+    public void testLengthPassword() {
+        Member member = new Member();
+        member.setUser("1namphon");
+        member.setAddress("77/8");
+        member.setNameM("Alis");
+        member.setPassword("12345678901");
+        try {
+            entityManager.persist(member);
+            entityManager.flush();
+            fail("Password Length is error");
+        } catch(javax.validation.ConstraintViolationException e) {
+            System.out.println("========================================= Password Length is error ===============================");
+            System.out.println(e.getConstraintViolations());
+            System.out.println("==================================================================================================");
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            
+        }
+    }
+//TEST8
     @Test
     public void ProvincetestUnique() {
         Province province = new Province();
@@ -214,17 +247,18 @@ public void MembertestNullPasswords() {
             entityManager.flush();
 
         } catch(javax.validation.ConstraintViolationException e) {
-            System.out.println("================FROM TypeDeletetestUnique ======================");
+            System.out.println("==================================FROM TypeDeletetestUnique ====================================");
             e.printStackTrace();
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             assertEquals(violations.isEmpty(), false);
             assertEquals(violations.size(), 1);
         }
         catch (javax.persistence.PersistenceException e){
-            System.out.println("==================================================================");
+            System.out.println("================================================================================================");
             e.printStackTrace();
         }
     }
+//TEST9
     @Test
     public void NametypetestUnique() {
         Nametype nametype = new Nametype();
@@ -240,17 +274,18 @@ public void MembertestNullPasswords() {
             entityManager.flush();
 
         } catch(javax.validation.ConstraintViolationException e) {
-            System.out.println("================FROM TypeDeletetestUnique ======================");
+            System.out.println("=================================FROM TypeDeletetestUnique =====================================");
             e.printStackTrace();
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             assertEquals(violations.isEmpty(), false);
             assertEquals(violations.size(), 1);
         }
         catch (javax.persistence.PersistenceException e){
-            System.out.println("==================================================================");
+            System.out.println("================================================================================================");
             e.printStackTrace();
         }
     }
+//TEST10
     @Test
     public void GendertestUnique() {
         Gender gender = new Gender();
@@ -266,14 +301,14 @@ public void MembertestNullPasswords() {
             entityManager.flush();
 
         } catch(javax.validation.ConstraintViolationException e) {
-            System.out.println("================FROM TypeDeletetestUnique ======================");
+            System.out.println("================================= FROM TypeDeletetestUnique ====================================");
             e.printStackTrace();
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             assertEquals(violations.isEmpty(), false);
             assertEquals(violations.size(), 1);
         }
         catch (javax.persistence.PersistenceException e){
-            System.out.println("==================================================================");
+            System.out.println("================================================================================================");
             e.printStackTrace();
         }
     }
