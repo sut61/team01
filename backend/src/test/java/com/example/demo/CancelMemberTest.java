@@ -14,6 +14,7 @@ import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
 import javax.validation.Validator;
 import javax.validation.ValidatorFactory;
+
 import java.util.Set;
 
 import static org.junit.Assert.assertEquals;
@@ -29,6 +30,8 @@ public class CancelMemberTest {
     @Autowired
     private TestEntityManager entityManager;
     private Validator validator;
+
+	
     @Before
     public void setup() {
         ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
@@ -39,13 +42,12 @@ public class CancelMemberTest {
     //******************************************SPRINT 2******************************************
     //=========================================Cancel Entity=======================================
 
-
+//TEST1 notnull date    
     @Test
-    //test null date
-    public void testNullReason() {
+    public void testNullDate() {
         Cancel cancel = new Cancel();
-        cancel.setUserDeleted(null);
-        cancel.setNote(null);
+        cancel.setUserDeleted("user");
+        cancel.setNote("deleted");
         cancel.setDate(null);
         
         try {
@@ -62,12 +64,35 @@ public class CancelMemberTest {
             System.out.println("============================================================================================================================================");
         }
     }
+//TEST2 UserDeleted Notnull And NotBlank
     @Test
-    // no fail
-    public void testNotnullReason() {
+    public void testNullUserDeletedAndNotBlank () {
         Cancel cancel = new Cancel();
-        cancel.setUserDeleted("not error");
-        cancel.setNote("not error");
+        cancel.setUserDeleted(null);
+        cancel.setNote("deleted");
+        
+        
+        try {
+            entityManager.persist(cancel);
+            entityManager.flush();
+            fail("is null");
+        } catch(javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            
+            System.out.println("============================================================================================================================================");
+            e.printStackTrace();
+            System.out.println("============================================================================================================================================");
+            System.out.println(e);
+            System.out.println("============================================================================================================================================");
+        }
+    }
+//TEST3 UserDeleted no fail
+    @Test
+    public void testNotnullUserDeleted() {
+        Cancel cancel = new Cancel();
+        cancel.setUserDeleted("user");
+        cancel.setNote("deleted");
        
         try {
             entityManager.persist(cancel);
@@ -76,7 +101,7 @@ public class CancelMemberTest {
         } catch(javax.validation.ConstraintViolationException e) {
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             assertEquals(violations.isEmpty(), false);
-            //assertEquals(violations.size(), 1);
+            
             System.out.println("============================================================================================================================================");
             e.printStackTrace();
             System.out.println("============================================================================================================================================");
@@ -85,22 +110,21 @@ public class CancelMemberTest {
         }
     }
     
-
+//TEST4 NOTE Notnull And NotBlank
     @Test
-    //max other
-    public void testSizMaxReason() {
+    public void testNullNoteAndNotBlank() {
         Cancel cancel = new Cancel();
-        cancel.setUserDeleted("PASS");
-        cancel.setNote("pass");
-        cancel.setDate(null);
+        cancel.setUserDeleted("user");
+        cancel.setNote(null);
+        
+        
         try {
             entityManager.persist(cancel);
             entityManager.flush();
-            fail("too less character");
+            fail("is null");
         } catch(javax.validation.ConstraintViolationException e) {
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             assertEquals(violations.isEmpty(), false);
-            assertEquals(violations.size(), 1);
             System.out.println("============================================================================================================================================");
             e.printStackTrace();
             System.out.println("============================================================================================================================================");
@@ -108,6 +132,75 @@ public class CancelMemberTest {
             System.out.println("============================================================================================================================================");
         }
     }
+//TEST5 NOTE no fail
+    @Test
+    public void testNotnullNote() {
+        Cancel cancel = new Cancel();
+        cancel.setUserDeleted("user");
+        cancel.setNote("deleted");
+    
+        try {
+            entityManager.persist(cancel);
+            entityManager.flush();
+            fail("Success full");
+        } catch(javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            System.out.println("============================================================================================================================================");
+            e.printStackTrace();
+            System.out.println("============================================================================================================================================");
+            System.out.println(e);
+            System.out.println("============================================================================================================================================");
+        }
+    }
+//TEST SIZE NOTE
+//TEST6 MAX NOTE
+    @Test
+    public void testSizMaxNote() {
+        Cancel cancel = new Cancel();
+        cancel.setUserDeleted("PASS");
+        cancel.setNote("pass5678901pass5678902pass5678903");
+        cancel.setDate(null);
+        try {
+            entityManager.persist(cancel);
+            entityManager.flush();
+            fail("Note Size < 30");
+        } catch (javax.validation.ConstraintViolationException e) {
+            System.out.println(e.getMessage());
+            System.out.println();
+            System.out.println(" Note Size Error");
+            System.out.println(e);
+            System.out.println();
+
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            
+        }
+    }
+//TEST7 MIN NOTE
+    @Test
+    public void testSizMinNote() {
+        Cancel cancel = new Cancel();
+        cancel.setUserDeleted("PASS");
+        cancel.setNote("T");
+        cancel.setDate(null);
+        try {
+            entityManager.persist(cancel);
+            entityManager.flush();
+            fail("Note Size > 2");
+        } catch (javax.validation.ConstraintViolationException e) {
+            System.out.println(e.getMessage());
+            System.out.println();
+            System.out.println(" Note Size Error");
+            System.out.println(e);
+            System.out.println();
+
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            
+        }
+    }
+//TEST8 Pattern Note
     @Test
     public void CanceltestPatternNote() {
         Cancel cancel = new Cancel();
@@ -126,7 +219,7 @@ public class CancelMemberTest {
             System.out.println();
             System.out.println();
             System.out.println();
-            System.out.println( "===================================================================================");
+            System.out.println( "======================  PATTERN ERROR  ======================================");
             System.out.println( e );
             System.out.println( "===================================================================================");
             System.out.println();
@@ -135,6 +228,7 @@ public class CancelMemberTest {
 
         }
     }
+//TEST9 NULL STAFF
     @Test
     public void StafftestUnique() {
         Staff staff = new Staff();
@@ -143,7 +237,7 @@ public class CancelMemberTest {
         entityManager.flush();
 
         Staff staff1 = new Staff();
-        staff1.setStaffName("admin");
+        staff1.setStaffName(null);
 
         try{
             entityManager.persist(staff1);
@@ -161,6 +255,7 @@ public class CancelMemberTest {
             e.printStackTrace();
         }
     }
+//TEST10 NULL TYPEDELETE
     @Test
     public void TypeDeletetestUnique() {
         TypeDelete typeDelete = new TypeDelete();
@@ -169,7 +264,7 @@ public class CancelMemberTest {
         entityManager.flush();
 
         TypeDelete typeDelete1 = new TypeDelete();
-        typeDelete1.setTyptD("member?");
+        typeDelete1.setTyptD(null);
 
         try{
             entityManager.persist(typeDelete1);
