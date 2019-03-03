@@ -23,7 +23,7 @@ public class Payment {
     @Column(name = "Payment_Id")
 
     private @NotNull Long payid;
-    @Size(min = 1,max = 20)
+    @Size(min = 2,max = 25)
     @Pattern(regexp = "[-0-9ก-๛]+")
     private @NotNull String note;
     private @NotNull Double cash;
