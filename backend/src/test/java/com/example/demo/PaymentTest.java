@@ -14,6 +14,7 @@ import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
 import javax.validation.Validator;
 import javax.validation.ValidatorFactory;
+import java.util.Date;
 import java.util.Set;
 
 import static org.junit.Assert.assertEquals;
@@ -52,6 +53,9 @@ public class PaymentTest {
         payment.setCash(100.0);
         payment.setChange(20.0);
         payment.setDiscount(10.0);
+        payment.setDate(new Date(02-02-2018));
+        payment.setMember(memberRepository.findById(1L).get());
+        payment.setStaff(staffRepository.findById(1L).get());
         try {
             entityManager.persist(payment);
             entityManager.flush();
@@ -61,7 +65,7 @@ public class PaymentTest {
             System.out.println(e.getConstraintViolations());
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             assertEquals(violations.isEmpty(), false);
-            assertEquals(violations.size(), 5);
+            assertEquals(violations.size(), 2);
         }
     }
 
@@ -73,6 +77,9 @@ public class PaymentTest {
         payment.setCash(100.0);
         payment.setChange(20.0);
         payment.setDiscount(10.0);
+        payment.setDate(new Date(02-02-2018));
+        payment.setMember(memberRepository.findById(1L).get());
+        payment.setStaff(staffRepository.findById(1L).get());
         try {
             entityManager.persist(payment);
             entityManager.flush();
@@ -82,7 +89,7 @@ public class PaymentTest {
             System.out.println(e.getConstraintViolations());
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             assertEquals(violations.isEmpty(), false);
-            assertEquals(violations.size(), 5);
+            assertEquals(violations.size(), 2);
 
         }
     }
@@ -95,6 +102,9 @@ public class PaymentTest {
         payment.setCash(100.0);
         payment.setChange(20.0);
         payment.setDiscount(10.0);
+        payment.setDate(new Date(02-02-2018));
+        payment.setMember(memberRepository.findById(1L).get());
+        payment.setStaff(staffRepository.findById(1L).get());
         try {
             entityManager.persist(payment);
             entityManager.flush();
@@ -104,7 +114,7 @@ public class PaymentTest {
             System.out.println(e.getConstraintViolations());
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             assertEquals(violations.isEmpty(), false);
-            assertEquals(violations.size(), 6);
+            assertEquals(violations.size(), 3);
 
         }
     }
@@ -117,6 +127,9 @@ public class PaymentTest {
         payment.setCash(100.0);
         payment.setChange(20.0);
         payment.setDiscount(10.0);
+        payment.setDate(new Date(02-02-2018));
+        payment.setMember(memberRepository.findById(1L).get());
+        payment.setStaff(staffRepository.findById(1L).get());
         try {
             entityManager.persist(payment);
             entityManager.flush();
@@ -126,7 +139,7 @@ public class PaymentTest {
             System.out.println(e.getConstraintViolations());
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             assertEquals(violations.isEmpty(), false);
-            assertEquals(violations.size(), 5);
+            assertEquals(violations.size(), 2);
 
         }
     }
@@ -139,6 +152,9 @@ public class PaymentTest {
         payment.setCash(null);
         payment.setChange(20.0);
         payment.setDiscount(10.0);
+        payment.setDate(new Date(02-02-2018));
+        payment.setMember(memberRepository.findById(1L).get());
+        payment.setStaff(staffRepository.findById(1L).get());
         try {
             entityManager.persist(payment);
             entityManager.flush();
@@ -148,7 +164,7 @@ public class PaymentTest {
             System.out.println(e.getConstraintViolations());
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             assertEquals(violations.isEmpty(), false);
-            assertEquals(violations.size(), 5);
+            assertEquals(violations.size(), 2);
         }
     }
 
@@ -160,6 +176,9 @@ public class PaymentTest {
         payment.setCash(100.0);
         payment.setChange(null);
         payment.setDiscount(10.0);
+        payment.setDate(new Date(02-02-2018));
+        payment.setMember(memberRepository.findById(1L).get());
+        payment.setStaff(staffRepository.findById(1L).get());
         try {
             entityManager.persist(payment);
             entityManager.flush();
@@ -169,7 +188,7 @@ public class PaymentTest {
             System.out.println(e.getConstraintViolations());
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             assertEquals(violations.isEmpty(), false);
-            assertEquals(violations.size(), 5);
+            assertEquals(violations.size(), 2);
         }
     }
 
@@ -181,6 +200,9 @@ public class PaymentTest {
         payment.setCash(100.0);
         payment.setChange(20.0);
         payment.setDiscount(null);
+        payment.setDate(new Date(02-02-2018));
+        payment.setMember(memberRepository.findById(1L).get());
+        payment.setStaff(staffRepository.findById(1L).get());
         try {
             entityManager.persist(payment);
             entityManager.flush();
@@ -190,7 +212,7 @@ public class PaymentTest {
             System.out.println(e.getConstraintViolations());
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             assertEquals(violations.isEmpty(), false);
-            assertEquals(violations.size(), 5);
+            assertEquals(violations.size(), 2);
         }
     }
 
@@ -203,6 +225,8 @@ public class PaymentTest {
         payment.setChange(20.0);
         payment.setDiscount(20.0);
         payment.setDate(null);
+        payment.setMember(memberRepository.findById(1L).get());
+        payment.setStaff(staffRepository.findById(1L).get());
         try {
             entityManager.persist(payment);
             entityManager.flush();
@@ -212,7 +236,7 @@ public class PaymentTest {
             System.out.println(e.getConstraintViolations());
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             assertEquals(violations.isEmpty(), false);
-            assertEquals(violations.size(), 4);
+            assertEquals(violations.size(), 2);
         }
     }
 
@@ -223,6 +247,7 @@ public class PaymentTest {
         payment.setCash(100.0);
         payment.setChange(20.0);
         payment.setDiscount(20.0);
+        payment.setDate(new Date(02-02-2018));
         payment.setMember(null);
         payment.setStaff(staffRepository.findById(1L).get());
         try {
@@ -234,7 +259,7 @@ public class PaymentTest {
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             System.out.println("------------------------------- Member cannot null --------------------------");
             assertEquals(violations.isEmpty(), false);
-            assertEquals(violations.size(), 3);
+            assertEquals(violations.size(), 2);
         }
     }
 
@@ -245,6 +270,7 @@ public class PaymentTest {
         payment.setCash(100.0);
         payment.setChange(20.0);
         payment.setDiscount(20.0);
+        payment.setDate(new Date(02-02-2018));
         payment.setMember(memberRepository.findById(1L).get());
         payment.setStaff(null);
         try {
@@ -256,7 +282,7 @@ public class PaymentTest {
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             System.out.println("------------------------------- Staff cannot null --------------------------");
             assertEquals(violations.isEmpty(), false);
-            assertEquals(violations.size(), 3);
+            assertEquals(violations.size(), 2);
         }
     }
 
@@ -267,6 +293,7 @@ public class PaymentTest {
         payment.setCash(100.0);
         payment.setChange(20.0);
         payment.setDiscount(20.0);
+        payment.setDate(new Date(02-02-2018));
         payment.setMember(memberRepository.findById(1L).get());
         payment.setStaff(staffRepository.findById(1L).get());
         payment.setCoffeeorder(null);
@@ -279,7 +306,7 @@ public class PaymentTest {
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             System.out.println("------------------------------- Coffeeorder cannot null --------------------------");
             assertEquals(violations.isEmpty(), false);
-            assertEquals(violations.size(), 2);
+            assertEquals(violations.size(), 1);
         }
     }
 
@@ -290,6 +317,7 @@ public class PaymentTest {
         payment.setCash(100.0);
         payment.setChange(20.0);
         payment.setDiscount(0.0);
+        payment.setDate(new Date(02-02-2018));
         payment.setMember(memberRepository.findById(1L).get());
         payment.setStaff(staffRepository.findById(1L).get());
         try {
@@ -301,7 +329,7 @@ public class PaymentTest {
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             System.out.println("------------------------------- Min Discount --------------------------");
             assertEquals(violations.isEmpty(), false);
-            assertEquals(violations.size(), 3);
+            assertEquals(violations.size(), 2);
         }
     }
 
@@ -312,6 +340,7 @@ public class PaymentTest {
         payment.setCash(100.0);
         payment.setChange(20.0);
         payment.setDiscount(550.0);
+        payment.setDate(new Date(02-02-2018));
         payment.setMember(memberRepository.findById(1L).get());
         payment.setStaff(staffRepository.findById(1L).get());
         try {
@@ -323,7 +352,7 @@ public class PaymentTest {
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             System.out.println("------------------------------- Max Discount --------------------------");
             assertEquals(violations.isEmpty(), false);
-            assertEquals(violations.size(), 3);
+            assertEquals(violations.size(), 2);
         }
     }
 }
