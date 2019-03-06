@@ -12,8 +12,6 @@ export class PointComponent implements OnInit {
 
   constructor(private controller:SearchAllService,private httpClient:HttpClient,private router:Router,private controller1:RecordService) { }
 
-//Point
-
   other:String;
   date:null;
 
@@ -26,7 +24,7 @@ export class PointComponent implements OnInit {
   nameStaffs : Array<any>;
   nameStaffSelect:'';
 
-
+  pointNumber:number = 1;
   
   //nameCustomer
   nameCustomers : Array<any>;
@@ -39,6 +37,7 @@ export class PointComponent implements OnInit {
 
 
 }
+
 
   ngOnInit() {
     this.controller.getAddpoint().subscribe(on =>{
@@ -72,10 +71,10 @@ export class PointComponent implements OnInit {
     }else if (this.nameStaffSelect == null) {
       alert("กรุณาเลือกพนักงานที่จำการบันทึกข้อมูล");
     }else {
-      this.httpClient.post('http://localhost:8080/point/' + this.other + '/' + this.date + '/' + this.addPointSelect + '/' + this.userSelect + '/' + this.nameStaffSelect, {})
+      this.httpClient.post('http://localhost:8080/point/' + this.other + '/' + this.date + '/' + this.addPointSelect + '/' + this.userSelect + '/' + this.nameStaffSelect + '/' + this.pointNumber, {})
         .subscribe()
       alert("สำเร็จ");
-      this.router.navigate(['point-view']);
+      this.router.navigate(['point']);
     }
   }
 
