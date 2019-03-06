@@ -33,12 +33,13 @@ public class ControllrtAll {
         return this.pointRepository.findAll().stream().collect(Collectors.toList());
     }
     //======================================================================================================================
-    @PostMapping(path = "/point/{other}/{date}/{addPoint}/{nameM}/{nameStaff}")
-    public Point point(@PathVariable String other, @PathVariable Date date, @PathVariable Long addPoint, @PathVariable Long nameM , @PathVariable Long nameStaff){
+    @PostMapping(path = "/point/{other}/{date}/{addPoint}/{nameM}/{nameStaff}/{pointNumber}")
+    public Point point(@PathVariable String other, @PathVariable Date date, @PathVariable Long addPoint, @PathVariable Long nameM , @PathVariable Long nameStaff,@PathVariable int pointNumber){
 
         Point point = new Point();
         point.setOther(other);
         point.setDate(date);
+        point.setPointNumber(pointNumber);
 
         Addpoint addpoint1 = addpointRepository.findById(addPoint).get();
         point.setAddpoint(addpoint1);

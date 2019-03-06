@@ -66,7 +66,7 @@ public class PointRewardTest {
         } catch(javax.validation.ConstraintViolationException e) {
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             assertEquals(violations.isEmpty(), false);
-            assertEquals(violations.size(), 5);
+            assertEquals(violations.size(), 7);
             System.out.println("!@#$%^&*()_+_)(*&^%$#@!@#$%^&*()_+_)(*&^%$#@!");
             e.printStackTrace();
             System.out.println("!@#$%^&*()_+_)(*&^%$#@!@#$%^&*()_+_)(*&^%$#@!");
@@ -75,43 +75,12 @@ public class PointRewardTest {
         }
     }
 
-
-
-
-
-//    @Test
-//    public void SUCCESSspTTT(){
-//        reward.setCategory("Oh na na na");
-//        reward.setAmount(500);
-//        reward.setMember(memberRepository.findByUser("ลิช่า มาเร็ว"));
-//        reward.setStaff(staffRepository.findByUsername("Baby pood pood!"));
-//        //     review.setNewHotelEntity(hotelRepository.findByhotelNameEng("PhimaiIn"))
-//        try {
-//            entityManager.persist(point);
-//            entityManager.flush();
-//
-//        } catch(javax.validation.ConstraintViolationException e) {
-//            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
-//            assertEquals(violations.isEmpty(), false);
-//            assertEquals(violations.size(), 5);
-//            System.out.println("!@#$%^&*()_+_)(*&^%$#@!@#$%^&*()_+_)(*&^%$#@!");
-//            e.printStackTrace();
-//            System.out.println("!@#$%^&*()_+_)(*&^%$#@!@#$%^&*()_+_)(*&^%$#@!");
-//            System.out.println(e);
-//            System.out.println("!@#$%^&*()_+_)(*&^%$#@!@#$%^&*()_+_)(*&^%$#@!");
-//        }
-//    }
-//     review.setNewHotelEntity(hotelRepository.findByhotelNameEng("PhimaiIn"));
-//        review.setNewReservationRoomEntity(reservationRepository.findRservationById(1L));
-//        review.setNewRoomTypeEntity(roomTypeRepository.findByName("Standard"));
-
     @Test
     public void testNull(){
     reward.setCategory(null);
     reward.setAmount(500);
     reward.setMember(memberRepository.findByUser("ลิช่า มาเร็ว"));
     reward.setStaff(staffRepository.findByUsername("Baby pood pood!"));
-//    point.setDate(new Date());
     try {
             entityManager.persist(point);
             entityManager.flush();
@@ -120,7 +89,7 @@ public class PointRewardTest {
         } catch(javax.validation.ConstraintViolationException e) {
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             assertEquals(violations.isEmpty(), false);
-            assertEquals(violations.size(), 5);
+            assertEquals(violations.size(), 7);
         System.out.println("!@#$%^&*()_+_)(*&^%$#@!@#$%^&*()_+_)(*&^%$#@!");
             e.printStackTrace();
         System.out.println("!@#$%^&*()_+_)(*&^%$#@!@#$%^&*()_+_)(*&^%$#@!");
@@ -135,8 +104,7 @@ public class PointRewardTest {
         reward.setAmount(50000);
         reward.setMember(memberRepository.findByUser("ลิช่า มาเร็ว"));
         reward.setStaff(staffRepository.findByUsername("Baby pood pood!"));
-        // reward.setTypereward(TyperewardRepository.finn;
-//    point.setDate(new Date());
+
         try {
             entityManager.persist(point);
             entityManager.flush();
@@ -145,7 +113,7 @@ public class PointRewardTest {
         } catch(javax.validation.ConstraintViolationException e) {
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             assertEquals(violations.isEmpty(), false);
-            assertEquals(violations.size(), 5);
+            assertEquals(violations.size(), 7);
             System.out.println("!@#$%^&*()_+_)(*&^%$#@!@#$%^&*()_+_)(*&^%$#@!");
             e.printStackTrace();
             System.out.println("!@#$%^&*()_+_)(*&^%$#@!@#$%^&*()_+_)(*&^%$#@!");
@@ -160,7 +128,6 @@ public class PointRewardTest {
         reward.setAmount(-5);
         reward.setMember(memberRepository.findByUser("ลิช่า มาเร็ว"));
         reward.setStaff(staffRepository.findByUsername("Baby pood pood!"));
-//    point.setDate(new Date());
         try {
             entityManager.persist(point);
             entityManager.flush();
@@ -169,7 +136,97 @@ public class PointRewardTest {
         } catch(javax.validation.ConstraintViolationException e) {
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             assertEquals(violations.isEmpty(), false);
-            assertEquals(violations.size(), 5);
+            assertEquals(violations.size(), 7);
+            System.out.println("!@#$%^&*()_+_)(*&^%$#@!@#$%^&*()_+_)(*&^%$#@!");
+            e.printStackTrace();
+            System.out.println("!@#$%^&*()_+_)(*&^%$#@!@#$%^&*()_+_)(*&^%$#@!");
+            System.out.println(e);
+            System.out.println("!@#$%^&*()_+_)(*&^%$#@!@#$%^&*()_+_)(*&^%$#@!");
+        }
+    }
+    @Test
+    public void testAmountMin(){
+        reward.setCategory(null);
+        reward.setAmount(1);
+        reward.setMember(memberRepository.findByUser("ลิช่า มาเร็ว"));
+        reward.setStaff(staffRepository.findByUsername("Baby pood pood!"));
+        try {
+            entityManager.persist(point);
+            entityManager.flush();
+            fail("==== have some this line fail ====");
+
+        } catch(javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 7);
+            System.out.println("!@#$%^&*()_+_)(*&^%$#@!@#$%^&*()_+_)(*&^%$#@!");
+            e.printStackTrace();
+            System.out.println("!@#$%^&*()_+_)(*&^%$#@!@#$%^&*()_+_)(*&^%$#@!");
+            System.out.println(e);
+            System.out.println("!@#$%^&*()_+_)(*&^%$#@!@#$%^&*()_+_)(*&^%$#@!");
+        }
+    }
+
+    @Test
+    public void testCatagoryPattern(){
+        reward.setCategory("123456");
+        reward.setAmount(100);
+        reward.setMember(memberRepository.findByUser("ลิช่า มาเร็ว"));
+        reward.setStaff(staffRepository.findByUsername("Baby pood pood!"));
+        try {
+            entityManager.persist(point);
+            entityManager.flush();
+            fail("==== have some this line fail ====");
+
+        } catch(javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 7);
+            System.out.println("!@#$%^&*()_+_)(*&^%$#@!@#$%^&*()_+_)(*&^%$#@!");
+            e.printStackTrace();
+            System.out.println("!@#$%^&*()_+_)(*&^%$#@!@#$%^&*()_+_)(*&^%$#@!");
+            System.out.println(e);
+            System.out.println("!@#$%^&*()_+_)(*&^%$#@!@#$%^&*()_+_)(*&^%$#@!");
+        }
+    }
+
+    @Test
+    public void testSP2SizeMin(){
+        reward.setCategory("G");
+        reward.setAmount(100);
+        reward.setMember(memberRepository.findByUser("ลิช่า มาเร็ว"));
+        reward.setStaff(staffRepository.findByUsername("Baby pood pood!"));
+        try {
+            entityManager.persist(point);
+            entityManager.flush();
+            fail("==== have some this line fail ====");
+
+        } catch(javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 7);
+            System.out.println("!@#$%^&*()_+_)(*&^%$#@!@#$%^&*()_+_)(*&^%$#@!");
+            e.printStackTrace();
+            System.out.println("!@#$%^&*()_+_)(*&^%$#@!@#$%^&*()_+_)(*&^%$#@!");
+            System.out.println(e);
+            System.out.println("!@#$%^&*()_+_)(*&^%$#@!@#$%^&*()_+_)(*&^%$#@!");
+        }
+    }
+    @Test
+    public void testSP2SizeMax(){
+        reward.setCategory("GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG");
+        reward.setAmount(100);
+        reward.setMember(memberRepository.findByUser("ลิช่า มาเร็ว"));
+        reward.setStaff(staffRepository.findByUsername("Baby pood pood!"));
+        try {
+            entityManager.persist(point);
+            entityManager.flush();
+            fail("==== have some this line fail ====");
+
+        } catch(javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 7);
             System.out.println("!@#$%^&*()_+_)(*&^%$#@!@#$%^&*()_+_)(*&^%$#@!");
             e.printStackTrace();
             System.out.println("!@#$%^&*()_+_)(*&^%$#@!@#$%^&*()_+_)(*&^%$#@!");
@@ -180,27 +237,22 @@ public class PointRewardTest {
 
 
 
-
     //============================================================================================
     //******************************************SPRINT 1******************************************
     //=@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@=
     //=@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@=
     //=@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@=
     //=========================================Point Entity=======================================
-
-
-
-
+    
     @Test
     public void SUCCESS(){
-//        reward.setCategory(null);
-//        reward.setAmount(-5);
-
-point.setDate(new Date(2018-1900,2-1,1));
+        point.setDate(new Date(2018-01-01));
     point.setOther("GOOD");
+    point.setPointNumber(20);
     point.setMember(memberRepository.findByUser("ลิช่า มาเร็ว"));
-    point.setStaff(staffRepository.findByUsername("Baby pood pood!"));
-    // point.setAddpoint(addpointRepository.findByAddpoint("1"));
+    // point.setStaff(staffRepository.getOne(1L));
+point.setStaff(staffRepository.findByUsername("Oh na na na"));
+point.setAddpoint(addpointRepository.getOne(2L));
         try {
             entityManager.persist(point);
             entityManager.flush();
@@ -219,17 +271,16 @@ point.setDate(new Date(2018-1900,2-1,1));
 
     @Test
     public void testSizeMax(){
-//        reward.setCategory(null);
-//        reward.setAmount(-5);
-
-        point.setDate(null);
+        point.setDate(new Date(2018-01-01));
         point.setOther("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+        point.setPointNumber(20);
+        point.setMember(memberRepository.findByUser("ลิช่า มาเร็ว"));
+        // point.setStaff(staffRepository.getOne(1L));
+point.setStaff(staffRepository.findByUsername("Oh na na na"));
+point.setAddpoint(addpointRepository.getOne(2L));
 
-//point.setAddpoint(addpointRepository.findByAddpoint("1"));
-//        point.setMember(memberRepository.findByUser("ลิช่า มาเร็ว"));
-//        point.setStaff(staffRepository.findByUsername("Baby pood pood!"));
-
-
+//         Staff staff = new Staff();
+//         staff.setStaffName("admin");
         try {
             entityManager.persist(point);
             entityManager.flush();
@@ -238,7 +289,7 @@ point.setDate(new Date(2018-1900,2-1,1));
         } catch(javax.validation.ConstraintViolationException e) {
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             assertEquals(violations.isEmpty(), false);
-            assertEquals(violations.size(), 5);
+            assertEquals(violations.size(), 4);
             System.out.println("!@#$%^&*()_+_)(*&^%$#@!@#$%^&*()_+_)(*&^%$#@!");
             e.printStackTrace();
             System.out.println("!@#$%^&*()_+_)(*&^%$#@!@#$%^&*()_+_)(*&^%$#@!");
@@ -249,11 +300,71 @@ point.setDate(new Date(2018-1900,2-1,1));
 
     @Test
     public void testSizeMin(){
-//        reward.setCategory(null);
-//        reward.setAmount(-5);
-
-        point.setDate(null);
+        point.setDate(new Date(2018-01-01));
         point.setOther("A");
+        point.setPointNumber(20);
+        point.setMember(memberRepository.findByUser("ลิช่า มาเร็ว"));
+        // point.setStaff(staffRepository.getOne(1L));
+point.setStaff(staffRepository.findByUsername("Oh na na na"));
+point.setAddpoint(addpointRepository.getOne(2L));
+
+        
+        try {
+            entityManager.persist(point);
+            entityManager.flush();
+            fail("==== have some this line fail ====");
+
+        } catch(javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 4);
+            System.out.println("!@#$%^&*()_+_)(*&^%$#@!@#$%^&*()_+_)(*&^%$#@!");
+            e.printStackTrace();
+            System.out.println("!@#$%^&*()_+_)(*&^%$#@!@#$%^&*()_+_)(*&^%$#@!");
+            System.out.println(e);
+            System.out.println("!@#$%^&*()_+_)(*&^%$#@!@#$%^&*()_+_)(*&^%$#@!");
+        }
+    }
+
+
+
+    @Test
+    public void testTPattern(){
+        point.setDate(new Date(2018-01-01));
+        point.setOther("123456789");
+        point.setPointNumber(20);
+        point.setMember(memberRepository.findByUser("ลิช่า มาเร็ว"));
+        // point.setStaff(staffRepository.getOne(1L));
+point.setStaff(staffRepository.findByUsername("Oh na na na"));
+point.setAddpoint(addpointRepository.getOne(2L));
+
+        try {
+            entityManager.persist(point);
+            entityManager.flush();
+            fail("==== have some this line fail ====");
+
+        } catch(javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 3);
+            System.out.println("!@#$%^&*()_+_)(*&^%$#@!@#$%^&*()_+_)(*&^%$#@!");
+            e.printStackTrace();
+            System.out.println("!@#$%^&*()_+_)(*&^%$#@!@#$%^&*()_+_)(*&^%$#@!");
+            System.out.println(e);
+            System.out.println("!@#$%^&*()_+_)(*&^%$#@!@#$%^&*()_+_)(*&^%$#@!");
+        }
+    }
+
+    @Test
+    public void testPositivePoint(){
+        point.setDate(new Date(2018-01-01));
+        point.setOther("GOOD");
+        point.setPointNumber(-5);
+        point.setMember(memberRepository.findByUser("ลิช่า มาเร็ว"));
+        // point.setStaff(staffRepository.getOne(1L));
+point.setStaff(staffRepository.findByUsername("Oh na na na"));
+point.setAddpoint(addpointRepository.getOne(2L));
+
         try {
             entityManager.persist(point);
             entityManager.flush();
@@ -270,267 +381,60 @@ point.setDate(new Date(2018-1900,2-1,1));
             System.out.println("!@#$%^&*()_+_)(*&^%$#@!@#$%^&*()_+_)(*&^%$#@!");
         }
     }
+  
+    @Test
+    public void testMaxPoint(){
+        point.setDate(new Date(2018-01-01));
+        point.setOther("GOOD");
+        point.setPointNumber(1);
+        point.setMember(memberRepository.findByUser("ลิช่า มาเร็ว"));
+        // point.setStaff(staffRepository.getOne(1L));
+point.setStaff(staffRepository.findByUsername("Oh na na na"));
+point.setAddpoint(addpointRepository.getOne(2L));
+
+        try {
+            entityManager.persist(point);
+            entityManager.flush();
+            fail("==== have some this line fail ====");
+
+        } catch(javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 3);
+            System.out.println("!@#$%^&*()_+_)(*&^%$#@!@#$%^&*()_+_)(*&^%$#@!");
+            e.printStackTrace();
+            System.out.println("!@#$%^&*()_+_)(*&^%$#@!@#$%^&*()_+_)(*&^%$#@!");
+            System.out.println(e);
+            System.out.println("!@#$%^&*()_+_)(*&^%$#@!@#$%^&*()_+_)(*&^%$#@!");
+        }
+    }
+
+    @Test
+    public void testMinPoint(){
+        point.setDate(new Date(2018-01-01));
+        point.setOther("GOOD");
+        point.setPointNumber(5000);
+        point.setMember(memberRepository.findByUser("ลิช่า มาเร็ว"));
+        // point.setStaff(staffRepository.getOne(1L));
+point.setStaff(staffRepository.findByUsername("Oh na na na"));
+point.setAddpoint(addpointRepository.getOne(2L));
 
 
+        try {
+            entityManager.persist(point);
+            entityManager.flush();
+            fail("==== have some this line fail ====");
 
-//    @Test
-//    public void testAddpoint(){
-//
-//        point.setDate(null);
-//        point.setOther("A");
-//        try {
-//            entityManager.persist(point);
-//            entityManager.flush();
-//            fail("==== have some this line fail ====");
-//
-//        } catch(javax.validation.ConstraintViolationException e) {
-//            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
-//            assertEquals(violations.isEmpty(), false);
-//            assertEquals(violations.size(), 2);
-//            System.out.println("!@#$%^&*()_+_)(*&^%$#@!@#$%^&*()_+_)(*&^%$#@!");
-//            e.printStackTrace();
-//            System.out.println("!@#$%^&*()_+_)(*&^%$#@!@#$%^&*()_+_)(*&^%$#@!");
-//            System.out.println(e);
-//            System.out.println("!@#$%^&*()_+_)(*&^%$#@!@#$%^&*()_+_)(*&^%$#@!");
-//        }
-//    }
-
-//    review.setNewHotelEntity(hotelRepository.findByhotelNameEng("PhimaiIn"));
-//    review.setNewReservationRoomEntity(reservationRepository.findRservationById(1L));
-//    review.setNewRoomTypeEntity(roomTypeRepository.findByName("Standard"));
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//    @Test
-//    //test null date
-//    public void testNullOther() {
-//        Point point = new Point();
-//        point.setOther(null);
-//        point.setDate(null);
-//        try {
-//            entityManager.persist(point);
-//            entityManager.flush();
-//            fail("other is null");
-//        } catch(javax.validation.ConstraintViolationException e) {
-//            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
-//            assertEquals(violations.isEmpty(), false);
-//            assertEquals(violations.size(), 1);
-//            System.out.println("============================================================================================================================================");
-//            e.printStackTrace();
-//            System.out.println("============================================================================================================================================");
-//            System.out.println(e);
-//            System.out.println("============================================================================================================================================");
-//        }
-//    }
-//    @Test
-//    // no fail
-//    public void testNotnullOther() {
-//        Point point = new Point();
-//        point.setOther("Good Other");
-//        point.setDate(null);
-//        try {
-//            entityManager.persist(point);
-//            entityManager.flush();
-//            fail("Success full");
-//        } catch(javax.validation.ConstraintViolationException e) {
-//            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
-//            assertEquals(violations.isEmpty(), false);
-//            assertEquals(violations.size(), 1);
-//            System.out.println("============================================================================================================================================");
-//            e.printStackTrace();
-//            System.out.println("============================================================================================================================================");
-//            System.out.println(e);
-//            System.out.println("============================================================================================================================================");
-//        }
-//    }
-//
-//    @Test
-//    //min other
-//    public void testSizeMinother() {
-//        Point point = new Point();
-//        point.setOther("GG");
-//        point.setDate(null);
-//        try {
-//            entityManager.persist(point);
-//            entityManager.flush();
-//            fail("other too less character");
-//        } catch(javax.validation.ConstraintViolationException e) {
-//            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
-//            assertEquals(violations.isEmpty(), false);
-//            assertEquals(violations.size(), 1);
-//            System.out.println("============================================================================================================================================");
-//            e.printStackTrace();
-//            System.out.println("============================================================================================================================================");
-//            System.out.println(e);
-//            System.out.println("============================================================================================================================================");
-//        }
-//    }
-//
-//    @Test
-//    //max other
-//    public void testSizMaxeother() {
-//        Point point = new Point();
-//        point.setOther("GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG");
-//        point.setDate(null);
-//        try {
-//            entityManager.persist(point);
-//            entityManager.flush();
-//            fail("other too less character");
-//        } catch(javax.validation.ConstraintViolationException e) {
-//            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
-//            assertEquals(violations.isEmpty(), false);
-//            assertEquals(violations.size(), 1);
-//            System.out.println("============================================================================================================================================");
-//            e.printStackTrace();
-//            System.out.println("============================================================================================================================================");
-//            System.out.println(e);
-//            System.out.println("============================================================================================================================================");
-//        }
-//    }
-//
-//
-//
-//
-//    //============================================================================================
-//    //******************************************SPRINT 2******************************************
-//    //=@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@=
-//    //=@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@=
-//    //=@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@=
-//    //=========================================Reward Entity======================================
-//
-//
-//
-//
-//
-//    @Test
-//    //Don't fail
-//    public void testGoodAmount() {
-//        Reward reward = new Reward();
-//        reward.setCategory("Oh na na na");
-//        reward.setAmount(1);
-//        try {
-//            entityManager.persist(reward);
-//            entityManager.flush();
-//        } catch(javax.validation.ConstraintViolationException e) {
-//            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
-//            assertEquals(violations.isEmpty(), false);
-//            assertEquals(violations.size(), 1);
-//            System.out.println("============================================================================================================================================");
-//            e.printStackTrace();
-//            System.out.println("============================================================================================================================================");
-//            System.out.println(e);
-//            System.out.println("============================================================================================================================================");
-//        }
-//    }
-//
-//
-//
-//    @Test
-//    //max max category
-//    public void testMaxCategory() {
-//        Reward reward = new Reward();
-//        reward.setCategory("WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW");
-//        reward.setAmount(1);
-//        try {
-//            entityManager.persist(reward);
-//            entityManager.flush();
-//        } catch(javax.validation.ConstraintViolationException e) {
-//            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
-//            assertEquals(violations.isEmpty(), false);
-//            assertEquals(violations.size(), 1);
-//            System.out.println("============================================================================================================================================");
-//            e.printStackTrace();
-//            System.out.println("============================================================================================================================================");
-//            System.out.println(e);
-//            System.out.println("============================================================================================================================================");
-//        }
-//    }
-//
-//
-//    @Test
-//    //max min category
-//    public void testMinCategory() {
-//        Reward reward = new Reward();
-//        reward.setCategory("WW");
-//        reward.setAmount(1);
-//        try {
-//            entityManager.persist(reward);
-//            entityManager.flush();
-//        } catch(javax.validation.ConstraintViolationException e) {
-//            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
-//            assertEquals(violations.isEmpty(), false);
-//            assertEquals(violations.size(), 1);
-//            System.out.println("============================================================================================================================================");
-//            e.printStackTrace();
-//            System.out.println("============================================================================================================================================");
-//            System.out.println(e);
-//            System.out.println("============================================================================================================================================");
-//        }
-//    }
-//
-//    @Test
-//    //max null category
-//    public void testAmountNegative() {
-//        Reward reward = new Reward();
-//        reward.setCategory(null);
-//        reward.setAmount(1);
-//        try {
-//            entityManager.persist(reward);
-//            entityManager.flush();
-//            fail("category null");
-//        } catch(javax.validation.ConstraintViolationException e) {
-//            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
-//            assertEquals(violations.isEmpty(), false);
-//            assertEquals(violations.size(), 1);
-//            System.out.println("============================================================================================================================================");
-//            e.printStackTrace();
-//            System.out.println("============================================================================================================================================");
-//            System.out.println(e);
-//            System.out.println("============================================================================================================================================");
-//        }
-//    }
-//
-//    @Test
-//    //max max amount
-//    public void testMaxAmount() {
-//        Reward reward = new Reward();
-//        reward.setCategory(null);
-//        reward.setAmount(50);
-//        try {
-//            entityManager.persist(reward);
-//            entityManager.flush();
-//            fail("max amount");
-//        } catch(javax.validation.ConstraintViolationException e) {
-//            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
-//            assertEquals(violations.isEmpty(), false);
-//            assertEquals(violations.size(), 1);
-//            System.out.println("============================================================================================================================================");
-//            e.printStackTrace();
-//            System.out.println("============================================================================================================================================");
-//            System.out.println(e);
-//            System.out.println("============================================================================================================================================");
-//        }
-//    }
-
-
-
+        } catch(javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 3);
+            System.out.println("!@#$%^&*()_+_)(*&^%$#@!@#$%^&*()_+_)(*&^%$#@!");
+            e.printStackTrace();
+            System.out.println("!@#$%^&*()_+_)(*&^%$#@!@#$%^&*()_+_)(*&^%$#@!");
+            System.out.println(e);
+            System.out.println("!@#$%^&*()_+_)(*&^%$#@!@#$%^&*()_+_)(*&^%$#@!");
+        }
+    }
 
 }

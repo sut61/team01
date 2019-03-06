@@ -24,11 +24,14 @@ public class Reward{
 private
 @NotNull
 @Max(value = 5000)
+@Min(value = 1)
 @Positive
 int amount;
 
     private
     @NotNull
+    @Size(max = 50,min = 2)
+    @Pattern(regexp = "\\w+")
     String category;
 @NotNull
 @ManyToOne(fetch = FetchType.EAGER)
