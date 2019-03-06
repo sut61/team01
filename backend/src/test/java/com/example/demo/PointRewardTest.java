@@ -260,7 +260,7 @@ point.setAddpoint(addpointRepository.getOne(2L));
         } catch(javax.validation.ConstraintViolationException e) {
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             assertEquals(violations.isEmpty(), false);
-            assertEquals(violations.size(), 3);
+            assertEquals(violations.size(), 2);
             System.out.println("!@#$%^&*()_+_)(*&^%$#@!@#$%^&*()_+_)(*&^%$#@!");
             e.printStackTrace();
             System.out.println("!@#$%^&*()_+_)(*&^%$#@!@#$%^&*()_+_)(*&^%$#@!");
@@ -289,7 +289,7 @@ point.setAddpoint(addpointRepository.getOne(2L));
         } catch(javax.validation.ConstraintViolationException e) {
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             assertEquals(violations.isEmpty(), false);
-            assertEquals(violations.size(), 4);
+            assertEquals(violations.size(), 3);
             System.out.println("!@#$%^&*()_+_)(*&^%$#@!@#$%^&*()_+_)(*&^%$#@!");
             e.printStackTrace();
             System.out.println("!@#$%^&*()_+_)(*&^%$#@!@#$%^&*()_+_)(*&^%$#@!");
@@ -317,7 +317,7 @@ point.setAddpoint(addpointRepository.getOne(2L));
         } catch(javax.validation.ConstraintViolationException e) {
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             assertEquals(violations.isEmpty(), false);
-            assertEquals(violations.size(), 4);
+            assertEquals(violations.size(), 3);
             System.out.println("!@#$%^&*()_+_)(*&^%$#@!@#$%^&*()_+_)(*&^%$#@!");
             e.printStackTrace();
             System.out.println("!@#$%^&*()_+_)(*&^%$#@!@#$%^&*()_+_)(*&^%$#@!");
@@ -346,7 +346,7 @@ point.setAddpoint(addpointRepository.getOne(2L));
         } catch(javax.validation.ConstraintViolationException e) {
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             assertEquals(violations.isEmpty(), false);
-            assertEquals(violations.size(), 3);
+            assertEquals(violations.size(), 2);
             System.out.println("!@#$%^&*()_+_)(*&^%$#@!@#$%^&*()_+_)(*&^%$#@!");
             e.printStackTrace();
             System.out.println("!@#$%^&*()_+_)(*&^%$#@!@#$%^&*()_+_)(*&^%$#@!");
@@ -373,7 +373,7 @@ point.setAddpoint(addpointRepository.getOne(2L));
         } catch(javax.validation.ConstraintViolationException e) {
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             assertEquals(violations.isEmpty(), false);
-            assertEquals(violations.size(), 5);
+            assertEquals(violations.size(), 4);
             System.out.println("!@#$%^&*()_+_)(*&^%$#@!@#$%^&*()_+_)(*&^%$#@!");
             e.printStackTrace();
             System.out.println("!@#$%^&*()_+_)(*&^%$#@!@#$%^&*()_+_)(*&^%$#@!");
@@ -400,7 +400,7 @@ point.setAddpoint(addpointRepository.getOne(2L));
         } catch(javax.validation.ConstraintViolationException e) {
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             assertEquals(violations.isEmpty(), false);
-            assertEquals(violations.size(), 3);
+            assertEquals(violations.size(), 2);
             System.out.println("!@#$%^&*()_+_)(*&^%$#@!@#$%^&*()_+_)(*&^%$#@!");
             e.printStackTrace();
             System.out.println("!@#$%^&*()_+_)(*&^%$#@!@#$%^&*()_+_)(*&^%$#@!");
@@ -428,7 +428,7 @@ point.setAddpoint(addpointRepository.getOne(2L));
         } catch(javax.validation.ConstraintViolationException e) {
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             assertEquals(violations.isEmpty(), false);
-            assertEquals(violations.size(), 3);
+            assertEquals(violations.size(), 2);
             System.out.println("!@#$%^&*()_+_)(*&^%$#@!@#$%^&*()_+_)(*&^%$#@!");
             e.printStackTrace();
             System.out.println("!@#$%^&*()_+_)(*&^%$#@!@#$%^&*()_+_)(*&^%$#@!");
