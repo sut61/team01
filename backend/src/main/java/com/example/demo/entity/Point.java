@@ -6,8 +6,17 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.Valid;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Positive;
 import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.Length;
+
 import java.util.Date;
 
 @Entity
@@ -27,7 +36,15 @@ public class Point {
     private
     @NotNull
     @Size(max = 50,min = 2)
+    @Pattern(regexp = "\\w+")
     String other;
+
+    private
+    @NotNull
+    @Positive
+    @Max(value = 5000)
+    @Min(value = 1)
+    int pointNumber;
 
     @Temporal(TemporalType.DATE)
     @NotNull
@@ -37,7 +54,7 @@ public class Point {
     @ManyToOne(fetch = FetchType.EAGER, targetEntity = Addpoint.class)
         @JoinColumn(name="addpoint")
     private Addpoint addpoint;
-@NotNull
+    @NotNull
     @ManyToOne(fetch = FetchType.EAGER, targetEntity = Member.class)
     @JoinColumn(name="member")
  private Member member;
